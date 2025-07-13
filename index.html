@@ -13,6 +13,12 @@
     .nav-link {
       @apply text-white hover:text-yellow-300 px-3 py-2 rounded transition duration-200;
     }
+    .hero-bg {
+      background-image: url('images/images.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
   </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -31,7 +37,8 @@
 
   <main class="pt-24">
     <!-- BERANDA -->
-    <section id="beranda" class="relative bg-gradient-to-br from-blue-900 to-blue-600 text-white py-32 text-center overflow-hidden">
+    <section id="beranda" class="hero-bg relative text-white py-32 text-center overflow-hidden">
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
       <div class="relative z-10 max-w-3xl mx-auto">
         <h2 class="text-5xl font-bold mb-4 leading-tight">Kami Sedang Membuka Lowongan!</h2>
         <p class="text-lg mb-6">Bergabunglah bersama tim kami untuk membangun masa depan yang lebih baik</p>
@@ -158,4 +165,4 @@
     }
   </script>
 </body>
-</html>
+  </html>
