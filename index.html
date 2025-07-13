@@ -14,10 +14,17 @@
       @apply text-white hover:text-yellow-300 px-3 py-2 rounded transition duration-200;
     }
     .hero-bg {
-      background-image: url('images/images.jpeg');
+      background-image: url('images/images.jpeg'); /* Ganti sesuai file gambarmu */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+    }
+    @keyframes kedip {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .kedip-wa {
+      animation: kedip 1.2s infinite;
     }
   </style>
 </head>
@@ -150,10 +157,11 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-gray-900 text-white text-center py-6">
-    <p>&copy; 2025 PT. MAF SURABAYA. Hak Cipta Dilindungi.</p>
-  </footer>
+  <!-- TOMBOL WHATSAPP DI KANAN BAWAH -->
+  <a href="https://wa.me/6285176913170" target="_blank" class="fixed bottom-6 right-6 z-50">
+    <img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png" alt="WhatsApp"
+      class="w-16 h-16 kedip-wa drop-shadow-xl hover:scale-110 transition-all duration-300 rounded-full" />
+  </a>
 
   <!-- SCRIPT -->
   <script>
@@ -165,4 +173,4 @@
     }
   </script>
 </body>
-  </html>
+      </html>
