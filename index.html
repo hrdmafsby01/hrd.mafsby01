@@ -16,25 +16,25 @@
 </head>
 <body class="font-sans text-gray-800">  <!-- HERO SECTION -->  <section id="beranda" class="bg-blue-900 text-white py-20 px-6 text-center">
     <h1 class="text-4xl md:text-5xl font-bold mb-4">PT. MAF SURABAYA</h1>
-    <nav class="mt-6 flex justify-center gap-4 flex-wrap text-lg">
-      <a href="#beranda" class="px-4 py-2 rounded hover:bg-blue-800 transition">Beranda</a>
-      <a href="#lowongan" class="px-4 py-2 rounded hover:bg-blue-800 transition">Lowongan</a>
-      <a href="#pendaftaran" class="px-4 py-2 rounded hover:bg-blue-800 transition">Formulir Pendaftaran</a>
-      <a href="#kontak" class="px-4 py-2 rounded hover:bg-blue-800 transition">Kontak</a>
+    <nav class="mt-6 flex justify-center flex-wrap gap-4">
+      <a href="#beranda" class="px-4 py-2 rounded hover:bg-white hover:text-blue-900 transition">Beranda</a>
+      <a href="#lowongan" class="px-4 py-2 rounded hover:bg-white hover:text-blue-900 transition">Lowongan</a>
+      <a href="#pendaftaran" class="px-4 py-2 rounded hover:bg-white hover:text-blue-900 transition">Formulir Pendaftaran</a>
+      <a href="#kontak" class="px-4 py-2 rounded hover:bg-white hover:text-blue-900 transition">Kontak</a>
     </nav>
   </section>  <!-- AJAKAN -->  <section class="py-16 text-center bg-blue-50">
     <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">Bergabunglah Bersama Kami</h2>
     <p class="text-lg text-gray-700 mb-6">Kesempatan Karier Terbaik di PT. MAF Surabaya</p>
-    <a href="#pendaftaran" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition">Daftar Sekarang</a><!-- GALERI OTOMATIS GESER DENGAN TOMBOL -->
-<div class="mt-10 relative w-full overflow-hidden">
-  <button onclick="geser(-1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-l hover:bg-blue-700">&#8249;</button>
-  <div id="sliderContainer" class="flex gap-4 transition-transform duration-500 ease-linear px-4">
+    <a href="#pendaftaran" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition">Daftar Sekarang</a><!-- GALERI OTOMATIS GESER -->
+<div class="mt-10 relative overflow-hidden">
+  <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/80 px-3 py-2 rounded-r shadow z-10">&#10094;</button>
+  <div id="sliderContainer" class="flex gap-4 animate-slide px-4 transition-transform duration-500 ease-in-out">
     <img src="./images/gambar2.jpg" alt="Gambar 2" class="w-80 h-52 object-cover rounded-lg flex-shrink-0">
     <img src="./images/gambar3.jpg" alt="Gambar 3" class="w-80 h-52 object-cover rounded-lg flex-shrink-0">
     <img src="./images/gambar4.jpg" alt="Gambar 4" class="w-80 h-52 object-cover rounded-lg flex-shrink-0">
     <img src="./images/gambar5.jpg" alt="Gambar 5" class="w-80 h-52 object-cover rounded-lg flex-shrink-0">
   </div>
-  <button onclick="geser(1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-r hover:bg-blue-700">&#8250;</button>
+  <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/80 px-3 py-2 rounded-l shadow z-10">&#10095;</button>
 </div>
 
   </section>  <!-- LOWONGAN -->  <section id="lowongan" class="py-24 bg-gray-100">
@@ -46,9 +46,36 @@
         <li>HRD</li>
       </ul>
     </div>
-  </section>  <!-- FORMULIR PENDAFTARAN -->  <!-- (bagian form tetap sama) -->[FORMULIR DAN KONTAK BAGIAN TIDAK DIUBAH - potong untuk ringkas]
-
-  <!-- SCRIPT WHATSAPP & SLIDER -->  <script>
+  </section>  <!-- FORMULIR PENDAFTARAN -->  <section id="pendaftaran" class="py-24 bg-blue-50">
+    <div class="max-w-3xl mx-auto px-6 border-4 border-blue-500 rounded-xl shadow-2xl bg-blue-100">
+      <h3 class="text-4xl font-bold text-blue-800 text-center mb-8 pt-6 underline underline-offset-8 decoration-blue-600">Formulir Pendaftaran</h3>
+      <form id="formulir" class="space-y-6 px-2 md:px-6 pb-8">
+        <div><label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label><input type="text" name="nama" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
+        <div><label class="block text-sm font-medium text-gray-700 mb-1">Usia</label><input type="number" name="usia" min="18" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
+        <div><label class="block text-sm font-medium text-gray-700 mb-1">Jenjang Pendidikan</label><select name="jenjang_pendidikan" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>SMA/SMK</option><option>D3</option><option>S1</option><option>S2</option><option>S3</option></select></div>
+        <div><label class="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin</label><select name="jenis_kelamin" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>Laki-laki</option><option>Perempuan</option></select></div>
+        <div><label class="block text-sm font-medium text-gray-700 mb-1">Nomor HP / WhatsApp</label><input type="tel" name="telepon" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
+        <div><label class="block text-sm font-medium text-gray-700 mb-1">Alamat Domisili</label><input type="text" name="alamat" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
+        <div><label class="block text-sm font-medium text-gray-700 mb-1">Pengalaman Kerja</label><textarea name="pengalaman_kerja" rows="4" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm resize-y"></textarea></div>
+        <div><label class="block text-sm font-medium text-gray-700 mb-1">Posisi yang Dilamar</label><select name="posisi" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih Posisi --</option><option>HRD</option><option>Staff Administrasi</option><option>Staff Office</option></select></div>
+        <div><label class="block text-sm font-medium text-gray-700 mb-1">Gaji yang Diharapkan</label><select name="gaji_diharapkan" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>Rp 2.000.000,-</option><option>Rp 3.000.000,-</option><option>Rp 4.000.000,-</option><option>Rp 5.000.000,-</option><option>Rp 6.000.000,-</option><option>Rp 7.000.000,-</option></select></div>
+        <div class="flex items-start space-x-2">
+          <input type="checkbox" name="persetujuan_ijazah" required class="mt-1">
+          <label class="text-sm text-gray-700">✓ Saya bersedia melampirkan <strong>FOTO IJAZAH</strong>.</label>
+        </div>
+        <!-- Tombol WhatsApp -->
+        <button type="button" onclick="kirimWhatsApp()" class="w-full bg-green-600 text-white py-3 rounded-md font-semibold hover:bg-green-700 transition">Kirim ke WhatsApp</button>
+      </form>
+    </div>
+  </section>  <!-- KONTAK + FOOTER -->  <section id="kontak" class="py-16 bg-gray-100">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-bold text-blue-800 mb-4">Kontak</h3>
+      <p class="text-gray-700">📍 Alamat: Jl. Panglima Sudirman 10-18 Surabaya</p>
+      <p class="text-gray-700">📧 Email: hrd.mafsby01@gmail.com</p>
+    </div>
+  </section>  <footer class="bg-blue-900 text-white py-4 text-center text-sm">
+    © 2025 PT. MAF Surabaya. All rights reserved.
+  </footer>  <!-- SCRIPT WHATSAPP -->  <script>
     function kirimWhatsApp() {
       const form = document.forms["formulir"];
       const data = {
@@ -79,18 +106,16 @@ Bersedia Lampirkan Ijazah: ${data.setujuIjazah}`;
       window.open(`https://wa.me/6285158988924?text=${pesan}`, '_blank');
     }
 
-    let posisi = 0;
     const slider = document.getElementById("sliderContainer");
-    const slideWidth = 320; // ukuran gambar + gap
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    let scrollAmount = 0;
 
-    function geser(arah) {
-      const maxScroll = (slider.children.length - 1) * slideWidth;
-      posisi += arah * slideWidth;
-      if (posisi < 0) posisi = 0;
-      if (posisi > maxScroll) posisi = 0;
-      slider.style.transform = `translateX(-${posisi}px)`;
-    }
-
-    setInterval(() => geser(1), 1000);
+    nextBtn.addEventListener("click", () => {
+      slider.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+    prevBtn.addEventListener("click", () => {
+      slider.scrollBy({ left: -300, behavior: 'smooth' });
+    });
   </script></body>
-                                       </html>
+                                                                                       </html>
