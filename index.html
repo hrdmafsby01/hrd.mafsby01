@@ -4,17 +4,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PT. MAF Surabaya</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @keyframes slide {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .animate-slide {
-      animation: slide 10s linear infinite;
-    }
-  </style>
 </head>
-<body class="font-sans text-gray-800">  <!-- HERO SECTION -->  <section id="beranda" class="bg-blue-900 text-white py-20 px-6 text-center">
+<body class="font-sans text-gray-800">
+  <!-- HERO SECTION -->
+  <section id="beranda" class="bg-blue-900 text-white py-20 px-6 text-center">
     <h1 class="text-4xl md:text-5xl font-bold mb-4">PT. MAF SURABAYA</h1>
     <nav class="mt-6 flex justify-center flex-wrap gap-4">
       <a href="#beranda" class="px-4 py-2 rounded hover:bg-white hover:text-blue-900 transition">Beranda</a>
@@ -22,17 +15,17 @@
       <a href="#pendaftaran" class="px-4 py-2 rounded hover:bg-white hover:text-blue-900 transition">Formulir Pendaftaran</a>
       <a href="#kontak" class="px-4 py-2 rounded hover:bg-white hover:text-blue-900 transition">Kontak</a>
     </nav>
-  </section>  <!-- AJAKAN -->  <section class="py-16 text-center bg-blue-50">
+  </section>  <!-- AJAKAN + GALERI -->  <section class="py-16 text-center bg-blue-50">
     <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">Bergabunglah Bersama Kami</h2>
     <p class="text-lg text-gray-700 mb-6">Kesempatan Karier Terbaik di PT. MAF Surabaya</p>
-    <a href="#pendaftaran" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition">Daftar Sekarang</a><!-- GALERI OTOMATIS GESER -->
-<div class="mt-10 relative overflow-hidden">
+    <a href="#pendaftaran" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition">Daftar Sekarang</a><!-- GALERI OTOMATIS + MANUAL -->
+<div class="mt-10 relative overflow-hidden max-w-full">
   <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/80 px-3 py-2 rounded-r shadow z-10">&#10094;</button>
-  <div id="sliderContainer" class="flex gap-4 animate-slide px-4 transition-transform duration-500 ease-in-out">
-    <img src="./images/gambar2.jpg" alt="Gambar 2" class="w-80 h-52 object-cover rounded-lg flex-shrink-0">
-    <img src="./images/gambar3.jpg" alt="Gambar 3" class="w-80 h-52 object-cover rounded-lg flex-shrink-0">
-    <img src="./images/gambar4.jpg" alt="Gambar 4" class="w-80 h-52 object-cover rounded-lg flex-shrink-0">
-    <img src="./images/gambar5.jpg" alt="Gambar 5" class="w-80 h-52 object-cover rounded-lg flex-shrink-0">
+  <div id="sliderContainer" class="flex gap-4 overflow-x-auto scroll-smooth px-4">
+    <img src="./images/gambar2.jpg" alt="Gambar 2" class="w-full md:w-80 h-52 object-cover rounded-lg flex-shrink-0">
+    <img src="./images/gambar3.jpg" alt="Gambar 3" class="w-full md:w-80 h-52 object-cover rounded-lg flex-shrink-0">
+    <img src="./images/gambar4.jpg" alt="Gambar 4" class="w-full md:w-80 h-52 object-cover rounded-lg flex-shrink-0">
+    <img src="./images/gambar5.jpg" alt="Gambar 5" class="w-full md:w-80 h-52 object-cover rounded-lg flex-shrink-0">
   </div>
   <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/80 px-3 py-2 rounded-l shadow z-10">&#10095;</button>
 </div>
@@ -63,7 +56,6 @@
           <input type="checkbox" name="persetujuan_ijazah" required class="mt-1">
           <label class="text-sm text-gray-700">✓ Saya bersedia melampirkan <strong>FOTO IJAZAH</strong>.</label>
         </div>
-        <!-- Tombol WhatsApp -->
         <button type="button" onclick="kirimWhatsApp()" class="w-full bg-green-600 text-white py-3 rounded-md font-semibold hover:bg-green-700 transition">Kirim ke WhatsApp</button>
       </form>
     </div>
@@ -73,9 +65,10 @@
       <p class="text-gray-700">📍 Alamat: Jl. Panglima Sudirman 10-18 Surabaya</p>
       <p class="text-gray-700">📧 Email: hrd.mafsby01@gmail.com</p>
     </div>
-  </section>  <footer class="bg-blue-900 text-white py-4 text-center text-sm">
+  </section>
+  <footer class="bg-blue-900 text-white py-4 text-center text-sm">
     © 2025 PT. MAF Surabaya. All rights reserved.
-  </footer>  <!-- SCRIPT WHATSAPP -->  <script>
+  </footer>  <!-- SCRIPT -->  <script>
     function kirimWhatsApp() {
       const form = document.forms["formulir"];
       const data = {
@@ -109,7 +102,6 @@ Bersedia Lampirkan Ijazah: ${data.setujuIjazah}`;
     const slider = document.getElementById("sliderContainer");
     const nextBtn = document.getElementById("nextBtn");
     const prevBtn = document.getElementById("prevBtn");
-    let scrollAmount = 0;
 
     nextBtn.addEventListener("click", () => {
       slider.scrollBy({ left: 300, behavior: 'smooth' });
@@ -117,5 +109,9 @@ Bersedia Lampirkan Ijazah: ${data.setujuIjazah}`;
     prevBtn.addEventListener("click", () => {
       slider.scrollBy({ left: -300, behavior: 'smooth' });
     });
+
+    setInterval(() => {
+      slider.scrollBy({ left: 300, behavior: 'smooth' });
+    }, 1000);
   </script></body>
-                                                                                       </html>
+             </html>
