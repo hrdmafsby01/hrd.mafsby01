@@ -5,110 +5,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MAF SURABAYA - Hiring</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    .carousel-img {
-      display: none;
-    }
-    .carousel-img.active {
-      display: block;
+    body {
+      font-family: 'Poppins', sans-serif;
     }
   </style>
 </head>
-<body class="bg-gray-100">
-  <div class="max-w-3xl mx-auto py-6 px-4">
-    <h1 class="text-3xl font-bold text-center mb-6">LOWONGAN KERJA MAF SURABAYA</h1>
+<body class="bg-gray-100 text-gray-800">
 
-    <!-- Carousel -->
-    <div class="relative w-full h-64 overflow-hidden rounded-lg shadow mb-6">
-      <img src="https://raw.githubusercontent.com/hrdmafsby01/hrd.mafsby01/main/images/gambar1.jpg" class="carousel-img active w-full h-full object-cover" />
-      <img src="https://raw.githubusercontent.com/hrdmafsby01/hrd.mafsby01/main/images/gambar2.jpg" class="carousel-img w-full h-full object-cover" />
-      <img src="https://raw.githubusercontent.com/hrdmafsby01/hrd.mafsby01/main/images/gambar3.jpg" class="carousel-img w-full h-full object-cover" />
-      <img src="https://raw.githubusercontent.com/hrdmafsby01/hrd.mafsby01/main/images/gambar4.jpg" class="carousel-img w-full h-full object-cover" />
-      <img src="https://raw.githubusercontent.com/hrdmafsby01/hrd.mafsby01/main/images/gambar5.jpg" class="carousel-img w-full h-full object-cover" />
+  <!-- Hero Section -->
+  <header class="bg-emerald-800 text-white py-16">
+    <div class="max-w-4xl mx-auto text-center px-4">
+      <h1 class="text-4xl font-bold mb-4">Bergabunglah Bersama Kami</h1>
+      <p class="text-lg">PT. MAF Surabaya membuka lowongan kerja bagi Anda yang siap berkembang dan berkarier.</p>
     </div>
+  </header>
 
-    <!-- Formulir Pendaftaran (TIDAK DIUBAH) -->
-    <form
-      action="https://formspree.io/f/yourformid"
-      method="POST"
-      enctype="multipart/form-data"
-      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-    >
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="nama">
-          Nama Lengkap
-        </label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="nama"
-          type="text"
-          placeholder="Nama Anda"
-          name="nama"
-          required
-        />
-      </div>
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
-          Email
-        </label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="email"
-          type="email"
-          placeholder="email@example.com"
-          name="email"
-          required
-        />
-      </div>
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="telepon">
-          Nomor Telepon
-        </label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="telepon"
-          type="tel"
-          placeholder="08xxxxxxxxxx"
-          name="telepon"
-          required
-        />
-      </div>
-      <div class="mb-6">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="cv">
-          Upload CV (PDF)
-        </label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="cv"
-          type="file"
-          name="cv"
-          accept=".pdf"
-          required
-        />
-      </div>
-      <div class="flex items-center justify-between">
-        <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          type="submit"
-        >
-          Kirim
-        </button>
-      </div>
-    </form>
-  </div>
+  <!-- Lowongan Section -->
+  <section id="lowongan" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-emerald-800 mb-8 underline underline-offset-8">Posisi Tersedia</h2>
+      <ul class="space-y-4">
+        <li class="bg-gray-100 p-4 rounded shadow">
+          <h3 class="text-xl font-semibold text-emerald-700">1. Admin Gudang</h3>
+          <p>- Pria / Wanita</p>
+          <p>- Pendidikan Min SMA / SMK</p>
+          <p>- Mampu mengoperasikan komputer</p>
+        </li>
+        <li class="bg-gray-100 p-4 rounded shadow">
+          <h3 class="text-xl font-semibold text-emerald-700">2. Kurir Motor</h3>
+          <p>- Pria</p>
+          <p>- Memiliki SIM C Aktif</p>
+          <p>- Hafal daerah Surabaya</p>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-  <!-- Script Carousel -->
+  <!-- Galeri Gambar Carousel -->
+  <section id="galeri" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-emerald-800 mb-8 underline underline-offset-8">Galeri Kegiatan</h2>
+      <div class="overflow-hidden relative rounded-xl shadow-xl">
+        <div id="carousel" class="flex transition-transform duration-1000 ease-in-out">
+          <img src="https://github.com/hrdmafsby01/hrd.mafsby01/blob/main/images/gambar1.jpg?raw=true" class="w-full flex-shrink-0 object-cover h-64" alt="Gambar 1" />
+          <img src="https://github.com/hrdmafsby01/hrd.mafsby01/blob/main/images/gambar2.jpg?raw=true" class="w-full flex-shrink-0 object-cover h-64" alt="Gambar 2" />
+          <img src="https://github.com/hrdmafsby01/hrd.mafsby01/blob/main/images/gambar3.jpg?raw=true" class="w-full flex-shrink-0 object-cover h-64" alt="Gambar 3" />
+          <img src="https://github.com/hrdmafsby01/hrd.mafsby01/blob/main/images/gambar4.jpg?raw=true" class="w-full flex-shrink-0 object-cover h-64" alt="Gambar 4" />
+          <img src="https://github.com/hrdmafsby01/hrd.mafsby01/blob/main/images/gambar5.jpg?raw=true" class="w-full flex-shrink-0 object-cover h-64" alt="Gambar 5" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulir Pendaftaran -->
+  <section id="pendaftaran" class="py-16 bg-gray-100">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-emerald-800 mb-8 underline underline-offset-8">Formulir Pendaftaran</h2>
+      <form action="https://formspree.io/f/xqkrvggy" method="POST" enctype="multipart/form-data" class="space-y-6 bg-white p-8 rounded-lg shadow-lg">
+        <div>
+          <label class="block text-gray-700">Nama Lengkap</label>
+          <input type="text" name="nama" required class="w-full mt-1 p-2 border border-gray-300 rounded" />
+        </div>
+        <div>
+          <label class="block text-gray-700">Email</label>
+          <input type="email" name="email" required class="w-full mt-1 p-2 border border-gray-300 rounded" />
+        </div>
+        <div>
+          <label class="block text-gray-700">Nomor HP / WhatsApp</label>
+          <input type="text" name="telepon" required class="w-full mt-1 p-2 border border-gray-300 rounded" />
+        </div>
+        <div>
+          <label class="block text-gray-700">Posisi yang Dilamar</label>
+          <select name="posisi" required class="w-full mt-1 p-2 border border-gray-300 rounded">
+            <option value="Admin Gudang">Admin Gudang</option>
+            <option value="Kurir Motor">Kurir Motor</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-gray-700">Unggah CV/Resume</label>
+          <input type="file" name="cv" accept=".pdf,.doc,.docx" required class="w-full mt-1 p-2 border border-gray-300 rounded" />
+        </div>
+        <button type="submit" class="w-full bg-emerald-700 text-white py-2 rounded hover:bg-emerald-800 transition">Kirim Lamaran</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-emerald-800 text-white text-center py-6 mt-12">
+    <p>&copy; 2025 PT. MAF Surabaya. All rights reserved.</p>
+  </footer>
+
+  <!-- Carousel Script -->
   <script>
-    let index = 0;
-    const images = document.querySelectorAll(".carousel-img");
+    let currentIndex = 0;
+    const carousel = document.getElementById("carousel");
+    const totalSlides = carousel.children.length;
 
-    function showNextImage() {
-      images[index].classList.remove("active");
-      index = (index + 1) % images.length;
-      images[index].classList.add("active");
-    }
-
-    setInterval(showNextImage, 3000);
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }, 3000);
   </script>
+
 </body>
-</html>
+            </html>
