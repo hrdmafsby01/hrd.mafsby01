@@ -10,167 +10,134 @@
     body {
       font-family: 'Poppins', sans-serif;
     }
-    .nav-link {
-      @apply text-white hover:text-yellow-300 px-3 py-2 rounded transition duration-200;
+    .carousel {
+      overflow: hidden;
+      position: relative;
+      height: 300px;
     }
-    .hero-bg {
-      background-image: url('images/images.jpeg'); /* Ganti sesuai file gambarmu */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+    .carousel-track {
+      display: flex;
+      width: 400%;
+      animation: slide 20s infinite linear;
     }
-    @keyframes kedip {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
+    .carousel img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
     }
-    .kedip-wa {
-      animation: kedip 1.2s infinite;
+    @keyframes slide {
+      0% {transform: translateX(0);}
+      25% {transform: translateX(-100%);}
+      50% {transform: translateX(-200%);}
+      75% {transform: translateX(-300%);}
+      100% {transform: translateX(0);}
     }
   </style>
 </head>
-<body class="bg-white text-gray-800">
-  <!-- HEADER -->
-  <header class="fixed top-0 left-0 w-full z-50 shadow-md">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between bg-blue-800">
-      <h1 class="text-2xl font-bold text-white tracking-wide underline underline-offset-4">PT. MAF SURABAYA</h1>
-      <nav class="hidden md:flex space-x-2">
-        <a href="#beranda" class="nav-link">Beranda</a>
-        <a href="#lowongan" class="nav-link">Lowongan</a>
-        <a href="#pendaftaran" class="nav-link">Formulir Pendaftaran</a>
-        <a href="#kontak" class="nav-link">Kontak</a>
-      </nav>
-    </div>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-blue-700 text-white p-6 text-center shadow-md">
+    <h1 class="text-3xl font-bold">PT. MAF SURABAYA</h1>
+    <p class="text-sm mt-1">Rekrutmen Karier Terbuka</p>
   </header>
 
-  <main class="pt-24">
-    <!-- BERANDA -->
-    <section id="beranda" class="hero-bg relative text-white py-32 text-center overflow-hidden">
-      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-      <div class="relative z-10 max-w-3xl mx-auto">
-        <h2 class="text-5xl font-bold mb-4 leading-tight">Kami Sedang Membuka Lowongan!</h2>
-        <p class="text-lg mb-6">Bergabunglah bersama tim kami untuk membangun masa depan yang lebih baik</p>
-        <a href="#pendaftaran" class="bg-yellow-300 text-blue-900 px-6 py-3 rounded-lg shadow-lg font-semibold hover:bg-yellow-400 transition">Daftar Sekarang</a>
+  <!-- Carousel -->
+  <section class="carousel mt-6 mx-auto max-w-4xl rounded-lg shadow-md">
+    <div class="carousel-track">
+      <img src="gambar1.jpg" alt="Foto 1">
+      <img src="gambar2.jpg" alt="Foto 2">
+      <img src="gambar3.jpg" alt="Foto 3">
+      <img src="gambar4.jpg" alt="Foto 4">
+    </div>
+  </section>
+
+  <!-- Formulir -->
+  <section class="max-w-2xl mx-auto mt-10 bg-white rounded-lg shadow-md p-6">
+    <h2 class="text-2xl font-semibold text-center mb-4">Formulir Pendaftaran</h2>
+    <form onsubmit="kirimWhatsApp(event)" class="space-y-6">
+      <div>
+        <label class="block text-sm font-medium mb-1">Nama Lengkap</label>
+        <input type="text" id="nama" required class="w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
       </div>
-    </section>
-
-    <!-- LOWONGAN -->
-    <section id="lowongan" class="py-24 bg-gray-50">
-      <div class="max-w-2xl mx-auto px-4">
-        <button onclick="toggleLowongan()" class="w-full flex justify-between items-center bg-yellow-300 hover:bg-yellow-400 transition p-4 rounded-lg shadow-md cursor-pointer mb-6">
-          <h3 class="text-2xl font-bold text-blue-800 underline underline-offset-8 decoration-blue-600">Posisi Tersedia</h3>
-          <span class="text-xl text-blue-800" id="arrow">▼</span>
-        </button>
-        <div id="daftarLowongan" class="space-y-4 bg-yellow-100 p-6 rounded-lg shadow-lg hidden transition-all duration-500">
-          <div class="bg-white rounded-md p-4 shadow hover:bg-yellow-50 transition">
-            <a href="#pendaftaran">
-              <h4 class="text-lg font-semibold text-blue-800 mb-1">HRD</h4>
-              <p class="text-gray-700 text-sm">Minimal pengalaman 1 tahun di bidang SDM. Pendidikan min. D3/S1 Psikologi/Hukum. Usia maksimal 40 tahun.</p>
-            </a>
-          </div>
-          <div class="bg-white rounded-md p-4 shadow hover:bg-yellow-50 transition">
-            <a href="#pendaftaran">
-              <h4 class="text-lg font-semibold text-blue-800 mb-1">Staff Administrasi</h4>
-              <p class="text-gray-700 text-sm">Minimal SMA/SMK. Mahir Microsoft Office (Word & Excel). Teliti, komunikatif. Usia maksimal 35 tahun.</p>
-            </a>
-          </div>
-          <div class="bg-white rounded-md p-4 shadow hover:bg-yellow-50 transition">
-            <a href="#pendaftaran">
-              <h4 class="text-lg font-semibold text-blue-800 mb-1">Staff Office</h4>
-              <p class="text-gray-700 text-sm">Disiplin, rapi, mampu bekerja tim, dan tanggap. Penempatan Surabaya.</p>
-            </a>
-          </div>
-        </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Usia</label>
+        <input type="number" id="usia" required min="18" class="w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
       </div>
-    </section>
-
-    <!-- FORMULIR PENDAFTARAN -->
-    <section id="pendaftaran" class="py-24 bg-blue-50">
-      <div class="max-w-3xl mx-auto px-6 border-4 border-blue-500 rounded-xl shadow-2xl bg-blue-100">
-        <h3 class="text-4xl font-bold text-blue-800 text-center mb-8 pt-6 underline underline-offset-8 decoration-blue-600">Formulir Pendaftaran</h3>
-        <form action="https://formspree.io/f/manjrrjy" method="POST" class="space-y-6 px-2 md:px-6 pb-8">
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
-            <input type="text" name="nama" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Usia</label>
-            <input type="number" name="usia" min="18" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin</label>
-            <select name="jenis_kelamin" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
-              <option value="">-- Pilih Jenis Kelamin --</option>
-              <option>Laki-laki</option>
-              <option>Perempuan</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Nomor HP / WhatsApp</label>
-            <input type="tel" name="telepon" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-            <input type="email" name="email" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Alamat Domisili</label>
-            <input type="text" name="alamat" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Posisi yang Dilamar</label>
-            <select name="posisi" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
-              <option value="">-- Pilih Posisi --</option>
-              <option>HRD</option>
-              <option>Staff Administrasi</option>
-              <option>Staff Office</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Gaji yang Diharapkan</label>
-            <select name="gaji_diharapkan" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm" required>
-              <option value="">-- Pilih Rentang Gaji --</option>
-              <option>Rp 2.000.000,-</option>
-              <option>Rp 3.000.000,-</option>
-              <option>Rp 4.000.000,-</option>
-              <option>Rp 5.000.000,-</option>
-              <option>Rp 6.000.000,-</option>
-              <option>Rp 7.000.000,-</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">CV (Opsional)</label>
-            <input type="file" name="cv" class="block w-full text-sm text-gray-600 border-2 border-blue-300 rounded-md px-3 py-2">
-          </div>
-          <button type="submit" class="w-full bg-blue-700 text-white py-3 rounded-md font-semibold hover:bg-blue-800 transition">Kirim Pendaftaran</button>
-        </form>
+      <div>
+        <label class="block text-sm font-medium mb-1">Jenis Kelamin</label>
+        <select id="jenis_kelamin" required class="w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+          <option value="">-- Pilih Jenis Kelamin --</option>
+          <option>Laki-laki</option>
+          <option>Perempuan</option>
+        </select>
       </div>
-    </section>
-
-    <!-- KONTAK -->
-    <section id="kontak" class="py-16 bg-gray-100">
-      <div class="max-w-3xl mx-auto px-4 text-center">
-        <h3 class="text-3xl font-bold text-blue-800 mb-4">Kontak</h3>
-        <p class="text-gray-700">📍 Alamat: Jl. Panglima Sudirman 10-18 Surabaya</p>
-        <p class="text-gray-700">📞 WhatsApp: 085176913170 (Pak R.K)</p>
-        <p class="text-gray-700">📧 Email: hrd.mafsby01@gmail.com</p>
+      <div>
+        <label class="block text-sm font-medium mb-1">Nomor HP / WhatsApp</label>
+        <input type="tel" id="telepon" required class="w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
       </div>
-    </section>
-  </main>
+      <div>
+        <label class="block text-sm font-medium mb-1">Alamat Domisili</label>
+        <input type="text" id="alamat" class="w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Posisi yang Dilamar</label>
+        <select id="posisi" class="w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+          <option value="">-- Pilih Posisi --</option>
+          <option>HRD</option>
+          <option>Staff Administrasi</option>
+          <option>Staff Office</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Gaji yang Diharapkan</label>
+        <select id="gaji_diharapkan" required class="w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+          <option value="">-- Pilih Rentang Gaji --</option>
+          <option>Rp 2.000.000,-</option>
+          <option>Rp 3.000.000,-</option>
+          <option>Rp 4.000.000,-</option>
+          <option>Rp 5.000.000,-</option>
+          <option>Rp 6.000.000,-</option>
+          <option>Rp 7.000.000,-</option>
+        </select>
+      </div>
+      <button type="submit" class="w-full bg-blue-700 text-white py-3 rounded-md font-semibold hover:bg-blue-800 transition">Kirim Pendaftaran via WhatsApp</button>
+    </form>
+  </section>
 
-  <!-- TOMBOL WHATSAPP DI KANAN BAWAH -->
-  <a href="https://wa.me/6285176913170" target="_blank" class="fixed bottom-6 right-6 z-50">
-    <img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png" alt="WhatsApp"
-      class="w-16 h-16 kedip-wa drop-shadow-xl hover:scale-110 transition-all duration-300 rounded-full" />
-  </a>
+  <!-- Footer -->
+  <footer class="mt-10 text-center text-sm text-gray-500 pb-6">
+    &copy; 2025 PT. MAF Surabaya. All rights reserved.
+  </footer>
 
-  <!-- SCRIPT -->
+  <!-- Script -->
   <script>
-    function toggleLowongan() {
-      const daftar = document.getElementById("daftarLowongan");
-      const arrow = document.getElementById("arrow");
-      daftar.classList.toggle("hidden");
-      arrow.textContent = daftar.classList.contains("hidden") ? "▼" : "▲";
+    function kirimWhatsApp(event) {
+      event.preventDefault();
+
+      const nama = document.getElementById('nama').value;
+      const usia = document.getElementById('usia').value;
+      const jk = document.getElementById('jenis_kelamin').value;
+      const telepon = document.getElementById('telepon').value;
+      const alamat = document.getElementById('alamat').value;
+      const posisi = document.getElementById('posisi').value;
+      const gaji = document.getElementById('gaji_diharapkan').value;
+
+      const pesan = `*Formulir Pendaftaran - PT. MAF SURABAYA*\n\n` +
+        `Nama: ${nama}\n` +
+        `Usia: ${usia}\n` +
+        `Jenis Kelamin: ${jk}\n` +
+        `No. HP / WA: ${telepon}\n` +
+        `Alamat: ${alamat}\n` +
+        `Posisi Dilamar: ${posisi}\n` +
+        `Gaji Diharapkan: ${gaji}`;
+
+      const encodedPesan = encodeURIComponent(pesan);
+      const nomor = "6285158988924"; // Nomor WhatsApp tujuan
+      const link = `https://wa.me/${nomor}?text=${encodedPesan}`;
+      window.open(link, '_blank');
     }
   </script>
+
 </body>
-              </html>
+            </html>
