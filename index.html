@@ -5,19 +5,10 @@
   <title>PT. MAF Surabaya</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Untuk membuat judul tidak bertumpuk */
     .judul-elegan {
-      line-height: 1.2;
+      line-height: 1.3;
       word-spacing: 2px;
-      letter-spacing: 1px;
-    }
-    /* Untuk galeri otomatis */
-    #sliderContainer {
-      animation: scrollLeft 20s linear infinite;
-    }
-    @keyframes scrollLeft {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      letter-spacing: 0.5px;
     }
   </style>
 </head>
@@ -34,16 +25,12 @@
   </section>  <!-- AJAKAN + GALERI -->  <section class="py-16 text-center bg-blue-50">
     <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">Bergabunglah Bersama Kami</h2>
     <p class="text-lg text-gray-700 mb-6">Kesempatan Karier Terbaik di PT. MAF Surabaya</p>
-    <a href="#pendaftaran" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition">Daftar Sekarang</a><!-- GALERI -->
-<div class="mt-10 relative overflow-hidden max-w-full group">
-  <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/80 px-3 py-2 rounded-r shadow z-10">&#10094;</button>
-  <div id="sliderContainer" class="flex gap-4 overflow-x-auto scroll-smooth px-4 whitespace-nowrap group-hover:[animation-play-state:paused]">
-    <img src="./images/gambar2.jpg" alt="Gambar 2" class="w-full md:w-80 h-52 object-cover rounded-lg flex-shrink-0">
-    <img src="./images/gambar3.jpg" alt="Gambar 3" class="w-full md:w-80 h-52 object-cover rounded-lg flex-shrink-0">
-    <img src="./images/gambar4.jpg" alt="Gambar 4" class="w-full md:w-80 h-52 object-cover rounded-lg flex-shrink-0">
-    <img src="./images/gambar5.jpg" alt="Gambar 5" class="w-full md:w-80 h-52 object-cover rounded-lg flex-shrink-0">
-  </div>
-  <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/80 px-3 py-2 rounded-l shadow z-10">&#10095;</button>
+    <a href="#pendaftaran" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition">Daftar Sekarang</a><!-- GALERI MANUAL -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10 px-6">
+  <img src="./images/gambar2.jpg" alt="Gambar 2" class="w-full h-52 object-cover rounded-lg">
+  <img src="./images/gambar3.jpg" alt="Gambar 3" class="w-full h-52 object-cover rounded-lg">
+  <img src="./images/gambar4.jpg" alt="Gambar 4" class="w-full h-52 object-cover rounded-lg">
+  <img src="./images/gambar5.jpg" alt="Gambar 5" class="w-full h-52 object-cover rounded-lg">
 </div>
 
   </section>  <!-- LOWONGAN -->  <section id="lowongan" class="py-24 bg-gray-100">
@@ -84,7 +71,7 @@
   </section>
   <footer class="bg-blue-900 text-white py-4 text-center text-sm">
     © 2025 PT. MAF Surabaya. All rights reserved.
-  </footer>  <!-- SCRIPT -->  <script>
+  </footer>  <script>
     function kirimWhatsApp() {
       const form = document.forms["formulir"];
       const data = {
@@ -114,16 +101,5 @@ Bersedia Lampirkan Ijazah: ${data.setujuIjazah}`;
 
       window.open(`https://wa.me/6285158988924?text=${pesan}`, '_blank');
     }
-
-    const slider = document.getElementById("sliderContainer");
-    const nextBtn = document.getElementById("nextBtn");
-    const prevBtn = document.getElementById("prevBtn");
-
-    nextBtn.addEventListener("click", () => {
-      slider.scrollBy({ left: 300, behavior: 'smooth' });
-    });
-    prevBtn.addEventListener("click", () => {
-      slider.scrollBy({ left: -300, behavior: 'smooth' });
-    });
   </script></body>
-      </html>
+  </html>
