@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,61 +39,64 @@
         <a href="#kontak" class="nav-link">Kontak</a>
       </nav>
     </div>
-  </header>
-
-  <main class="pt-24">
-    <!-- (Beranda & Lowongan sama seperti sebelumnya, dipersingkat di sini) -->
-
-    <!-- FORMULIR PENDAFTARAN -->
-    <section id="pendaftaran" class="py-24 bg-blue-50">
-      <div class="max-w-3xl mx-auto px-6 border-4 border-blue-500 rounded-xl shadow-2xl bg-blue-100">
-        <h3 class="text-4xl font-bold text-blue-800 text-center mb-8 pt-6 underline underline-offset-8 decoration-blue-600">Formulir Pendaftaran</h3>
-        <form id="formulir" action="https://formspree.io/f/manjrrjy" method="POST" class="space-y-6 px-2 md:px-6 pb-8">
-          <div><label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label><input type="text" name="nama" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
-          <div><label class="block text-sm font-medium text-gray-700 mb-1">Usia</label><input type="number" name="usia" min="18" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
-          <div><label class="block text-sm font-medium text-gray-700 mb-1">Jenjang Pendidikan</label><select name="jenjang_pendidikan" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>SMA/SMK</option><option>D3</option><option>S1</option><option>S2</option><option>S3</option></select></div>
-          <div><label class="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin</label><select name="jenis_kelamin" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>Laki-laki</option><option>Perempuan</option></select></div>
-          <div><label class="block text-sm font-medium text-gray-700 mb-1">Nomor HP / WhatsApp</label><input type="tel" name="telepon" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
-          <div><label class="block text-sm font-medium text-gray-700 mb-1">Alamat Domisili</label><input type="text" name="alamat" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
-          <div><label class="block text-sm font-medium text-gray-700 mb-1">Pengalaman Kerja</label><textarea name="pengalaman_kerja" rows="4" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm resize-y"></textarea></div>
-          <div><label class="block text-sm font-medium text-gray-700 mb-1">Posisi yang Dilamar</label><select name="posisi" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih Posisi --</option><option>HRD</option><option>Staff Administrasi</option><option>Staff Office</option></select></div>
-          <div><label class="block text-sm font-medium text-gray-700 mb-1">Gaji yang Diharapkan</label><select name="gaji_diharapkan" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>Rp 2.000.000,-</option><option>Rp 3.000.000,-</option><option>Rp 4.000.000,-</option><option>Rp 5.000.000,-</option><option>Rp 6.000.000,-</option><option>Rp 7.000.000,-</option></select></div>
-          <div class="flex items-start space-x-2">
-            <input type="checkbox" name="persetujuan_ijazah" required class="mt-1">
-            <label class="text-sm text-gray-700">✓ Saya bersedia melampirkan <strong>FOTO IJAZAH</strong>.</label>
-          </div>
-
-          <!-- Tombol Formspree -->
-          <button type="submit" class="w-full bg-blue-700 text-white py-3 rounded-md font-semibold hover:bg-blue-800 transition">Kirim Pendaftaran</button>
-
-          <!-- Tombol WhatsApp -->
-          <button type="button" onclick="kirimWhatsApp()" class="w-full bg-green-600 text-white py-3 rounded-md font-semibold hover:bg-green-700 transition kedip-wa mt-2">Kirim ke WhatsApp</button>
-        </form>
+  </header>  <main class="pt-24">
+    <!-- BERANDA -->
+    <section id="beranda" class="hero-bg h-[80vh] flex items-center justify-center">
+      <div class="text-center text-white px-4">
+        <h2 class="text-4xl font-bold mb-4 drop-shadow-lg">Bergabunglah Bersama Kami</h2>
+        <p class="text-lg mb-6 drop-shadow-sm">Kesempatan Karier Terbaik di PT. MAF Surabaya</p>
+        <a href="#pendaftaran" class="bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-semibold px-6 py-3 rounded shadow-md transition">Daftar Sekarang</a>
       </div>
-    </section>
+    </section><!-- LOWONGAN -->
+<section id="lowongan" class="py-24 bg-gray-100">
+  <div class="max-w-4xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-blue-800 mb-8 text-center">Lowongan Tersedia</h3>
+    <ul class="space-y-4 text-gray-800 list-disc list-inside">
+      <li>Staff Administrasi</li>
+      <li>Staff Office</li>
+      <li>HRD</li>
+    </ul>
+  </div>
+</section>
 
-    <!-- KONTAK + FOOTER -->
-    <section id="kontak" class="py-16 bg-gray-100">
-      <div class="max-w-3xl mx-auto px-4 text-center">
-        <h3 class="text-3xl font-bold text-blue-800 mb-4">Kontak</h3>
-        <p class="text-gray-700">📍 Alamat: Jl. Panglima Sudirman 10-18 Surabaya</p>
-        <p class="text-gray-700">📧 Email: hrd.mafsby01@gmail.com</p>
+<!-- FORMULIR PENDAFTARAN -->
+<section id="pendaftaran" class="py-24 bg-blue-50">
+  <div class="max-w-3xl mx-auto px-6 border-4 border-blue-500 rounded-xl shadow-2xl bg-blue-100">
+    <h3 class="text-4xl font-bold text-blue-800 text-center mb-8 pt-6 underline underline-offset-8 decoration-blue-600">Formulir Pendaftaran</h3>
+    <form id="formulir" class="space-y-6 px-2 md:px-6 pb-8">
+      <div><label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label><input type="text" name="nama" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
+      <div><label class="block text-sm font-medium text-gray-700 mb-1">Usia</label><input type="number" name="usia" min="18" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
+      <div><label class="block text-sm font-medium text-gray-700 mb-1">Jenjang Pendidikan</label><select name="jenjang_pendidikan" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>SMA/SMK</option><option>D3</option><option>S1</option><option>S2</option><option>S3</option></select></div>
+      <div><label class="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin</label><select name="jenis_kelamin" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>Laki-laki</option><option>Perempuan</option></select></div>
+      <div><label class="block text-sm font-medium text-gray-700 mb-1">Nomor HP / WhatsApp</label><input type="tel" name="telepon" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
+      <div><label class="block text-sm font-medium text-gray-700 mb-1">Alamat Domisili</label><input type="text" name="alamat" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
+      <div><label class="block text-sm font-medium text-gray-700 mb-1">Pengalaman Kerja</label><textarea name="pengalaman_kerja" rows="4" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm resize-y"></textarea></div>
+      <div><label class="block text-sm font-medium text-gray-700 mb-1">Posisi yang Dilamar</label><select name="posisi" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih Posisi --</option><option>HRD</option><option>Staff Administrasi</option><option>Staff Office</option></select></div>
+      <div><label class="block text-sm font-medium text-gray-700 mb-1">Gaji yang Diharapkan</label><select name="gaji_diharapkan" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>Rp 2.000.000,-</option><option>Rp 3.000.000,-</option><option>Rp 4.000.000,-</option><option>Rp 5.000.000,-</option><option>Rp 6.000.000,-</option><option>Rp 7.000.000,-</option></select></div>
+      <div class="flex items-start space-x-2">
+        <input type="checkbox" name="persetujuan_ijazah" required class="mt-1">
+        <label class="text-sm text-gray-700">✓ Saya bersedia melampirkan <strong>FOTO IJAZAH</strong>.</label>
       </div>
-    </section>
-    <footer class="bg-blue-900 text-white py-4 text-center text-sm">
-      © 2025 PT. MAF Surabaya. All rights reserved.
-    </footer>
-  </main>
 
-  <!-- SCRIPT -->
-  <script>
-    function toggleLowongan() {
-      const daftar = document.getElementById("daftarLowongan");
-      const arrow = document.getElementById("arrow");
-      daftar.classList.toggle("hidden");
-      arrow.textContent = daftar.classList.contains("hidden") ? "▼" : "▲";
-    }
+      <!-- Tombol WhatsApp -->
+      <button type="button" onclick="kirimWhatsApp()" class="w-full bg-green-600 text-white py-3 rounded-md font-semibold hover:bg-green-700 transition kedip-wa mt-2">Kirim ke WhatsApp</button>
+    </form>
+  </div>
+</section>
 
+<!-- KONTAK + FOOTER -->
+<section id="kontak" class="py-16 bg-gray-100">
+  <div class="max-w-3xl mx-auto px-4 text-center">
+    <h3 class="text-3xl font-bold text-blue-800 mb-4">Kontak</h3>
+    <p class="text-gray-700">📍 Alamat: Jl. Panglima Sudirman 10-18 Surabaya</p>
+    <p class="text-gray-700">📧 Email: hrd.mafsby01@gmail.com</p>
+  </div>
+</section>
+<footer class="bg-blue-900 text-white py-4 text-center text-sm">
+  © 2025 PT. MAF Surabaya. All rights reserved.
+</footer>
+
+  </main>  <!-- SCRIPT -->  <script>
     function kirimWhatsApp() {
       const f = document.forms['formulir'];
       const nama = f.nama.value;
@@ -122,6 +124,5 @@
 
       window.open(`https://wa.me/6285158988924?text=${pesan}`, '_blank');
     }
-  </script>
-</body>
-</html>
+  </script></body>
+                                                                                                                                                                                                                                                                                                                                                            </html>
