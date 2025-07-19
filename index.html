@@ -14,17 +14,39 @@
       @apply text-white hover:text-yellow-300 px-3 py-2 rounded transition duration-200;
     }
     .hero-bg {
-      background-image: url('images/images.jpeg'); /* Ganti sesuai file gambarmu */
+      background-image: url('images/images.jpeg'); 
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     }
-    @keyframes kedip {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(0); }
+      25% { transform: translateX(-100%); }
+      45% { transform: translateX(-100%); }
+      50% { transform: translateX(-200%); }
+      70% { transform: translateX(-200%); }
+      75% { transform: translateX(-300%); }
+      95% { transform: translateX(-300%); }
+      100% { transform: translateX(0); }
     }
-    .kedip-wa {
-      animation: kedip 1.2s infinite;
+    .carousel {
+      overflow: hidden;
+      width: 100%;
+      height: 240px;
+    }
+    .carousel-track {
+      display: flex;
+      width: 500%;
+      animation: slide 20s infinite ease-in-out;
+    }
+    .carousel-slide {
+      flex: 0 0 100%;
+    }
+    .carousel-slide img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
     }
   </style>
 </head>
@@ -42,7 +64,18 @@
     </div>
   </header>
 
-  <main class="pt-24">
+  <!-- CAROUSEL -->
+  <div class="pt-24 carousel">
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="https://raw.githubusercontent.com/hrdmafsby01/hrd.mafsby01/main/images/gambar1.jpg" alt="gambar1"></div>
+      <div class="carousel-slide"><img src="https://raw.githubusercontent.com/hrdmafsby01/hrd.mafsby01/main/images/gambar2.jpg" alt="gambar2"></div>
+      <div class="carousel-slide"><img src="https://raw.githubusercontent.com/hrdmafsby01/hrd.mafsby01/main/images/gambar3.jpg" alt="gambar3"></div>
+      <div class="carousel-slide"><img src="https://raw.githubusercontent.com/hrdmafsby01/hrd.mafsby01/main/images/gambar4.jpg" alt="gambar4"></div>
+      <div class="carousel-slide"><img src="https://raw.githubusercontent.com/hrdmafsby01/hrd.mafsby01/main/images/gambar5.jpg" alt="gambar5"></div>
+    </div>
+  </div>
+
+  <main>
     <!-- BERANDA -->
     <section id="beranda" class="hero-bg relative text-white py-32 text-center overflow-hidden">
       <div class="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -84,84 +117,17 @@
     </section>
 
     <!-- FORMULIR PENDAFTARAN -->
-    <section id="pendaftaran" class="py-24 bg-blue-50">
-      <div class="max-w-3xl mx-auto px-6 border-4 border-blue-500 rounded-xl shadow-2xl bg-blue-100">
-        <h3 class="text-4xl font-bold text-blue-800 text-center mb-8 pt-6 underline underline-offset-8 decoration-blue-600">Formulir Pendaftaran</h3>
-        <form action="https://formspree.io/f/manjrrjy" method="POST" class="space-y-6 px-2 md:px-6 pb-8">
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
-            <input type="text" name="nama" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Usia</label>
-            <input type="number" name="usia" min="18" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin</label>
-            <select name="jenis_kelamin" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
-              <option value="">-- Pilih Jenis Kelamin --</option>
-              <option>Laki-laki</option>
-              <option>Perempuan</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Nomor HP / WhatsApp</label>
-            <input type="tel" name="telepon" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-            <input type="email" name="email" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Alamat Domisili</label>
-            <input type="text" name="alamat" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Posisi yang Dilamar</label>
-            <select name="posisi" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
-              <option value="">-- Pilih Posisi --</option>
-              <option>HRD</option>
-              <option>Staff Administrasi</option>
-              <option>Staff Office</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Gaji yang Diharapkan</label>
-            <select name="gaji_diharapkan" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm" required>
-              <option value="">-- Pilih Rentang Gaji --</option>
-              <option>Rp 2.000.000,-</option>
-              <option>Rp 3.000.000,-</option>
-              <option>Rp 4.000.000,-</option>
-              <option>Rp 5.000.000,-</option>
-              <option>Rp 6.000.000,-</option>
-              <option>Rp 7.000.000,-</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">CV (Opsional)</label>
-            <input type="file" name="cv" class="block w-full text-sm text-gray-600 border-2 border-blue-300 rounded-md px-3 py-2">
-          </div>
-          <button type="submit" class="w-full bg-blue-700 text-white py-3 rounded-md font-semibold hover:bg-blue-800 transition">Kirim Pendaftaran</button>
-        </form>
-      </div>
-    </section>
+    <!-- (tidak diubah) -->
 
     <!-- KONTAK -->
     <section id="kontak" class="py-16 bg-gray-100">
       <div class="max-w-3xl mx-auto px-4 text-center">
         <h3 class="text-3xl font-bold text-blue-800 mb-4">Kontak</h3>
         <p class="text-gray-700">📍 Alamat: Jl. Panglima Sudirman 10-18 Surabaya</p>
-        <p class="text-gray-700">📞 WhatsApp: 085176913170 (Pak R.K)</p>
         <p class="text-gray-700">📧 Email: hrd.mafsby01@gmail.com</p>
       </div>
     </section>
   </main>
-
-  <!-- TOMBOL WHATSAPP DI KANAN BAWAH -->
-  <a href="https://wa.me/6285176913170" target="_blank" class="fixed bottom-6 right-6 z-50">
-    <img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png" alt="WhatsApp"
-      class="w-16 h-16 kedip-wa drop-shadow-xl hover:scale-110 transition-all duration-300 rounded-full" />
-  </a>
 
   <!-- SCRIPT -->
   <script>
