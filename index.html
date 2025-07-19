@@ -64,7 +64,7 @@
     </div>
   </header>
 
-  <!-- CAROUSEL -->
+  <!-- GALERI GESER -->
   <div class="pt-24 carousel">
     <div class="carousel-track">
       <div class="carousel-slide"><img src="https://raw.githubusercontent.com/hrdmafsby01/hrd.mafsby01/main/images/gambar1.jpg" alt="gambar1"></div>
@@ -117,7 +117,67 @@
     </section>
 
     <!-- FORMULIR PENDAFTARAN -->
-    <!-- (tidak diubah) -->
+    <section id="pendaftaran" class="py-24 bg-blue-50">
+      <div class="max-w-3xl mx-auto px-6 border-4 border-blue-500 rounded-xl shadow-2xl bg-blue-100">
+        <h3 class="text-4xl font-bold text-blue-800 text-center mb-8 pt-6 underline underline-offset-8 decoration-blue-600">Formulir Pendaftaran</h3>
+        <form action="https://formspree.io/f/manjrrjy" method="POST" class="space-y-6 px-2 md:px-6 pb-8">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+            <input type="text" name="nama" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Usia</label>
+            <input type="number" name="usia" min="18" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin</label>
+            <select name="jenis_kelamin" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+              <option value="">-- Pilih Jenis Kelamin --</option>
+              <option>Laki-laki</option>
+              <option>Perempuan</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Nomor HP / WhatsApp</label>
+            <input type="tel" name="telepon" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input type="email" name="email" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Alamat Domisili</label>
+            <input type="text" name="alamat" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Posisi yang Dilamar</label>
+            <select name="posisi" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+              <option value="">-- Pilih Posisi --</option>
+              <option>HRD</option>
+              <option>Staff Administrasi</option>
+              <option>Staff Office</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Gaji yang Diharapkan</label>
+            <select name="gaji_diharapkan" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm" required>
+              <option value="">-- Pilih Rentang Gaji --</option>
+              <option>Rp 2.000.000,-</option>
+              <option>Rp 3.000.000,-</option>
+              <option>Rp 4.000.000,-</option>
+              <option>Rp 5.000.000,-</option>
+              <option>Rp 6.000.000,-</option>
+              <option>Rp 7.000.000,-</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">CV (Opsional)</label>
+            <input type="file" name="cv" class="block w-full text-sm text-gray-600 border-2 border-blue-300 rounded-md px-3 py-2">
+          </div>
+          <button type="submit" class="w-full bg-blue-700 text-white py-3 rounded-md font-semibold hover:bg-blue-800 transition">Kirim Pendaftaran</button>
+        </form>
+      </div>
+    </section>
 
     <!-- KONTAK -->
     <section id="kontak" class="py-16 bg-gray-100">
