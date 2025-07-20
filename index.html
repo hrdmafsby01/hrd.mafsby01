@@ -1,8 +1,9 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PT. MAF Surabaya</title>
+  <title>MAF Surabaya</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .judul-elegan {
@@ -15,7 +16,7 @@
 <body class="font-sans text-gray-800">
   <!-- HEADER -->
   <header class="bg-blue-900 text-white px-6 py-4 flex flex-col md:flex-row md:justify-between md:items-center">
-    <h1 class="text-2xl font-bold judul-elegan">PT. MAF SURABAYA</h1>
+    <h1 class="text-2xl font-bold judul-elegan">MAF SURABAYA</h1>
     <nav class="mt-2 md:mt-0 flex flex-wrap gap-3">
       <a href="#beranda" class="hover:underline">Beranda</a>
       <a href="#profil" class="hover:underline">Profil</a>
@@ -23,12 +24,18 @@
       <a href="#pendaftaran" class="hover:underline">Formulir Pendaftaran</a>
       <a href="#kontak" class="hover:underline">Kontak</a>
     </nav>
-  </header>  <!-- BERANDA / PROFIL -->  <section id="profil" class="bg-blue-50 py-16 text-center px-6">
-    <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">Selamat Datang di PT. MAF Surabaya</h2>
+  </header>
+
+  <!-- BERANDA / PROFIL -->
+  <section id="profil" class="bg-blue-50 py-16 text-center px-6">
+    <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">Selamat Datang di MAF Surabaya</h2>
     <p class="text-lg max-w-2xl mx-auto text-gray-700">
-      PT. MAF Surabaya adalah perusahaan berkembang di bidang jasa dan administrasi yang membuka kesempatan karier bagi para profesional muda. Kami berkomitmen untuk menciptakan lingkungan kerja yang dinamis, inklusif, dan penuh peluang berkembang.
+      MAF Surabaya adalah perusahaan berkembang di bidang jasa dan administrasi yang membuka kesempatan karier bagi para profesional muda. Kami berkomitmen untuk menciptakan lingkungan kerja yang dinamis, inklusif, dan penuh peluang berkembang.
     </p>
-  </section>  <!-- GALERI -->  <section class="py-10 text-center bg-white">
+  </section>
+
+  <!-- GALERI -->
+  <section class="py-10 text-center bg-white">
     <h3 class="text-2xl font-semibold text-blue-800 mb-6">Galeri Kegiatan</h3>
     <div class="relative overflow-hidden max-w-6xl mx-auto group">
       <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/80 px-3 py-2 rounded-r shadow z-10">&#10094;</button>
@@ -40,7 +47,10 @@
       </div>
       <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/80 px-3 py-2 rounded-l shadow z-10">&#10095;</button>
     </div>
-  </section>  <!-- LOWONGAN -->  <section id="lowongan" class="py-24 bg-gray-100">
+  </section>
+
+  <!-- LOWONGAN -->
+  <section id="lowongan" class="py-24 bg-gray-100">
     <div class="max-w-4xl mx-auto px-6">
       <h3 class="text-3xl font-bold text-blue-800 mb-8 text-center">Lowongan Tersedia</h3>
       <ul class="space-y-4 text-gray-800 list-disc list-inside">
@@ -49,19 +59,73 @@
         <li>HRD</li>
       </ul>
     </div>
-  </section>  <!-- FORMULIR PENDAFTARAN -->  <section id="pendaftaran" class="py-24 bg-blue-50">
+  </section>
+
+  <!-- FORMULIR PENDAFTARAN -->
+  <section id="pendaftaran" class="py-24 bg-blue-50">
     <div class="max-w-3xl mx-auto px-6 border-4 border-blue-500 rounded-xl shadow-2xl bg-blue-100">
       <h3 class="text-4xl font-bold text-blue-800 text-center mb-8 pt-6 underline underline-offset-8 decoration-blue-600">Formulir Pendaftaran</h3>
       <form id="formulir" class="space-y-6 px-2 md:px-6 pb-8">
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label><input type="text" name="nama" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Usia</label><input type="number" name="usia" min="18" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Jenjang Pendidikan</label><select name="jenjang_pendidikan" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>SMA/SMK</option><option>D3</option><option>S1</option><option>S2</option><option>S3</option></select></div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin</label><select name="jenis_kelamin" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>Laki-laki</option><option>Perempuan</option></select></div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Nomor HP / WhatsApp</label><input type="tel" name="telepon" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Alamat Domisili</label><input type="text" name="alamat" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Pengalaman Kerja</label><textarea name="pengalaman_kerja" rows="4" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm resize-y"></textarea></div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Posisi yang Dilamar</label><select name="posisi" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih Posisi --</option><option>HRD</option><option>Staff Administrasi</option><option>Staff Office</option></select></div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Gaji yang Diharapkan</label><select name="gaji_diharapkan" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>Rp 2.000.000,-</option><option>Rp 3.000.000,-</option><option>Rp 4.000.000,-</option><option>Rp 5.000.000,-</option><option>Rp 6.000.000,-</option><option>Rp 7.000.000,-</option></select></div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+          <input type="text" name="nama" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Usia</label>
+          <input type="number" name="usia" min="18" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Jenjang Pendidikan</label>
+          <select name="jenjang_pendidikan" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+            <option value="">-- Pilih --</option>
+            <option>SMA/SMK</option>
+            <option>D3</option>
+            <option>S1</option>
+            <option>S2</option>
+            <option>S3</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin</label>
+          <select name="jenis_kelamin" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+            <option value="">-- Pilih --</option>
+            <option>Laki-laki</option>
+            <option>Perempuan</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Nomor HP / WhatsApp</label>
+          <input type="tel" name="telepon" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Alamat Domisili</label>
+          <input type="text" name="alamat" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Pengalaman Kerja</label>
+          <textarea name="pengalaman_kerja" rows="4" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm resize-y"></textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Posisi yang Dilamar</label>
+          <select name="posisi" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+            <option value="">-- Pilih Posisi --</option>
+            <option>HRD</option>
+            <option>Staff Administrasi</option>
+            <option>Staff Office</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Gaji yang Diharapkan</label>
+          <select name="gaji_diharapkan" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+            <option value="">-- Pilih --</option>
+            <option>Rp 2.000.000,-</option>
+            <option>Rp 3.000.000,-</option>
+            <option>Rp 4.000.000,-</option>
+            <option>Rp 5.000.000,-</option>
+            <option>Rp 6.000.000,-</option>
+            <option>Rp 7.000.000,-</option>
+          </select>
+        </div>
         <div class="flex items-start space-x-2">
           <input type="checkbox" name="persetujuan_ijazah" required class="mt-1">
           <label class="text-sm text-gray-700">✓ Saya bersedia melampirkan <strong>FOTO IJAZAH</strong>.</label>
@@ -69,15 +133,23 @@
         <button type="button" onclick="kirimWhatsApp()" class="w-full bg-green-600 text-white py-3 rounded-md font-semibold hover:bg-green-700 transition">Kirim ke WhatsApp</button>
       </form>
     </div>
-  </section>  <!-- KONTAK + FOOTER -->  <section id="kontak" class="py-16 bg-gray-100">
+  </section>
+
+  <!-- KONTAK + FOOTER -->
+  <section id="kontak" class="py-16 bg-gray-100">
     <div class="max-w-3xl mx-auto px-4 text-center">
       <h3 class="text-3xl font-bold text-blue-800 mb-4">Kontak</h3>
       <p class="text-gray-700">📍 Alamat: Jl. Panglima Sudirman 10-18 Surabaya</p>
       <p class="text-gray-700">📧 Email: hrd.mafsby01@gmail.com</p>
     </div>
-  </section>  <footer class="bg-blue-900 text-white py-4 text-center text-sm">
-    © 2025 PT. MAF Surabaya. All rights reserved.
-  </footer>  <!-- SCRIPT -->  <script>
+  </section>
+
+  <footer class="bg-blue-900 text-white py-4 text-center text-sm">
+    © 2025 MAF Surabaya. All rights reserved.
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
     function kirimWhatsApp() {
       const form = document.forms["formulir"];
       const data = {
@@ -118,5 +190,6 @@ Bersedia Lampirkan Ijazah: ${data.setujuIjazah}`;
     prevBtn.addEventListener("click", () => {
       slider.scrollBy({ left: -300, behavior: 'smooth' });
     });
-  </script></body>
-          </html>
+  </script>
+</body>
+              </html>
