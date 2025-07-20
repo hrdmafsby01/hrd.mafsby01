@@ -115,18 +115,10 @@
         gaji: form["gaji_diharapkan"].value,
         setujuIjazah: form["persetujuan_ijazah"].checked ? "Ya" : "Tidak"
       };
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(pos) {
-          const lat = pos.coords.latitude.toFixed(6);
-          const lon = pos.coords.longitude.toFixed(6);
-          const pesan = `Halo Admin, saya ingin mendaftar.%0ANama: ${data.nama}%0AUsia: ${data.usia}%0APendidikan: ${data.pendidikan}%0AJenis Kelamin: ${data.kelamin}%0ANo HP: ${data.telepon}%0AAlamat: ${data.alamat}%0APengalaman: ${data.pengalaman}%0APosisi: ${data.posisi}%0AGaji: ${data.gaji}%0ABersedia Ijazah: ${data.setujuIjazah}%0ALokasi: https://www.google.com/maps?q=${lat},${lon}`;
-          window.open(`https://wa.me/6285158988924?text=${pesan}`, '_blank');
-        }, function(error) {
-          alert("Gagal mendapatkan lokasi: " + error.message);
-        });
-      } else {
-        alert("Browser tidak mendukung GPS");
-      }
+
+      const pesan = `Halo Admin, saya ingin mendaftar.%0ANama: ${data.nama}%0AUsia: ${data.usia}%0APendidikan: ${data.pendidikan}%0AJenis Kelamin: ${data.kelamin}%0ANo HP: ${data.telepon}%0AAlamat: ${data.alamat}%0APengalaman: ${data.pengalaman}%0APosisi: ${data.posisi}%0AGaji: ${data.gaji}%0ABersedia Ijazah: ${data.setujuIjazah}`;
+
+      window.open(`https://wa.me/6285158988924?text=${pesan}`, '_blank');
     }
 
     const slider = document.getElementById("sliderContainer");
