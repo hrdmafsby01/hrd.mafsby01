@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PT. MAF Surabaya</title>
+  <title>MAF Surabaya</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .judul-elegan {
@@ -14,9 +14,10 @@
   </style>
 </head>
 <body class="font-sans text-gray-800">
+
   <!-- HEADER -->
   <header class="bg-blue-900 text-white px-6 py-4 flex flex-col md:flex-row md:justify-between md:items-center">
-    <h1 class="text-2xl font-bold judul-elegan">PT. MAF SURABAYA</h1>
+    <h1 class="text-2xl font-bold judul-elegan">MAF SURABAYA</h1>
     <nav class="mt-2 md:mt-0 flex flex-wrap gap-3">
       <a href="#beranda" class="hover:underline">Beranda</a>
       <a href="#profil" class="hover:underline">Profil</a>
@@ -26,11 +27,11 @@
     </nav>
   </header>
 
-  <!-- BERANDA / PROFIL -->
+  <!-- PROFIL -->
   <section id="profil" class="bg-blue-50 py-16 text-center px-6">
-    <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">Selamat Datang di PT. MAF Surabaya</h2>
+    <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">Selamat Datang di MAF Surabaya</h2>
     <p class="text-lg max-w-2xl mx-auto text-gray-700">
-      PT. MAF Surabaya adalah perusahaan berkembang di bidang jasa dan administrasi yang membuka kesempatan karier bagi para profesional muda. Kami berkomitmen untuk menciptakan lingkungan kerja yang dinamis, inklusif, dan penuh peluang berkembang.
+      MAF Surabaya adalah perusahaan berkembang di bidang jasa dan administrasi yang membuka kesempatan karier bagi para profesional muda. Kami berkomitmen untuk menciptakan lingkungan kerja yang dinamis, inklusif, dan penuh peluang berkembang.
     </p>
   </section>
 
@@ -66,6 +67,7 @@
     <div class="max-w-3xl mx-auto px-6 border-4 border-blue-500 rounded-xl shadow-2xl bg-blue-100">
       <h3 class="text-4xl font-bold text-blue-800 text-center mb-8 pt-6 underline underline-offset-8 decoration-blue-600">Formulir Pendaftaran</h3>
       <form id="formulir" class="space-y-6 px-2 md:px-6 pb-8">
+        <input type="hidden" name="token_verifikasi" id="tokenVerifikasi" />
         <div><label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label><input type="text" name="nama" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
         <div><label class="block text-sm font-medium text-gray-700 mb-1">Usia</label><input type="number" name="usia" min="18" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
         <div><label class="block text-sm font-medium text-gray-700 mb-1">Jenjang Pendidikan</label><select name="jenjang_pendidikan" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>SMA/SMK</option><option>D3</option><option>S1</option><option>S2</option><option>S3</option></select></div>
@@ -84,7 +86,7 @@
     </div>
   </section>
 
-  <!-- KONTAK + FOOTER -->
+  <!-- KONTAK -->
   <section id="kontak" class="py-16 bg-gray-100">
     <div class="max-w-3xl mx-auto px-4 text-center">
       <h3 class="text-3xl font-bold text-blue-800 mb-4">Kontak</h3>
@@ -92,47 +94,63 @@
       <p class="text-gray-700">📧 Email: hrd.mafsby01@gmail.com</p>
     </div>
   </section>
+
+  <!-- FOOTER -->
   <footer class="bg-blue-900 text-white py-4 text-center text-sm">
-    © 2025 PT. MAF Surabaya. All rights reserved.
+    © 2025 MAF Surabaya. All rights reserved.
   </footer>
 
   <!-- SCRIPT -->
   <script>
+    // Buat token verifikasi otomatis saat halaman dibuka
+    function generateKodeVerifikasi() {
+      const now = Date.now();
+      const random = Math.floor(Math.random() * 9000 + 1000);
+      return `MAF-${now}-${random}`;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const tokenField = document.getElementById("tokenVerifikasi");
+      tokenField.value = generateKodeVerifikasi();
+    });
+
     function kirimWhatsApp() {
       const form = document.forms["formulir"];
-      const nama = form["nama"].value.trim();
-      const usia = form["usia"].value.trim();
-      const pendidikan = form["jenjang_pendidikan"].value;
-      const kelamin = form["jenis_kelamin"].value;
-      const telepon = form["telepon"].value.trim();
-      const alamat = form["alamat"].value.trim();
-      const pengalaman = form["pengalaman_kerja"].value.trim();
-      const posisi = form["posisi"].value;
-      const gaji = form["gaji_diharapkan"].value;
-      const setujuIjazah = form["persetujuan_ijazah"].checked;
+      const token = form["token_verifikasi"].value;
+      const data = {
+        nama: form["nama"].value,
+        usia: form["usia"].value,
+        pendidikan: form["jenjang_pendidikan"].value,
+        kelamin: form["jenis_kelamin"].value,
+        telepon: form["telepon"].value,
+        alamat: form["alamat"].value,
+        pengalaman: form["pengalaman_kerja"].value,
+        posisi: form["posisi"].value,
+        gaji: form["gaji_diharapkan"].value,
+        setujuIjazah: form["persetujuan_ijazah"].checked ? "Ya" : "Tidak"
+      };
 
-      // Validasi
-      if (!nama || !usia || !pendidikan || !kelamin || !telepon || !alamat || !pengalaman || !posisi || !gaji || !setujuIjazah) {
-        alert("Harap lengkapi semua kolom formulir dan centang persetujuan ijazah sebelum mengirim.");
+      if (!data.nama || !data.usia || !data.pendidikan || !data.kelamin || !data.telepon || !data.alamat || !data.pengalaman || !data.posisi || !data.gaji || data.setujuIjazah !== "Ya") {
+        alert("Harap lengkapi semua kolom dan setujui lampiran ijazah.");
         return;
       }
 
       const pesan = `Halo Admin, saya ingin mendaftar.%0A
-Nama: ${nama}%0A
-Usia: ${usia}%0A
-Pendidikan: ${pendidikan}%0A
-Jenis Kelamin: ${kelamin}%0A
-No HP: ${telepon}%0A
-Alamat: ${alamat}%0A
-Pengalaman: ${pengalaman}%0A
-Posisi: ${posisi}%0A
-Gaji yang Diharapkan: ${gaji}%0A
-Bersedia Lampirkan Ijazah: Ya`;
+Nama: ${data.nama}%0A
+Usia: ${data.usia}%0A
+Pendidikan: ${data.pendidikan}%0A
+Jenis Kelamin: ${data.kelamin}%0A
+No HP: ${data.telepon}%0A
+Alamat: ${data.alamat}%0A
+Pengalaman: ${data.pengalaman}%0A
+Posisi: ${data.posisi}%0A
+Gaji yang Diharapkan: ${data.gaji}%0A
+Bersedia Lampirkan Ijazah: ${data.setujuIjazah}%0A
+Kode Verifikasi: ${token}`;
 
       window.open(`https://wa.me/6285158988924?text=${pesan}`, '_blank');
     }
 
-    // Slider galeri
     const slider = document.getElementById("sliderContainer");
     const nextBtn = document.getElementById("nextBtn");
     const prevBtn = document.getElementById("prevBtn");
@@ -145,4 +163,4 @@ Bersedia Lampirkan Ijazah: Ya`;
     });
   </script>
 </body>
-               </html>
+</html>
