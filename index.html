@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
@@ -77,12 +77,12 @@
         <div><label class="block mb-1">Jenjang Pendidikan</label><select name="jenjang_pendidikan" required class="w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>SMA/SMK</option><option>D3</option><option>S1</option><option>S2</option><option>S3</option></select></div>
         <div><label class="block mb-1">Jenis Kelamin</label><select name="jenis_kelamin" required class="w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>Laki-laki</option><option>Perempuan</option></select></div>
         <div><label class="block mb-1">Nomor HP / WhatsApp</label><input type="tel" name="telepon" required class="w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
-        <div><label class="block mb-1">Alamat Domisili</label><input type="text" name="alamat" class="w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
-        <div><label class="block mb-1">Pengalaman Kerja</label><textarea name="pengalaman_kerja" rows="4" class="w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm resize-y"></textarea></div>
+        <div><label class="block mb-1">Alamat Domisili</label><input type="text" name="alamat" required class="w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
+        <div><label class="block mb-1">Pengalaman Kerja</label><textarea name="pengalaman_kerja" rows="4" required class="w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm resize-y"></textarea></div>
         <div><label class="block mb-1">Posisi yang Dilamar</label><select name="posisi" required class="w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih Posisi --</option><option>HRD</option><option>Staff Administrasi</option><option>Staff Office</option></select></div>
         <div><label class="block mb-1">Gaji yang Diharapkan</label><select name="gaji_diharapkan" required class="w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>Rp 2.000.000,-</option><option>Rp 3.000.000,-</option><option>Rp 4.000.000,-</option><option>Rp 5.000.000,-</option><option>Rp 6.000.000,-</option><option>Rp 7.000.000,-</option></select></div>
         <div class="flex items-start space-x-2"><input type="checkbox" name="persetujuan_ijazah" required class="mt-1"><label class="text-sm">✓ Saya bersedia melampirkan <strong>FOTO IJAZAH</strong>.</label></div>
-        <button type="button" onclick="kirimWhatsApp()" class="w-full bg-green-600 text-white py-3 rounded-md font-semibold hover:bg-green-700 transition">Kirim ke WhatsApp</button>
+        <button type="button" onclick="validasiForm()" class="w-full bg-green-600 text-white py-3 rounded-md font-semibold hover:bg-green-700 transition">Kirim ke WhatsApp</button>
       </form>
     </div>
   </section>
@@ -101,8 +101,13 @@
 
   <!-- SCRIPT -->
   <script>
-    function kirimWhatsApp() {
+    function validasiForm() {
       const form = document.forms["formulir"];
+      if (!form.checkValidity()) {
+        alert("Harap lengkapi semua data yang wajib diisi!");
+        return;
+      }
+
       const data = {
         nama: form["nama"].value,
         usia: form["usia"].value,
@@ -126,4 +131,4 @@
     document.getElementById("prevBtn").addEventListener("click", () => slider.scrollBy({ left: -300, behavior: 'smooth' }));
   </script>
 </body>
-</html>
+ </html>
