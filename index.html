@@ -14,7 +14,6 @@
   </style>
 </head>
 <body class="font-sans text-gray-800">
-
   <!-- HEADER -->
   <header class="bg-blue-900 text-white px-6 py-4 flex flex-col md:flex-row md:justify-between md:items-center">
     <h1 class="text-2xl font-bold judul-elegan">MAF SURABAYA</h1>
@@ -27,7 +26,7 @@
     </nav>
   </header>
 
-  <!-- PROFIL -->
+  <!-- BERANDA / PROFIL -->
   <section id="profil" class="bg-blue-50 py-16 text-center px-6">
     <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">Selamat Datang di MAF Surabaya</h2>
     <p class="text-lg max-w-2xl mx-auto text-gray-700">
@@ -67,16 +66,66 @@
     <div class="max-w-3xl mx-auto px-6 border-4 border-blue-500 rounded-xl shadow-2xl bg-blue-100">
       <h3 class="text-4xl font-bold text-blue-800 text-center mb-8 pt-6 underline underline-offset-8 decoration-blue-600">Formulir Pendaftaran</h3>
       <form id="formulir" class="space-y-6 px-2 md:px-6 pb-8">
-        <input type="hidden" name="token_verifikasi" id="tokenVerifikasi" />
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label><input type="text" name="nama" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Usia</label><input type="number" name="usia" min="18" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Jenjang Pendidikan</label><select name="jenjang_pendidikan" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>SMA/SMK</option><option>D3</option><option>S1</option><option>S2</option><option>S3</option></select></div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin</label><select name="jenis_kelamin" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>Laki-laki</option><option>Perempuan</option></select></div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Nomor HP / WhatsApp</label><input type="tel" name="telepon" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Alamat Domisili</label><input type="text" name="alamat" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"></div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Pengalaman Kerja</label><textarea name="pengalaman_kerja" rows="4" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm resize-y"></textarea></div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Posisi yang Dilamar</label><select name="posisi" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih Posisi --</option><option>HRD</option><option>Staff Administrasi</option><option>Staff Office</option></select></div>
-        <div><label class="block text-sm font-medium text-gray-700 mb-1">Gaji yang Diharapkan</label><select name="gaji_diharapkan" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm"><option value="">-- Pilih --</option><option>Rp 2.000.000,-</option><option>Rp 3.000.000,-</option><option>Rp 4.000.000,-</option><option>Rp 5.000.000,-</option><option>Rp 6.000.000,-</option><option>Rp 7.000.000,-</option></select></div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+          <input type="text" name="nama" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Usia</label>
+          <input type="number" name="usia" min="18" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Jenjang Pendidikan</label>
+          <select name="jenjang_pendidikan" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+            <option value="">-- Pilih --</option>
+            <option>SMA/SMK</option>
+            <option>D3</option>
+            <option>S1</option>
+            <option>S2</option>
+            <option>S3</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin</label>
+          <select name="jenis_kelamin" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+            <option value="">-- Pilih --</option>
+            <option>Laki-laki</option>
+            <option>Perempuan</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Nomor HP / WhatsApp</label>
+          <input type="tel" name="telepon" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Alamat Domisili</label>
+          <input type="text" name="alamat" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Pengalaman Kerja</label>
+          <textarea name="pengalaman_kerja" rows="4" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm resize-y"></textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Posisi yang Dilamar</label>
+          <select name="posisi" class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+            <option value="">-- Pilih Posisi --</option>
+            <option>HRD</option>
+            <option>Staff Administrasi</option>
+            <option>Staff Office</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Gaji yang Diharapkan</label>
+          <select name="gaji_diharapkan" required class="block w-full border-2 border-blue-500 rounded-md px-3 py-2 shadow-sm">
+            <option value="">-- Pilih --</option>
+            <option>Rp 2.000.000,-</option>
+            <option>Rp 3.000.000,-</option>
+            <option>Rp 4.000.000,-</option>
+            <option>Rp 5.000.000,-</option>
+            <option>Rp 6.000.000,-</option>
+            <option>Rp 7.000.000,-</option>
+          </select>
+        </div>
         <div class="flex items-start space-x-2">
           <input type="checkbox" name="persetujuan_ijazah" required class="mt-1">
           <label class="text-sm text-gray-700">✓ Saya bersedia melampirkan <strong>FOTO IJAZAH</strong>.</label>
@@ -95,28 +144,14 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="bg-blue-900 text-white py-4 text-center text-sm">
     © 2025 MAF Surabaya. All rights reserved.
   </footer>
 
   <!-- SCRIPT -->
   <script>
-    // Buat token verifikasi otomatis saat halaman dibuka
-    function generateKodeVerifikasi() {
-      const now = Date.now();
-      const random = Math.floor(Math.random() * 9000 + 1000);
-      return `MAF-${now}-${random}`;
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const tokenField = document.getElementById("tokenVerifikasi");
-      tokenField.value = generateKodeVerifikasi();
-    });
-
     function kirimWhatsApp() {
       const form = document.forms["formulir"];
-      const token = form["token_verifikasi"].value;
       const data = {
         nama: form["nama"].value,
         usia: form["usia"].value,
@@ -130,12 +165,13 @@
         setujuIjazah: form["persetujuan_ijazah"].checked ? "Ya" : "Tidak"
       };
 
-      if (!data.nama || !data.usia || !data.pendidikan || !data.kelamin || !data.telepon || !data.alamat || !data.pengalaman || !data.posisi || !data.gaji || data.setujuIjazah !== "Ya") {
-        alert("Harap lengkapi semua kolom dan setujui lampiran ijazah.");
-        return;
-      }
+      // Ambil lokasi
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(pos) {
+          const lat = pos.coords.latitude;
+          const lon = pos.coords.longitude;
 
-      const pesan = `Halo Admin, saya ingin mendaftar.%0A
+          const pesan = `Halo Admin, saya ingin mendaftar.%0A
 Nama: ${data.nama}%0A
 Usia: ${data.usia}%0A
 Pendidikan: ${data.pendidikan}%0A
@@ -146,21 +182,24 @@ Pengalaman: ${data.pengalaman}%0A
 Posisi: ${data.posisi}%0A
 Gaji yang Diharapkan: ${data.gaji}%0A
 Bersedia Lampirkan Ijazah: ${data.setujuIjazah}%0A
-Kode Verifikasi: ${token}`;
+Lokasi Saya: https://www.google.com/maps?q=${lat},${lon}`;
 
-      window.open(`https://wa.me/6285158988924?text=${pesan}`, '_blank');
+          window.open(`https://wa.me/6285158988924?text=${pesan}`, '_blank');
+        }, function(error) {
+          alert("Gagal mendapatkan lokasi: " + error.message);
+        });
+      } else {
+        alert("Browser tidak mendukung fitur GPS");
+      }
     }
 
     const slider = document.getElementById("sliderContainer");
-    const nextBtn = document.getElementById("nextBtn");
-    const prevBtn = document.getElementById("prevBtn");
-
-    nextBtn.addEventListener("click", () => {
+    document.getElementById("nextBtn").addEventListener("click", () => {
       slider.scrollBy({ left: 300, behavior: 'smooth' });
     });
-    prevBtn.addEventListener("click", () => {
+    document.getElementById("prevBtn").addEventListener("click", () => {
       slider.scrollBy({ left: -300, behavior: 'smooth' });
     });
   </script>
 </body>
-</html>
+  </html>
