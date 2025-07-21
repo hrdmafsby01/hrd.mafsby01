@@ -15,14 +15,14 @@
     </div>
   </header>
 
-  <!-- Menu -->
-  <nav class="bg-blue-800 text-white py-3">
+  <!-- Menu dengan warna kuning emas -->
+  <nav class="bg-yellow-400 text-black py-3 shadow-md">
     <div class="container mx-auto px-4">
       <ul class="flex flex-col md:flex-row md:space-x-8">
-        <li class="border-b border-blue-700 md:border-none py-2 md:py-0"><a href="#beranda" class="block hover:underline">Beranda</a></li>
-        <li class="border-b border-blue-700 md:border-none py-2 md:py-0"><a href="#profil" class="block hover:underline">Profil</a></li>
-        <li class="border-b border-blue-700 md:border-none py-2 md:py-0"><a href="galeri.html" class="block hover:underline">Galeri</a></li>
-        <li class="border-b border-blue-700 md:border-none py-2 md:py-0"><a href="#lowongan" class="block hover:underline">Lowongan</a></li>
+        <li class="border-b border-yellow-300 md:border-none py-2 md:py-0"><a href="#beranda" class="block hover:underline">Beranda</a></li>
+        <!-- Menu "Profil" dihapus -->
+        <li class="border-b border-yellow-300 md:border-none py-2 md:py-0"><a href="galeri.html" class="block hover:underline">Galeri</a></li>
+        <li class="border-b border-yellow-300 md:border-none py-2 md:py-0"><a href="#lowongan" class="block hover:underline">Lowongan</a></li>
         <li class="py-2 md:py-0"><a href="#pendaftaran" class="block hover:underline">Registrasi</a></li>
       </ul>
     </div>
@@ -42,7 +42,8 @@
   <!-- Lowongan -->
   <section id="lowongan" class="py-12 bg-gray-100">
     <div class="container mx-auto px-4">
-      <h3 class="text-xl font-bold mb-6">Lowongan Pekerjaan</h3>
+      <h3 class="text-xl font-bold mb-2">Lowongan Pekerjaan</h3>
+      <p class="text-sm text-gray-600 mb-4">(Periode Juli–Agustus 2025)</p>
       <ul class="list-disc list-inside space-y-3 text-gray-800">
         <li><strong>HRD</strong> – Minimal pendidikan S1 dan memiliki pengalaman kerja.</li>
         <li><strong>Staff Administrasi</strong> – Minimal pendidikan SMA/SMK sederajat.</li>
@@ -55,7 +56,7 @@
   <section id="pendaftaran" class="py-12 bg-white">
     <div class="container mx-auto px-4">
       <h3 class="text-xl font-bold mb-6">Registrasi</h3>
-      <form id="formPendaftaran" class="space-y-4 max-w-xl">
+      <form id="formPendaftaran" class="space-y-4 max-w-xl p-6 border border-black bg-gray-100 rounded">
         <input type="text" id="nama" placeholder="Nama Lengkap" class="w-full border p-2 rounded" required />
         <input type="number" id="usia" placeholder="Usia" class="w-full border p-2 rounded" required />
         <select id="pendidikan" class="w-full border p-2 rounded" required>
@@ -143,4 +144,4 @@
   </script>
 
 </body>
-          </html>
+            </html>
