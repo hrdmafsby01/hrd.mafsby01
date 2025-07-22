@@ -29,7 +29,7 @@
         <li class="border-b border-yellow-300 md:border-none py-2 md:py-0"><a href="#beranda" class="block hover:underline">Beranda</a></li>
         <li class="border-b border-yellow-300 md:border-none py-2 md:py-0"><a href="galeri.html" class="block hover:underline">Galeri</a></li>
         <li class="border-b border-yellow-300 md:border-none py-2 md:py-0"><a href="#lowongan" class="block hover:underline">Lowongan</a></li>
-        <li class="py-2 md:py-0"><a href="#pendaftaran" class="block hover:underline">Registrasi</a></li>
+        <li class="py-2 md:py-0"><a href="register.html" class="block hover:underline">Registrasi</a></li>
       </ul>
     </div>
   </nav>
@@ -41,7 +41,7 @@
       <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
         MAF Surabaya adalah perusahaan berkembang di bidang jasa perdagangan internasional yang membuka kesempatan karier bagi para profesional muda. Kami berkomitmen untuk menciptakan lingkungan kerja yang dinamis, inklusif, dan penuh peluang berkembang.
       </p>
-      <a href="#pendaftaran" class="bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800 transition">Registrasi Sekarang</a>
+      <a href="register.html" class="bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800 transition">Registrasi Sekarang</a>
     </div>
   </section>
 
@@ -58,96 +58,11 @@
     </div>
   </section>
 
-  <!-- Pendaftaran -->
-  <section id="pendaftaran" class="py-12 bg-black">
-    <div class="container mx-auto px-4">
-      <h3 class="text-xl font-bold mb-6 text-white">Registrasi</h3>
-      <form id="formPendaftaran" class="space-y-4 max-w-xl p-6 border border-gray-600 bg-zinc-800 rounded text-white">
-        <input type="text" id="nama" placeholder="Nama Lengkap" class="w-full border p-2 rounded bg-black border-gray-600" required />
-        <input type="number" id="usia" placeholder="Usia" class="w-full border p-2 rounded bg-black border-gray-600" required />
-        <select id="pendidikan" class="w-full border p-2 rounded bg-black border-gray-600" required>
-          <option disabled selected>Jenjang Pendidikan</option>
-          <option>SMA/SMK</option>
-          <option>D3</option>
-          <option>S1</option>
-          <option>S2</option>
-          <option>S3</option>
-        </select>
-        <select id="gender" class="w-full border p-2 rounded bg-black border-gray-600" required>
-          <option disabled selected>Jenis Kelamin</option>
-          <option>Laki-laki</option>
-          <option>Perempuan</option>
-        </select>
-        <input type="tel" id="hp" placeholder="Nomor HP / WhatsApp" class="w-full border p-2 rounded bg-black border-gray-600" required />
-        <input type="text" id="alamat" placeholder="Alamat Domisili" class="w-full border p-2 rounded bg-black border-gray-600" required />
-        <textarea id="pengalaman" placeholder="Pengalaman Kerja" class="w-full border p-2 rounded h-24 resize-none bg-black border-gray-600"></textarea>
-        <select id="posisi" class="w-full border p-2 rounded bg-black border-gray-600" required>
-          <option disabled selected>Posisi yang Dilamar</option>
-          <option>HRD</option>
-          <option>Staff Administrasi</option>
-          <option>Staff Office</option>
-        </select>
-        <select id="gaji" class="w-full border p-2 rounded bg-black border-gray-600" required>
-          <option disabled selected>Gaji yang Diharapkan</option>
-          <option>Rp 2.000.000,-</option>
-          <option>Rp 3.000.000,-</option>
-          <option>Rp 4.000.000,-</option>
-          <option>Rp 5.000.000,-</option>
-          <option>Rp 6.000.000,-</option>
-          <option>Rp 7.000.000,-</option>
-        </select>
-        <label class="flex items-center space-x-2">
-          <input type="checkbox" id="ijazah" required />
-          <span>Saya bersedia melampirkan <strong>FOTO IJAZAH</strong>.</span>
-        </label>
-        <button type="button" onclick="kirimWhatsapp()" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition">
-          Kirim ke WhatsApp
-        </button>
-      </form>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer class="bg-blue-900 text-white text-center py-6 mt-10">
     <p class="mb-2">📍 Alamat: Jl. Panglima Sudirman 10-18 Surabaya</p>
     <p>© 2025 MAF Surabaya. All rights reserved.</p>
   </footer>
-
-  <!-- Script WhatsApp -->
-  <script>
-    function kirimWhatsapp() {
-      const nama = document.getElementById('nama').value;
-      const usia = document.getElementById('usia').value;
-      const pendidikan = document.getElementById('pendidikan').value;
-      const gender = document.getElementById('gender').value;
-      const hp = document.getElementById('hp').value;
-      const alamat = document.getElementById('alamat').value;
-      const pengalaman = document.getElementById('pengalaman').value;
-      const posisi = document.getElementById('posisi').value;
-      const gaji = document.getElementById('gaji').value;
-      const ijazah = document.getElementById('ijazah').checked;
-
-      if (!nama || !usia || !pendidikan || !gender || !hp || !alamat || !posisi || !gaji || !ijazah) {
-        alert("Mohon lengkapi semua field sebelum mengirim.");
-        return;
-      }
-
-      const pesan = `*Formulir Pendaftaran MAF Surabaya*\n\n` +
-        `Nama: ${nama}\n` +
-        `Usia: ${usia}\n` +
-        `Pendidikan: ${pendidikan}\n` +
-        `Jenis Kelamin: ${gender}\n` +
-        `Nomor HP: ${hp}\n` +
-        `Alamat: ${alamat}\n` +
-        `Pengalaman Kerja: ${pengalaman}\n` +
-        `Posisi yang Dilamar: ${posisi}\n` +
-        `Gaji yang Diharapkan: ${gaji}\n` +
-        `Foto Ijazah: ${ijazah ? 'Bersedia' : 'Tidak bersedia'}`;
-
-      const url = `https://wa.me/6285176913170?text=${encodeURIComponent(pesan)}`;
-      window.open(url, '_blank');
-    }
-  </script>
 
 </body>
 </html>
