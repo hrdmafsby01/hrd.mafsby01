@@ -5,18 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PT. MAF Surabaya</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @layer utilities {
+      .font-avenir {
+        font-family: Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+      }
+    }
+  </style>
 </head>
-<body class="font-sans antialiased bg-black text-white">
+<body class="font-avenir antialiased bg-black text-white">
 
   <!-- Header -->
-  <header class="bg-blue-900 text-white py-6">
+  <header class="bg-blue-900 text-white py-6 font-sans">
     <div class="container mx-auto px-4">
       <h1 class="text-3xl font-bold text-center">MAF SURABAYA</h1>
     </div>
   </header>
 
   <!-- Menu -->
-  <nav class="bg-yellow-400 text-black py-3 shadow-md">
+  <nav class="bg-yellow-400 text-black py-3 shadow-md font-sans">
     <div class="container mx-auto px-4">
       <ul class="flex flex-col md:flex-row md:space-x-8">
         <li class="border-b border-yellow-300 md:border-none py-2 md:py-0"><a href="#beranda" class="block hover:underline">Beranda</a></li>
@@ -143,4 +150,4 @@
   </script>
 
 </body>
-  </html>
+</html>
