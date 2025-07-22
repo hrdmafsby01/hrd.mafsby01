@@ -6,7 +6,7 @@
   <title>PT. MAF Surabaya</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased bg-black text-white">
 
   <!-- Header -->
   <header class="bg-blue-900 text-white py-6">
@@ -15,12 +15,11 @@
     </div>
   </header>
 
-  <!-- Menu dengan warna kuning emas -->
+  <!-- Menu -->
   <nav class="bg-yellow-400 text-black py-3 shadow-md">
     <div class="container mx-auto px-4">
       <ul class="flex flex-col md:flex-row md:space-x-8">
         <li class="border-b border-yellow-300 md:border-none py-2 md:py-0"><a href="#beranda" class="block hover:underline">Beranda</a></li>
-        <!-- Menu "Profil" dihapus -->
         <li class="border-b border-yellow-300 md:border-none py-2 md:py-0"><a href="galeri.html" class="block hover:underline">Galeri</a></li>
         <li class="border-b border-yellow-300 md:border-none py-2 md:py-0"><a href="#lowongan" class="block hover:underline">Lowongan</a></li>
         <li class="py-2 md:py-0"><a href="#pendaftaran" class="block hover:underline">Registrasi</a></li>
@@ -29,10 +28,10 @@
   </nav>
 
   <!-- Beranda -->
-  <section id="beranda" class="py-12 text-center bg-white">
+  <section id="beranda" class="py-12 text-center bg-black">
     <div class="container mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">Selamat Datang di MAF Surabaya</h2>
-      <p class="text-gray-700 mb-6 max-w-2xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-white">Selamat Datang di MAF Surabaya</h2>
+      <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
         MAF Surabaya adalah perusahaan berkembang di bidang jasa perdagangan internasional yang membuka kesempatan karier bagi para profesional muda. Kami berkomitmen untuk menciptakan lingkungan kerja yang dinamis, inklusif, dan penuh peluang berkembang.
       </p>
       <a href="#pendaftaran" class="bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800 transition">Registrasi Sekarang</a>
@@ -40,11 +39,11 @@
   </section>
 
   <!-- Lowongan -->
-  <section id="lowongan" class="py-12 bg-gray-100">
+  <section id="lowongan" class="py-12 bg-zinc-900">
     <div class="container mx-auto px-4">
-      <h3 class="text-xl font-bold mb-2">Lowongan Pekerjaan</h3>
-      <p class="text-sm text-gray-600 mb-4">(Periode Juli–Agustus 2025)</p>
-      <ul class="list-disc list-inside space-y-3 text-gray-800">
+      <h3 class="text-xl font-bold mb-2 text-white">Lowongan Pekerjaan</h3>
+      <p class="text-sm text-gray-400 mb-4">(Periode Juli–Agustus 2025)</p>
+      <ul class="list-disc list-inside space-y-3 text-gray-200">
         <li><strong>HRD</strong> – Minimal pendidikan S1 dan memiliki pengalaman kerja.</li>
         <li><strong>Staff Administrasi</strong> – Minimal pendidikan SMA/SMK sederajat.</li>
         <li><strong>Staff Office</strong> – Minimal pendidikan SMA/SMK sederajat.</li>
@@ -53,13 +52,13 @@
   </section>
 
   <!-- Pendaftaran -->
-  <section id="pendaftaran" class="py-12 bg-white">
+  <section id="pendaftaran" class="py-12 bg-black">
     <div class="container mx-auto px-4">
-      <h3 class="text-xl font-bold mb-6">Registrasi</h3>
-      <form id="formPendaftaran" class="space-y-4 max-w-xl p-6 border border-black bg-gray-100 rounded">
-        <input type="text" id="nama" placeholder="Nama Lengkap" class="w-full border p-2 rounded" required />
-        <input type="number" id="usia" placeholder="Usia" class="w-full border p-2 rounded" required />
-        <select id="pendidikan" class="w-full border p-2 rounded" required>
+      <h3 class="text-xl font-bold mb-6 text-white">Registrasi</h3>
+      <form id="formPendaftaran" class="space-y-4 max-w-xl p-6 border border-gray-600 bg-zinc-800 rounded text-white">
+        <input type="text" id="nama" placeholder="Nama Lengkap" class="w-full border p-2 rounded bg-black border-gray-600" required />
+        <input type="number" id="usia" placeholder="Usia" class="w-full border p-2 rounded bg-black border-gray-600" required />
+        <select id="pendidikan" class="w-full border p-2 rounded bg-black border-gray-600" required>
           <option disabled selected>Jenjang Pendidikan</option>
           <option>SMA/SMK</option>
           <option>D3</option>
@@ -67,21 +66,21 @@
           <option>S2</option>
           <option>S3</option>
         </select>
-        <select id="gender" class="w-full border p-2 rounded" required>
+        <select id="gender" class="w-full border p-2 rounded bg-black border-gray-600" required>
           <option disabled selected>Jenis Kelamin</option>
           <option>Laki-laki</option>
           <option>Perempuan</option>
         </select>
-        <input type="tel" id="hp" placeholder="Nomor HP / WhatsApp" class="w-full border p-2 rounded" required />
-        <input type="text" id="alamat" placeholder="Alamat Domisili" class="w-full border p-2 rounded" required />
-        <textarea id="pengalaman" placeholder="Pengalaman Kerja" class="w-full border p-2 rounded h-24 resize-none"></textarea>
-        <select id="posisi" class="w-full border p-2 rounded" required>
+        <input type="tel" id="hp" placeholder="Nomor HP / WhatsApp" class="w-full border p-2 rounded bg-black border-gray-600" required />
+        <input type="text" id="alamat" placeholder="Alamat Domisili" class="w-full border p-2 rounded bg-black border-gray-600" required />
+        <textarea id="pengalaman" placeholder="Pengalaman Kerja" class="w-full border p-2 rounded h-24 resize-none bg-black border-gray-600"></textarea>
+        <select id="posisi" class="w-full border p-2 rounded bg-black border-gray-600" required>
           <option disabled selected>Posisi yang Dilamar</option>
           <option>HRD</option>
           <option>Staff Administrasi</option>
           <option>Staff Office</option>
         </select>
-        <select id="gaji" class="w-full border p-2 rounded" required>
+        <select id="gaji" class="w-full border p-2 rounded bg-black border-gray-600" required>
           <option disabled selected>Gaji yang Diharapkan</option>
           <option>Rp 2.000.000,-</option>
           <option>Rp 3.000.000,-</option>
@@ -107,7 +106,7 @@
     <p>© 2025 MAF Surabaya. All rights reserved.</p>
   </footer>
 
-  <!-- Script WA -->
+  <!-- Script WhatsApp -->
   <script>
     function kirimWhatsapp() {
       const nama = document.getElementById('nama').value;
@@ -144,4 +143,4 @@
   </script>
 
 </body>
-        </html>
+  </html>
