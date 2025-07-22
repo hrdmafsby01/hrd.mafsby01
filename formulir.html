@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulir Registrasi – MAF Surabaya</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @layer utilities {
+      .font-avenir {
+        font-family: Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+      }
+    }
+  </style>
+</head>
+<body class="font-avenir antialiased bg-black text-white">
+
+  <!-- Header -->
+  <header class="bg-blue-900 text-white py-6 font-sans">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold text-center">Formulir Pendaftaran MAF Surabaya</h1>
+    </div>
+  </header>
+
+  <!-- Formulir Registrasi -->
+  <section class="py-12 bg-black">
+    <div class="container mx-auto px-4">
+      <form id="formPendaftaran" class="space-y-4 max-w-xl p-6 border border-gray-600 bg-zinc-800 rounded text-white mx-auto">
+        <input type="text" id="nama" placeholder="Nama Lengkap" class="w-full border p-2 rounded bg-black border-gray-600" required />
+        <input type="number" id="usia" placeholder="Usia" class="w-full border p-2 rounded bg-black border-gray-600" required />
+        <select id="pendidikan" class="w-full border p-2 rounded bg-black border-gray-600" required>
+          <option disabled selected>Jenjang Pendidikan</option>
+          <option>SMA/SMK</option>
+          <option>D3</option>
+          <option>S1</option>
+          <option>S2</option>
+          <option>S3</option>
+        </select>
+        <select id="gender" class="w-full border p-2 rounded bg-black border-gray-600" required>
+          <option disabled selected>Jenis Kelamin</option>
+          <option>Laki-laki</option>
+          <option>Perempuan</option>
+        </select>
+        <input type="tel" id="hp" placeholder="Nomor HP / WhatsApp" class="w-full border p-2 rounded bg-black border-gray-600" required />
+        <input type="text" id="alamat" placeholder="Alamat Domisili" class="w-full border p-2 rounded bg-black border-gray-600" required />
+        <textarea id="pengalaman" placeholder="Pengalaman Kerja" class="w-full border p-2 rounded h-24 resize-none bg-black border-gray-600"></textarea>
+        <select id="posisi" class="w-full border p-2 rounded bg-black border-gray-600" required>
+          <option disabled selected>Posisi yang Dilamar</option>
+          <option>HRD</option>
+          <option>Staff Administrasi</option>
+          <option>Staff Office</option>
+        </select>
+        <select id="gaji" class="w-full border p-2 rounded bg-black border-gray-600" required>
+          <option disabled selected>Gaji yang Diharapkan</option>
+          <option>Rp 2.000.000,-</option>
+          <option>Rp 3.000.000,-</option>
+          <option>Rp 4.000.000,-</option>
+          <option>Rp 5.000.000,-</option>
+          <option>Rp 6.000.000,-</option>
+          <option>Rp 7.000.000,-</option>
+        </select>
+        <label class="flex items-center space-x-2">
+          <input type="checkbox" id="ijazah" required />
+          <span>Saya bersedia melampirkan <strong>FOTO IJAZAH</strong>.</span>
+        </label>
+        <button type="button" onclick="kirimWhatsapp()" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition">
+          Kirim ke WhatsApp
+        </button>
+
+        <!-- Tombol Kembali ke Beranda -->
+        <a href="index.html" class="block text-center bg-gray-600 hover:bg-gray-700 text-white mt-4 py-2 rounded transition">
+          ← Kembali ke Beranda
+        </a>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white text-center py-6 mt-10">
+    <p class="mb-2">📍 Alamat: Jl. Panglima Sudirman 10-18 Surabaya</p>
+    <p>© 2025 MAF Surabaya. All rights reserved.</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    function kirimWhatsapp() {
+      const nama = document.getElementById('nama').value;
+      const usia = document.getElementById('usia').value;
+      const pendidikan = document.getElementById('pendidikan').value;
+      const gender = document.getElementById('gender').value;
+      const hp = document.getElementById('hp').value;
+      const alamat = document.getElementById('alamat').value;
+      const pengalaman = document.getElementById('pengalaman').value;
+      const posisi = document.getElementById('posisi').value;
+      const gaji = document.getElementById('gaji').value;
+      const ijazah = document.getElementById('ijazah').checked;
+
+      if (!nama || !usia || !pendidikan || !gender || !hp || !alamat || !posisi || !gaji || !ijazah) {
+        alert("Mohon lengkapi semua field sebelum mengirim.");
+        return;
+      }
+
+      const pesan = `*Formulir Pendaftaran MAF Surabaya*\n\n` +
+        `Nama: ${nama}\n` +
+        `Usia: ${usia}\n` +
+        `Pendidikan: ${pendidikan}\n` +
+        `Jenis Kelamin: ${gender}\n` +
+        `Nomor HP: ${hp}\n` +
+        `Alamat: ${alamat}\n` +
+        `Pengalaman Kerja: ${pengalaman}\n` +
+        `Posisi yang Dilamar: ${posisi}\n` +
+        `Gaji yang Diharapkan: ${gaji}\n` +
+        `Foto Ijazah: ${ijazah ? 'Bersedia' : 'Tidak bersedia'}`;
+
+      const url = `https://wa.me/6285176913170?text=${encodeURIComponent(pesan)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+  </html>
