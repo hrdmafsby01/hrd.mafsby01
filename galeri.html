@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Galeri - MAF Surabaya</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .marquee-track {
+      animation: marquee 30s linear infinite;
+    }
+  </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
@@ -24,18 +34,27 @@
   <main class="container mx-auto px-4 py-8">
     <p class="mb-6 text-center text-lg">Dokumentasi kegiatan dan suasana kerja di MAF Surabaya</p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <div class="rounded overflow-hidden shadow-md bg-white">
-        <img src="images/gambar2.jpg" alt="Galeri 1" class="w-full h-64 object-cover" />
-      </div>
-      <div class="rounded overflow-hidden shadow-md bg-white">
-        <img src="images/gambar3.jpg" alt="Galeri 2" class="w-full h-64 object-cover" />
-      </div>
-      <div class="rounded overflow-hidden shadow-md bg-white">
-        <img src="images/gambar4.jpg" alt="Galeri 3" class="w-full h-64 object-cover" />
-      </div>
-      <div class="rounded overflow-hidden shadow-md bg-white">
-        <img src="images/gambar5.jpg" alt="Galeri 4" class="w-full h-64 object-cover" />
+    <div class="overflow-hidden whitespace-nowrap">
+      <div class="flex gap-6 marquee-track">
+        <div class="rounded overflow-hidden shadow-md bg-white min-w-[300px]">
+          <img src="images/gambar2.jpg" alt="Galeri 1" class="w-full h-64 object-cover" />
+        </div>
+        <div class="rounded overflow-hidden shadow-md bg-white min-w-[300px]">
+          <img src="images/gambar3.jpg" alt="Galeri 2" class="w-full h-64 object-cover" />
+        </div>
+        <div class="rounded overflow-hidden shadow-md bg-white min-w-[300px]">
+          <img src="images/gambar4.jpg" alt="Galeri 3" class="w-full h-64 object-cover" />
+        </div>
+        <div class="rounded overflow-hidden shadow-md bg-white min-w-[300px]">
+          <img src="images/gambar5.jpg" alt="Galeri 4" class="w-full h-64 object-cover" />
+        </div>
+        <!-- Ulangi agar kelihatan terus bergulir -->
+        <div class="rounded overflow-hidden shadow-md bg-white min-w-[300px]">
+          <img src="images/gambar2.jpg" alt="Galeri 5" class="w-full h-64 object-cover" />
+        </div>
+        <div class="rounded overflow-hidden shadow-md bg-white min-w-[300px]">
+          <img src="images/gambar3.jpg" alt="Galeri 6" class="w-full h-64 object-cover" />
+        </div>
       </div>
     </div>
   </main>
