@@ -6,13 +6,19 @@
   <title>Galeri - MAF Surabaya</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @keyframes marquee {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
+    .slider-wrapper {
+      overflow: hidden;
+      position: relative;
     }
 
-    .marquee-track {
-      animation: marquee 15s linear infinite; /* lebih cepat */
+    .slider-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slider-item {
+      min-width: 100%;
+      flex-shrink: 0;
     }
   </style>
 </head>
@@ -34,30 +40,62 @@
   <main class="container mx-auto px-4 py-8">
     <p class="mb-6 text-center text-lg">Dokumentasi kegiatan dan suasana kerja di MAF Surabaya</p>
 
-    <div class="overflow-hidden whitespace-nowrap">
-      <div class="flex gap-6 marquee-track">
-        <div class="rounded overflow-hidden shadow-md bg-white min-w-[300px]">
+    <div class="slider-wrapper rounded shadow-md bg-white">
+      <div id="slider" class="slider-track">
+        <div class="slider-item">
           <img src="images/gambar2.jpg" alt="Galeri 1" class="w-full h-64 object-cover" />
         </div>
-        <div class="rounded overflow-hidden shadow-md bg-white min-w-[300px]">
+        <div class="slider-item">
           <img src="images/gambar3.jpg" alt="Galeri 2" class="w-full h-64 object-cover" />
         </div>
-        <div class="rounded overflow-hidden shadow-md bg-white min-w-[300px]">
+        <div class="slider-item">
           <img src="images/gambar4.jpg" alt="Galeri 3" class="w-full h-64 object-cover" />
         </div>
-        <div class="rounded overflow-hidden shadow-md bg-white min-w-[300px]">
+        <div class="slider-item">
           <img src="images/gambar5.jpg" alt="Galeri 4" class="w-full h-64 object-cover" />
         </div>
-        <!-- Ulangi agar terus bergulir -->
-        <div class="rounded overflow-hidden shadow-md bg-white min-w-[300px]">
-          <img src="images/gambar2.jpg" alt="Galeri 5" class="w-full h-64 object-cover" />
-        </div>
-        <div class="rounded overflow-hidden shadow-md bg-white min-w-[300px]">
-          <img src="images/gambar3.jpg" alt="Galeri 6" class="w-full h-64 object-cover" />
-        </div>
+      </div>
+
+      <!-- Tombol navigasi -->
+      <div class="flex justify-between mt-4">
+        <button onclick="prevSlide()" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700">
+          ← Sebelumnya
+        </button>
+        <button onclick="nextSlide()" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-700">
+          Selanjutnya →
+        </button>
       </div>
     </div>
   </main>
 
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-gray-300 text-center py-4 mt-10 text-sm">
+    <div class="container mx-auto px-4">
+      <p class="mb-1">📍 Jl. Panglima Sudirman 10-18, Surabaya</p>
+      <p class="text-xs text-gray-400">© 2025 MAF Surabaya. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Script slider -->
+  <script>
+    let currentIndex = 0;
+    const slider = document.getElementById('slider');
+    const totalSlides = slider.children.length;
+
+    function updateSlider() {
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+  </script>
+
 </body>
-  </html>
+</html>
