@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PT. MAF Surabaya</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -44,7 +44,7 @@
 </head>
 <body class="font-avenir antialiased bg-black text-white">
 
-  <!-- Audio untuk suara cekrek -->
+  <!-- Audio -->
   <audio id="soundCekrek" src="cekrek.mp3" preload="auto"></audio>
 
   <!-- Header -->
@@ -56,22 +56,14 @@
     </div>
   </header>
 
-  <!-- Dropdown Menu (Elegan) -->
+  <!-- Dropdown Menu -->
   <nav id="navMenu" class="hidden bg-gray-900 text-white font-sans shadow-md">
     <div class="container mx-auto px-4 py-2">
       <ul class="space-y-2">
-        <li>
-          <a href="#beranda" class="block px-4 py-2 rounded hover:bg-gray-700 transition duration-200">Beranda</a>
-        </li>
-        <li>
-          <a href="galeri.html" class="block px-4 py-2 rounded hover:bg-gray-700 transition duration-200">Galeri</a>
-        </li>
-        <li>
-          <a href="#lowongan" class="block px-4 py-2 rounded hover:bg-gray-700 transition duration-200">Lowongan</a>
-        </li>
-        <li>
-          <a href="register.html" class="block px-4 py-2 rounded hover:bg-gray-700 transition duration-200">Registrasi</a>
-        </li>
+        <li><a href="#beranda" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Beranda</a></li>
+        <li><a href="galeri.html" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Galeri</a></li>
+        <li><a href="#lowongan" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Lowongan</a></li>
+        <li><a href="register.html" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Registrasi</a></li>
       </ul>
     </div>
   </nav>
@@ -79,28 +71,20 @@
   <!-- Beranda -->
   <section id="beranda" class="py-12 text-center bg-black">
     <div class="container mx-auto px-4">
-      <h2 class="text-xl md:text-2xl font-bold mb-6 text-white font-mono">
-        Selamat Datang di MAF Surabaya
-      </h2>
+      <h2 class="text-xl md:text-2xl font-bold mb-6 font-mono">Selamat Datang di MAF Surabaya</h2>
       <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
         MAF Surabaya adalah perusahaan berkembang di bidang jasa perdagangan internasional yang membuka kesempatan karier bagi para profesional muda. Kami berkomitmen untuk menciptakan lingkungan kerja yang dinamis, inklusif, dan penuh peluang berkembang.
       </p>
-      <a href="register.html" class="bg-blue-700 text-white px-6 py-2 rounded glow-button">
-        Registrasi Sekarang
-      </a>
+      <a href="register.html" class="bg-blue-700 text-white px-6 py-2 rounded glow-button">Registrasi Sekarang</a>
     </div>
   </section>
 
-  <!-- Lowongan -->
+  <!-- Lowongan dengan Efek Diketik -->
   <section id="lowongan" class="py-12 bg-white">
     <div class="container mx-auto px-4">
       <h3 class="text-xl font-bold mb-2 text-black">Lowongan Pekerjaan</h3>
-      <p class="text-sm text-gray-600 mb-4">(Periode Juli–Agustus 2025)</p>
-      <ul class="list-disc list-inside space-y-3 text-gray-700">
-        <li><strong>HRD</strong> – Minimal pendidikan S1 dan memiliki pengalaman kerja.</li>
-        <li><strong>Staff Administrasi</strong> – Minimal pendidikan SMA/SMK sederajat.</li>
-        <li><strong>Staff Office</strong> – Minimal pendidikan SMA/SMK sederajat.</li>
-      </ul>
+      <p id="type-desc" class="text-sm text-gray-600 mb-4 whitespace-pre-line"></p>
+      <ul id="type-list" class="list-disc list-inside space-y-3 text-gray-700 whitespace-pre-line"></ul>
     </div>
   </section>
 
@@ -112,7 +96,7 @@
     </div>
   </footer>
 
-  <!-- Script untuk toggle menu dan suara -->
+  <!-- Script -->
   <script>
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
@@ -130,13 +114,52 @@
       playCekrek();
     });
 
-    // Tambahkan efek suara ke semua link dan tombol
+    // Tambahkan suara ke semua link & tombol
     document.querySelectorAll('a, button').forEach(el => {
       el.addEventListener('click', () => {
         playCekrek();
       });
     });
-  </script>
 
+    // Efek Ketik (Lowongan)
+    const descText = "(Periode Juli–Agustus 2025)";
+    const listItems = [
+      "• HRD – Minimal pendidikan S1 dan memiliki pengalaman kerja.",
+      "• Staff Administrasi – Minimal pendidikan SMA/SMK sederajat.",
+      "• Staff Office – Minimal pendidikan SMA/SMK sederajat."
+    ];
+
+    function typeText(targetEl, text, delay = 30, callback) {
+      let i = 0;
+      function typing() {
+        if (i < text.length) {
+          targetEl.textContent += text.charAt(i);
+          i++;
+          setTimeout(typing, delay);
+        } else if (callback) {
+          callback();
+        }
+      }
+      typing();
+    }
+
+    const descEl = document.getElementById('type-desc');
+    const listEl = document.getElementById('type-list');
+
+    typeText(descEl, descText, 40, () => {
+      let index = 0;
+      function typeNextList() {
+        if (index < listItems.length) {
+          const li = document.createElement('li');
+          listEl.appendChild(li);
+          typeText(li, listItems[index], 30, () => {
+            index++;
+            setTimeout(typeNextList, 400);
+          });
+        }
+      }
+      typeNextList();
+    });
+  </script>
 </body>
-        </html>
+</html>
