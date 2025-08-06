@@ -11,25 +11,64 @@
         font-family: Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
       }
     }
+
+    @keyframes glow-blink {
+      0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.9), 0 0 20px rgba(0, 255, 255, 0.7);
+      }
+      50% {
+        opacity: 0.7;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 40px rgba(0, 255, 255, 1);
+      }
+    }
+
+    .glow-button {
+      animation: glow-blink 1s ease-in-out infinite;
+      transition: transform 0.2s;
+    }
+
+    .glow-button:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .blink {
+      animation: blink 1s infinite;
+    }
   </style>
 </head>
 <body class="font-avenir antialiased bg-black text-white">
 
   <!-- Header -->
   <header class="bg-blue-900 text-white py-6 font-sans">
-    <div class="container mx-auto px-4">
-      <h1 class="text-3xl font-bold text-center">MAF SURABAYA</h1>
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <button id="menuToggle" class="flex items-center gap-2 text-white text-xl focus:outline-none">
+        ☰ <span class="blink font-semibold tracking-wider">MENU</span>
+      </button>
     </div>
   </header>
 
-  <!-- Menu -->
-  <nav class="bg-yellow-400 text-black py-3 shadow-md font-sans">
-    <div class="container mx-auto px-4">
-      <ul class="flex flex-col md:flex-row md:space-x-8">
-        <li class="border-b border-yellow-300 md:border-none py-2 md:py-0"><a href="#beranda" class="block hover:underline">Beranda</a></li>
-        <li class="border-b border-yellow-300 md:border-none py-2 md:py-0"><a href="galeri.html" class="block hover:underline">Galeri</a></li>
-        <li class="border-b border-yellow-300 md:border-none py-2 md:py-0"><a href="#lowongan" class="block hover:underline">Lowongan</a></li>
-        <li class="py-2 md:py-0"><a href="register.html" class="block hover:underline">Registrasi</a></li>
+  <!-- Dropdown Menu (Elegan) -->
+  <nav id="navMenu" class="hidden bg-gray-900 text-white font-sans shadow-md">
+    <div class="container mx-auto px-4 py-2">
+      <ul class="space-y-2">
+        <li>
+          <a href="#beranda" class="block px-4 py-2 rounded hover:bg-gray-700 transition duration-200">Beranda</a>
+        </li>
+        <li>
+          <a href="galeri.html" class="block px-4 py-2 rounded hover:bg-gray-700 transition duration-200">Galeri</a>
+        </li>
+        <li>
+          <a href="#lowongan" class="block px-4 py-2 rounded hover:bg-gray-700 transition duration-200">Lowongan</a>
+        </li>
+        <li>
+          <a href="register.html" class="block px-4 py-2 rounded hover:bg-gray-700 transition duration-200">Registrasi</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -37,20 +76,24 @@
   <!-- Beranda -->
   <section id="beranda" class="py-12 text-center bg-black">
     <div class="container mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-white">Selamat Datang di MAF Surabaya</h2>
+      <h2 class="text-xl md:text-2xl font-bold mb-6 text-white font-mono">
+        Selamat Datang di MAF Surabaya
+      </h2>
       <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
         MAF Surabaya adalah perusahaan berkembang di bidang jasa perdagangan internasional yang membuka kesempatan karier bagi para profesional muda. Kami berkomitmen untuk menciptakan lingkungan kerja yang dinamis, inklusif, dan penuh peluang berkembang.
       </p>
-      <a href="register.html" class="bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800 transition">Registrasi Sekarang</a>
+      <a href="register.html" class="bg-blue-700 text-white px-6 py-2 rounded glow-button">
+        Registrasi Sekarang
+      </a>
     </div>
   </section>
 
   <!-- Lowongan -->
-  <section id="lowongan" class="py-12 bg-zinc-900">
+  <section id="lowongan" class="py-12 bg-white">
     <div class="container mx-auto px-4">
-      <h3 class="text-xl font-bold mb-2 text-white">Lowongan Pekerjaan</h3>
-      <p class="text-sm text-gray-400 mb-4">(Periode Juli–Agustus 2025)</p>
-      <ul class="list-disc list-inside space-y-3 text-gray-200">
+      <h3 class="text-xl font-bold mb-2 text-black">Lowongan Pekerjaan</h3>
+      <p class="text-sm text-gray-600 mb-4">(Periode Juli–Agustus 2025)</p>
+      <ul class="list-disc list-inside space-y-3 text-gray-700">
         <li><strong>HRD</strong> – Minimal pendidikan S1 dan memiliki pengalaman kerja.</li>
         <li><strong>Staff Administrasi</strong> – Minimal pendidikan SMA/SMK sederajat.</li>
         <li><strong>Staff Office</strong> – Minimal pendidikan SMA/SMK sederajat.</li>
@@ -59,10 +102,22 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-blue-900 text-white text-center py-6 mt-10">
-    <p class="mb-2">📍 Alamat: Jl. Panglima Sudirman 10-18 Surabaya</p>
-    <p>© 2025 MAF Surabaya. All rights reserved.</p>
+  <footer class="bg-blue-900 text-gray-300 text-center py-4 mt-10 text-sm">
+    <div class="container mx-auto px-4">
+      <p class="mb-1">📍 Jl. Panglima Sudirman 10-18, Surabaya</p>
+      <p class="text-xs text-gray-400">© 2025 MAF Surabaya. All rights reserved.</p>
+    </div>
   </footer>
 
+  <!-- Toggle Script -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+    });
+  </script>
+
 </body>
-</html>
+            </html>
