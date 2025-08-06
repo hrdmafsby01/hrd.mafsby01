@@ -44,7 +44,7 @@
 </head>
 <body class="font-avenir antialiased bg-black text-white">
 
-  <!-- Audio -->
+  <!-- Suara Cekrek -->
   <audio id="soundCekrek" src="cekrek.mp3" preload="auto"></audio>
 
   <!-- Header -->
@@ -79,12 +79,12 @@
     </div>
   </section>
 
-  <!-- Lowongan dengan Efek Diketik -->
+  <!-- Lowongan -->
   <section id="lowongan" class="py-12 bg-white">
     <div class="container mx-auto px-4">
       <h3 class="text-xl font-bold mb-2 text-black">Lowongan Pekerjaan</h3>
-      <p id="type-desc" class="text-sm text-gray-600 mb-4 whitespace-pre-line"></p>
-      <ul id="type-list" class="list-disc list-inside space-y-3 text-gray-700 whitespace-pre-line"></ul>
+      <p id="type-desc" class="text-sm text-gray-600 mb-4 whitespace-pre-line min-h-[24px]"></p>
+      <ul id="type-list" class="list-disc list-inside space-y-3 text-gray-700 whitespace-pre-line min-h-[180px]"></ul>
     </div>
   </section>
 
@@ -114,14 +114,14 @@
       playCekrek();
     });
 
-    // Tambahkan suara ke semua link & tombol
+    // Efek suara ke semua link dan tombol
     document.querySelectorAll('a, button').forEach(el => {
       el.addEventListener('click', () => {
         playCekrek();
       });
     });
 
-    // Efek Ketik (Lowongan)
+    // Efek Ketik (Looping)
     const descText = "(Periode Juli–Agustus 2025)";
     const listItems = [
       "• HRD – Minimal pendidikan S1 dan memiliki pengalaman kerja.",
@@ -129,7 +129,11 @@
       "• Staff Office – Minimal pendidikan SMA/SMK sederajat."
     ];
 
+    const descEl = document.getElementById('type-desc');
+    const listEl = document.getElementById('type-list');
+
     function typeText(targetEl, text, delay = 30, callback) {
+      targetEl.textContent = "";
       let i = 0;
       function typing() {
         if (i < text.length) {
@@ -143,23 +147,30 @@
       typing();
     }
 
-    const descEl = document.getElementById('type-desc');
-    const listEl = document.getElementById('type-list');
+    function startTypingLoop() {
+      descEl.textContent = "";
+      listEl.innerHTML = "";
 
-    typeText(descEl, descText, 40, () => {
-      let index = 0;
-      function typeNextList() {
-        if (index < listItems.length) {
-          const li = document.createElement('li');
-          listEl.appendChild(li);
-          typeText(li, listItems[index], 30, () => {
-            index++;
-            setTimeout(typeNextList, 400);
-          });
+      typeText(descEl, descText, 40, () => {
+        let index = 0;
+        function typeNextList() {
+          if (index < listItems.length) {
+            const li = document.createElement('li');
+            listEl.appendChild(li);
+            typeText(li, listItems[index], 30, () => {
+              index++;
+              setTimeout(typeNextList, 400);
+            });
+          } else {
+            setTimeout(startTypingLoop, 3000); // ulangi setelah 3 detik
+          }
         }
-      }
-      typeNextList();
-    });
+        typeNextList();
+      });
+    }
+
+    startTypingLoop();
   </script>
+
 </body>
-</html>
+  </html>
