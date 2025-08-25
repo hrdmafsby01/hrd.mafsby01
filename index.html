@@ -5,21 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PT. MAF Surabaya</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     @layer utilities {
-      .font-avenir {
-        font-family: Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+      .font-inter {
+        font-family: 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
+      }
+      .font-mono {
+        font-family: 'Roboto Mono', monospace;
       }
     }
 
     @keyframes glow-blink {
       0%, 100% {
         opacity: 1;
-        box-shadow: 0 0 10px rgba(0, 255, 255, 0.9), 0 0 20px rgba(0, 255, 255, 0.7);
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.9),
+                    0 0 20px rgba(0, 255, 255, 0.7);
       }
       50% {
         opacity: 0.7;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 40px rgba(0, 255, 255, 1);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 1),
+                    0 0 40px rgba(0, 255, 255, 1);
       }
     }
 
@@ -42,22 +51,25 @@
     }
   </style>
 </head>
-<body class="font-avenir antialiased bg-black text-white">
+<body class="font-inter antialiased bg-black text-white">
 
   <!-- Suara Cekrek -->
   <audio id="soundCekrek" src="cekrek.mp3" preload="auto"></audio>
 
   <!-- Header -->
-  <header class="bg-blue-900 text-white py-6 font-sans">
+  <header class="bg-blue-900 text-white py-6">
     <div class="container mx-auto px-4 flex justify-between items-center">
-      <button id="menuToggle" class="flex items-center gap-2 text-white text-xl focus:outline-none">
+      <!-- Menu di kiri -->
+      <button id="menuToggle" class="flex items-center gap-2 text-white text-lg focus:outline-none">
         ☰ <span class="blink font-semibold tracking-wider">MENU</span>
       </button>
+      <!-- Logo di kanan -->
+      <img src="mdt.png" alt="Logo" class="h-10 w-auto">
     </div>
   </header>
 
   <!-- Dropdown Menu -->
-  <nav id="navMenu" class="hidden bg-gray-900 text-white font-sans shadow-md">
+  <nav id="navMenu" class="hidden bg-gray-900 text-white shadow-md">
     <div class="container mx-auto px-4 py-2">
       <ul class="space-y-2">
         <li><a href="#beranda" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Beranda</a></li>
@@ -81,13 +93,13 @@
   <!-- Lowongan -->
   <section id="lowongan" class="py-12 bg-white">
     <div class="container mx-auto px-4 text-center">
-      <h3 class="text-xl font-bold mb-2 text-black">Lowongan Pekerjaan</h3>
-      <p id="type-desc" class="text-sm text-gray-600 mb-4 whitespace-pre-line min-h-[24px]"></p>
-      <ul id="type-list" class="list-disc list-inside space-y-3 text-gray-700 text-left whitespace-pre-line min-h-[180px] max-w-xl mx-auto"></ul>
+      <h3 class="text-xl font-bold mb-2 text-black font-inter">Lowongan Pekerjaan</h3>
+      <p id="type-desc" class="text-sm text-gray-600 mb-4 whitespace-pre-line min-h-[24px] font-mono"></p>
+      <ul id="type-list" class="list-disc list-inside space-y-3 text-gray-700 text-left whitespace-pre-line min-h-[180px] max-w-xl mx-auto font-mono"></ul>
 
       <!-- Tombol Lamar -->
       <div class="mt-8">
-        <a href="register.html" class="bg-blue-700 text-white px-6 py-2 rounded glow-button">LAMAR</a>
+        <a href="register.html" class="bg-blue-700 text-white px-6 py-2 rounded glow-button font-semibold">LAMAR</a>
       </div>
     </div>
   </section>
@@ -177,4 +189,4 @@
   </script>
 
 </body>
-</html>
+  </html>
