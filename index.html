@@ -5,188 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PT. MAF Surabaya</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    @layer utilities {
-      .font-inter {
-        font-family: 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
-      }
-      .font-mono {
-        font-family: 'Roboto Mono', monospace;
-      }
-    }
-
-    @keyframes glow-blink {
-      0%, 100% {
-        opacity: 1;
-        box-shadow: 0 0 10px rgba(0, 255, 255, 0.9),
-                    0 0 20px rgba(0, 255, 255, 0.7);
-      }
-      50% {
-        opacity: 0.7;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 1),
-                    0 0 40px rgba(0, 255, 255, 1);
-      }
-    }
-
-    .glow-button {
-      animation: glow-blink 1s ease-in-out infinite;
-      transition: transform 0.2s;
-    }
-
-    .glow-button:hover {
-      transform: scale(1.05);
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
+    body { font-family: 'Poppins', sans-serif; }
     .blink {
       animation: blink 1s infinite;
     }
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
   </style>
 </head>
-<body class="font-inter antialiased bg-black text-white">
-
-  <!-- Suara Cekrek -->
-  <audio id="soundCekrek" src="cekrek.mp3" preload="auto"></audio>
+<body class="bg-gray-100">
 
   <!-- Header -->
-  <header class="bg-blue-900 text-white py-6">
+  <header class="bg-blue-900 text-white py-6 font-sans">
     <div class="container mx-auto px-4 flex justify-between items-center">
-      <!-- Menu di kiri -->
-      <button id="menuToggle" class="flex items-center gap-2 text-white text-lg focus:outline-none">
+      <button id="menuToggle" class="flex items-center gap-3 text-white text-xl focus:outline-none">
         ☰ <span class="blink font-semibold tracking-wider">MENU</span>
       </button>
       <!-- Logo di kanan -->
-      <img src="mdt.png" alt="Logo" class="h-10 w-auto">
+      <img src="images/logo/mdt.jpeg" alt="Logo" class="h-10 w-auto">
     </div>
   </header>
 
-  <!-- Dropdown Menu -->
-  <nav id="navMenu" class="hidden bg-gray-900 text-white shadow-md">
-    <div class="container mx-auto px-4 py-2">
-      <ul class="space-y-2">
-        <li><a href="#beranda" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Beranda</a></li>
-        <li><a href="galeri.html" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Galeri</a></li>
-        <li><a href="#lowongan" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Lowongan</a></li>
-        <li><a href="register.html" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Registrasi</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Beranda -->
-  <section id="beranda" class="py-12 text-center bg-black">
-    <div class="container mx-auto px-4">
-      <h2 class="text-xl md:text-2xl font-bold mb-6 font-mono">Selamat Datang di MAF Surabaya</h2>
-      <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
-        MAF Surabaya adalah perusahaan berkembang di bidang jasa perdagangan internasional yang membuka kesempatan karier bagi para profesional muda. Kami berkomitmen untuk menciptakan lingkungan kerja yang dinamis, inklusif, dan penuh peluang berkembang.
-      </p>
-    </div>
-  </section>
-
-  <!-- Lowongan -->
-  <section id="lowongan" class="py-12 bg-white">
-    <div class="container mx-auto px-4 text-center">
-      <h3 class="text-xl font-bold mb-2 text-black font-inter">Lowongan Pekerjaan</h3>
-      <p id="type-desc" class="text-sm text-gray-600 mb-4 whitespace-pre-line min-h-[24px] font-mono"></p>
-      <ul id="type-list" class="list-disc list-inside space-y-3 text-gray-700 text-left whitespace-pre-line min-h-[180px] max-w-xl mx-auto font-mono"></ul>
-
-      <!-- Tombol Lamar -->
-      <div class="mt-8">
-        <a href="register.html" class="bg-blue-700 text-white px-6 py-2 rounded glow-button font-semibold">LAMAR</a>
-      </div>
-    </div>
-  </section>
+  <!-- Konten Utama -->
+  <main class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-center text-blue-900 mb-6">Selamat Datang di PT. MAF Surabaya</h1>
+    <p class="text-center text-gray-700">
+      Website resmi untuk informasi profil perusahaan, lowongan kerja, dan registrasi online.
+    </p>
+  </main>
 
   <!-- Footer -->
-  <footer class="bg-blue-900 text-gray-300 text-center py-4 mt-10 text-sm">
-    <div class="container mx-auto px-4">
-      <p class="mb-1">📍 Jl. Panglima Sudirman 10-18, Surabaya</p>
-      <p class="text-xs text-gray-400">© 2025 MAF Surabaya. All rights reserved.</p>
+  <footer class="bg-blue-900 text-white py-4 mt-8">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 PT. MAF Surabaya. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Script -->
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    const soundCekrek = document.getElementById('soundCekrek');
-
-    function playCekrek() {
-      if (soundCekrek) {
-        soundCekrek.currentTime = 0;
-        soundCekrek.play();
-      }
-    }
-
-    menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('hidden');
-      playCekrek();
-    });
-
-    // Efek suara ke semua link dan tombol
-    document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('click', () => {
-        playCekrek();
-      });
-    });
-
-    // Efek Ketik (Looping)
-    const descText = "(Periode Agustus–September 2025)";
-    const listItems = [
-      "• HRD – Minimal pendidikan S1 dan memiliki pengalaman kerja.",
-      "• Staff Administrasi – Minimal pendidikan SMA/SMK sederajat.",
-      "• Staff Office – Minimal pendidikan SMA/SMK sederajat."
-    ];
-
-    const descEl = document.getElementById('type-desc');
-    const listEl = document.getElementById('type-list');
-
-    function typeText(targetEl, text, delay = 30, callback) {
-      targetEl.textContent = "";
-      let i = 0;
-      function typing() {
-        if (i < text.length) {
-          targetEl.textContent += text.charAt(i);
-          i++;
-          setTimeout(typing, delay);
-        } else if (callback) {
-          callback();
-        }
-      }
-      typing();
-    }
-
-    function startTypingLoop() {
-      descEl.textContent = "";
-      listEl.innerHTML = "";
-
-      typeText(descEl, descText, 40, () => {
-        let index = 0;
-        function typeNextList() {
-          if (index < listItems.length) {
-            const li = document.createElement('li');
-            listEl.appendChild(li);
-            typeText(li, listItems[index], 30, () => {
-              index++;
-              setTimeout(typeNextList, 400);
-            });
-          } else {
-            setTimeout(startTypingLoop, 3000); // ulangi setelah 3 detik
-          }
-        }
-        typeNextList();
-      });
-    }
-
-    startTypingLoop();
-  </script>
-
 </body>
-  </html>
+</html>
