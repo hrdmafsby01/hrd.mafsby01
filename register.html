@@ -11,9 +11,27 @@
         font-family: Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
       }
     }
+    /* Animasi untuk teks berjalan */
+    .marquee {
+      white-space: nowrap;
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 15s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
   </style>
 </head>
 <body class="font-avenir antialiased bg-black text-white">
+
+  <!-- Tulisan Berjalan -->
+  <div class="bg-red-600 text-white font-bold py-2 overflow-hidden">
+    <p class="marquee">
+      🚨 seluruh proses registrasi tanpa dipungut biaya apapun, harap waspada 🚨
+    </p>
+  </div>
 
   <!-- Audio Cekrek -->
   <audio id="cekrekSound" src="cekrek.mp3" preload="auto"></audio>
@@ -166,4 +184,4 @@
   </script>
 
 </body>
-            </html>
+</html>
