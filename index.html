@@ -64,6 +64,21 @@
     .logo-anim {
       animation: logoBounce 2s infinite ease-in-out;
     }
+
+    /* 🔹 Animasi Menu Slide Down */
+    @keyframes slideDown {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    .menu-slide {
+      animation: slideDown 0.3s ease-out;
+    }
   </style>
 </head>
 <body class="font-inter antialiased bg-black text-white">
@@ -71,8 +86,8 @@
   <!-- Suara Cekrek -->
   <audio id="soundCekrek" src="cekrek.mp3" preload="auto"></audio>
 
-  <!-- Header -->
-  <header class="bg-blue-900 text-white py-6">
+  <!-- Header + Menu -->
+  <header class="bg-blue-900 text-white py-6 relative">
     <div class="container mx-auto px-4 flex justify-between items-center">
       <!-- Menu di kiri -->
       <button id="menuToggle" class="flex items-center gap-2 text-white text-lg focus:outline-none">
@@ -81,19 +96,19 @@
       <!-- Logo di kanan + animasi -->
       <img src="mdt.jpeg" alt="Logo" class="h-10 w-auto logo-anim">
     </div>
-  </header>
 
-  <!-- Dropdown Menu -->
-  <nav id="navMenu" class="hidden bg-gray-900 text-white shadow-md">
-    <div class="container mx-auto px-4 py-2">
-      <ul class="space-y-2">
-        <li><a href="#beranda" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Beranda</a></li>
-        <li><a href="galeri.html" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Galeri</a></li>
-        <li><a href="#lowongan" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Lowongan</a></li>
-        <li><a href="register.html" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Registrasi</a></li>
-      </ul>
-    </div>
-  </nav>
+    <!-- Dropdown Menu (absolute) -->
+    <nav id="navMenu" class="hidden absolute top-full left-0 w-full bg-gray-900 text-white shadow-md z-50">
+      <div class="container mx-auto px-4 py-2">
+        <ul class="space-y-2">
+          <li><a href="#beranda" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Beranda</a></li>
+          <li><a href="galeri.html" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Galeri</a></li>
+          <li><a href="#lowongan" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Lowongan</a></li>
+          <li><a href="register.html" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Registrasi</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
   <!-- Beranda -->
   <section id="beranda" class="py-12 text-center bg-black">
@@ -141,7 +156,13 @@
     }
 
     menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('hidden');
+      if (navMenu.classList.contains('hidden')) {
+        navMenu.classList.remove('hidden');
+        navMenu.classList.add('menu-slide');
+      } else {
+        navMenu.classList.add('hidden');
+        navMenu.classList.remove('menu-slide');
+      }
       playCekrek();
     });
 
