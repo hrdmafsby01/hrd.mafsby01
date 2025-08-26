@@ -49,6 +49,21 @@
     .blink {
       animation: blink 1s infinite;
     }
+
+    /* 🔹 Animasi untuk Logo */
+    @keyframes logoBounce {
+      0%, 100% {
+        transform: translateY(0);
+        filter: drop-shadow(0 0 8px cyan);
+      }
+      50% {
+        transform: translateY(-12px);
+        filter: drop-shadow(0 0 20px cyan);
+      }
+    }
+    .logo-anim {
+      animation: logoBounce 2s infinite ease-in-out;
+    }
   </style>
 </head>
 <body class="font-inter antialiased bg-black text-white">
@@ -63,8 +78,8 @@
       <button id="menuToggle" class="flex items-center gap-2 text-white text-lg focus:outline-none">
         ☰ <span class="blink font-semibold tracking-wider">MENU</span>
       </button>
-      <!-- Logo di kanan -->
-      <img src="mdt.jpeg" alt="Logo" class="h-10 w-auto">
+      <!-- Logo di kanan + animasi -->
+      <img src="mdt.jpeg" alt="Logo" class="h-10 w-auto logo-anim">
     </div>
   </header>
 
