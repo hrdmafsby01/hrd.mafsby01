@@ -7,221 +7,188 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
-    @layer utilities {
-      .font-inter {
-        font-family: 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
-      }
-      .font-mono {
-        font-family: 'Roboto Mono', monospace;
-      }
+    body {
+      font-family: 'Inter', sans-serif;
     }
 
-    @keyframes glow-blink {
-      0%, 100% {
-        opacity: 1;
-        box-shadow: 0 0 10px rgba(0, 255, 255, 0.9),
-                    0 0 20px rgba(0, 255, 255, 0.7);
-      }
-      50% {
-        opacity: 0.7;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 1),
-                    0 0 40px rgba(0, 255, 255, 1);
-      }
+    /* Background animasi gradient */
+    .animated-bg {
+      background: linear-gradient(-45deg, #0f172a, #1e3a8a, #0ea5e9, #38bdf8);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
     }
 
-    .glow-button {
-      animation: glow-blink 1s ease-in-out infinite;
-      transition: transform 0.2s;
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
-    .glow-button:hover {
+    /* Logo glow */
+    .logo-glow {
+      filter: drop-shadow(0 0 12px cyan);
+      transition: transform 0.3s;
+    }
+    .logo-glow:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 25px cyan);
+    }
+
+    /* Tombol neon */
+    .neon-btn {
+      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+      color: white;
+      font-weight: 600;
+      border-radius: 9999px;
+      padding: 0.6rem 2rem;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.7);
+      transition: all 0.3s;
+    }
+    .neon-btn:hover {
+      box-shadow: 0 0 25px rgba(56, 189, 248, 1);
       transform: scale(1.05);
     }
 
+    /* Menu dropdown */
+    @keyframes fadeDown {
+      from {opacity: 0; transform: translateY(-15px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    .fadeDown { animation: fadeDown 0.3s ease-out; }
+
+    /* Efek ketik */
+    .typing {
+      border-right: 2px solid cyan;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blink 0.7s infinite;
+    }
     @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    .blink {
-      animation: blink 1s infinite;
-    }
-
-    /* 🔹 Animasi untuk Logo */
-    @keyframes logoBounce {
-      0%, 100% {
-        transform: translateY(0);
-        filter: drop-shadow(0 0 8px cyan);
-      }
-      50% {
-        transform: translateY(-12px);
-        filter: drop-shadow(0 0 20px cyan);
-      }
-    }
-    .logo-anim {
-      animation: logoBounce 2s infinite ease-in-out;
-    }
-
-    /* 🔹 Animasi Menu Slide Down */
-    @keyframes slideDown {
-      from {
-        transform: translateY(-20px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-    .menu-slide {
-      animation: slideDown 0.3s ease-out;
+      0%,100% { border-color: transparent; }
+      50% { border-color: cyan; }
     }
   </style>
 </head>
-<body class="font-inter antialiased bg-black text-white">
+<body class="antialiased bg-black text-white">
 
-  <!-- Suara Cekrek -->
-  <audio id="soundCekrek" src="cekrek.mp3" preload="auto"></audio>
-
-  <!-- Header + Menu -->
-  <header class="bg-blue-900 text-white py-6 relative">
+  <!-- Header -->
+  <header class="animated-bg py-6 shadow-lg relative">
     <div class="container mx-auto px-4 flex justify-between items-center">
-      <!-- Menu di kiri -->
-      <button id="menuToggle" class="flex items-center gap-2 text-white text-lg focus:outline-none">
-        ☰ <span class="blink font-semibold tracking-wider">MENU</span>
+      <!-- Menu -->
+      <button id="menuToggle" class="text-lg flex items-center gap-2 focus:outline-none">
+        <span class="text-cyan-300">☰</span> 
+        <span class="font-bold tracking-wide">MENU</span>
       </button>
-      <!-- Logo di kanan + animasi -->
-      <img src="mdt.jpeg" alt="Logo" class="h-10 w-auto logo-anim">
+
+      <!-- Logo -->
+      <img src="mdt.jpeg" alt="Logo" class="h-12 w-auto logo-glow rounded-full">
     </div>
 
-    <!-- Dropdown Menu (absolute) -->
-    <nav id="navMenu" class="hidden absolute top-full left-0 w-full bg-slate-800 text-white shadow-md z-50">
-      <div class="container mx-auto px-4 py-2">
-        <ul class="space-y-2">
-          <li><a href="#beranda" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Beranda</a></li>
-          <li><a href="galeri.html" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Galeri</a></li>
-          <li><a href="#lowongan" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Lowongan</a></li>
-          <li><a href="register.html" class="block px-4 py-2 rounded hover:bg-gray-700 transition">Registrasi</a></li>
+    <!-- Dropdown -->
+    <nav id="navMenu" class="hidden absolute top-full left-0 w-full bg-slate-900 text-white shadow-lg z-50">
+      <div class="container mx-auto px-4 py-4">
+        <ul class="space-y-3">
+          <li><a href="#beranda" class="block px-4 py-2 rounded hover:bg-slate-700 transition">🏠 Beranda</a></li>
+          <li><a href="galeri.html" class="block px-4 py-2 rounded hover:bg-slate-700 transition">🖼️ Galeri</a></li>
+          <li><a href="#lowongan" class="block px-4 py-2 rounded hover:bg-slate-700 transition">💼 Lowongan</a></li>
+          <li><a href="register.html" class="block px-4 py-2 rounded hover:bg-slate-700 transition">📝 Registrasi</a></li>
         </ul>
       </div>
     </nav>
   </header>
 
-  <!-- Beranda -->
-  <section id="beranda" class="py-12 text-center bg-black">
+  <!-- Hero -->
+  <section id="beranda" class="py-16 text-center relative">
     <div class="container mx-auto px-4">
-      <h2 class="text-xl md:text-2xl font-bold mb-6 font-mono">Selamat Datang di MAF Surabaya</h2>
-      <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
-        MAF Surabaya adalah perusahaan berkembang di bidang jasa perdagangan internasional yang membuka kesempatan karier bagi para profesional muda. Kami berkomitmen untuk menciptakan lingkungan kerja yang dinamis, inklusif, dan penuh peluang berkembang.
+      <h1 class="text-3xl md:text-5xl font-bold font-[Orbitron] text-cyan-400 drop-shadow-lg mb-6">
+        Selamat Datang di <span class="text-white">MAF Surabaya</span>
+      </h1>
+      <p class="text-gray-300 max-w-2xl mx-auto mb-8">
+        Perusahaan berkembang di bidang <span class="text-cyan-300 font-semibold">jasa perdagangan internasional</span> yang membuka kesempatan karier bagi generasi muda yang siap berkembang.
       </p>
+      <a href="#lowongan" class="neon-btn">Lihat Lowongan</a>
     </div>
   </section>
 
   <!-- Lowongan -->
-  <section id="lowongan" class="py-12 bg-white">
+  <section id="lowongan" class="py-16 bg-slate-100 text-black">
     <div class="container mx-auto px-4 text-center">
-      <h3 class="text-xl font-bold mb-2 text-black font-inter">Lowongan Pekerjaan</h3>
-      <p id="type-desc" class="text-sm text-gray-600 mb-4 whitespace-pre-line min-h-[24px] font-mono"></p>
-      <ul id="type-list" class="list-disc list-inside space-y-3 text-gray-700 text-left whitespace-pre-line min-h-[180px] max-w-xl mx-auto font-mono"></ul>
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 font-[Orbitron] text-slate-900">Lowongan Pekerjaan</h2>
+      <p id="type-desc" class="typing text-sm text-gray-600 mb-6 min-h-[24px] font-mono"></p>
 
-      <!-- Tombol Lamar -->
-      <div class="mt-8">
-        <a href="register.html" class="bg-blue-700 text-white px-6 py-2 rounded glow-button font-semibold">LAMAR</a>
+      <ul id="type-list" class="list-disc list-inside text-left max-w-lg mx-auto space-y-3 font-mono text-gray-800"></ul>
+
+      <div class="mt-10">
+        <a href="register.html" class="neon-btn">LAMAR SEKARANG</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-blue-900 text-gray-300 text-center py-4 mt-10 text-sm">
-    <div class="container mx-auto px-4">
-      <p class="mb-1">📍 Jl. Panglima Sudirman 10-18, Surabaya</p>
-      <p class="text-xs text-gray-400">© 2025 MAF Surabaya. All rights reserved.</p>
-    </div>
+  <footer class="animated-bg text-center py-6 text-gray-200 text-sm mt-16">
+    <p class="mb-1">📍 Jl. Panglima Sudirman 10-18, Surabaya</p>
+    <p class="text-xs">© 2025 MAF Surabaya. All Rights Reserved.</p>
   </footer>
 
   <!-- Script -->
   <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    const soundCekrek = document.getElementById('soundCekrek');
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
 
-    function playCekrek() {
-      if (soundCekrek) {
-        soundCekrek.currentTime = 0;
-        soundCekrek.play();
-      }
-    }
-
-    menuToggle.addEventListener('click', () => {
-      if (navMenu.classList.contains('hidden')) {
-        navMenu.classList.remove('hidden');
-        navMenu.classList.add('menu-slide');
-      } else {
-        navMenu.classList.add('hidden');
-        navMenu.classList.remove('menu-slide');
-      }
-      playCekrek();
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("hidden");
+      navMenu.classList.toggle("fadeDown");
     });
 
-    // Efek suara ke semua link dan tombol
-    document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('click', () => {
-        playCekrek();
-      });
-    });
-
-    // Efek Ketik (Looping)
+    // Efek ketik
     const descText = "(Periode Agustus–September 2025)";
     const listItems = [
-      "• HRD – Minimal pendidikan S1 dan memiliki pengalaman kerja.",
-      "• Staff Administrasi – Minimal pendidikan SMA/SMK sederajat.",
-      "• Staff Office – Minimal pendidikan SMA/SMK sederajat."
+      "HRD – Minimal pendidikan S1 + pengalaman kerja.",
+      "Staff Administrasi – Minimal pendidikan SMA/SMK sederajat.",
+      "Staff Office – Minimal pendidikan SMA/SMK sederajat."
     ];
 
-    const descEl = document.getElementById('type-desc');
-    const listEl = document.getElementById('type-list');
+    const descEl = document.getElementById("type-desc");
+    const listEl = document.getElementById("type-list");
 
-    function typeText(targetEl, text, delay = 30, callback) {
-      targetEl.textContent = "";
+    function typeText(el, text, speed = 40, cb) {
+      el.textContent = "";
       let i = 0;
       function typing() {
         if (i < text.length) {
-          targetEl.textContent += text.charAt(i);
+          el.textContent += text.charAt(i);
           i++;
-          setTimeout(typing, delay);
-        } else if (callback) {
-          callback();
-        }
+          setTimeout(typing, speed);
+        } else if (cb) cb();
       }
       typing();
     }
 
-    function startTypingLoop() {
+    function startLoop() {
       descEl.textContent = "";
       listEl.innerHTML = "";
 
-      typeText(descEl, descText, 40, () => {
-        let index = 0;
-        function typeNextList() {
-          if (index < listItems.length) {
-            const li = document.createElement('li');
+      typeText(descEl, descText, 50, () => {
+        let idx = 0;
+        function nextItem() {
+          if (idx < listItems.length) {
+            const li = document.createElement("li");
             listEl.appendChild(li);
-            typeText(li, listItems[index], 30, () => {
-              index++;
-              setTimeout(typeNextList, 400);
+            typeText(li, listItems[idx], 30, () => {
+              idx++;
+              setTimeout(nextItem, 400);
             });
           } else {
-            setTimeout(startTypingLoop, 3000); // ulangi setelah 3 detik
+            setTimeout(startLoop, 4000);
           }
         }
-        typeNextList();
+        nextItem();
       });
     }
-
-    startTypingLoop();
+    startLoop();
   </script>
 
 </body>
