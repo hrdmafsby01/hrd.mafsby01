@@ -121,9 +121,11 @@
   <section id="lowongan" class="py-16 bg-slate-100 text-black">
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-2xl md:text-3xl heading mb-4 text-slate-900">Lowongan Pekerjaan</h2>
-      <p id="type-desc" class="typing text-sm text-gray-600 mb-6 min-h-[24px] font-mono"></p>
+      
+      <!-- Tinggi tetap agar background tidak berubah saat ketik -->
+      <p id="type-desc" class="typing text-sm text-gray-600 mb-6 font-mono min-h-[24px]"></p>
 
-      <ul id="type-list" class="list-disc list-inside text-left max-w-lg mx-auto space-y-3 font-mono text-gray-800"></ul>
+      <ul id="type-list" class="list-disc list-inside text-left max-w-lg mx-auto space-y-3 font-mono text-gray-800 min-h-[120px]"></ul>
 
       <div class="mt-10">
         <a href="register.html" class="neon-btn">LAMAR SEKARANG</a>
@@ -148,7 +150,7 @@
     });
 
     // Efek ketik
-    const descText = "(Periode Agustus–September 2025)";
+    const descText = "(Periode Oktober–Desember 2025)"; // ✅ Periode diperbarui
     const listItems = [
       "HRD – Minimal pendidikan S1 + pengalaman kerja.",
       "Staff Administrasi – Minimal pendidikan SMA/SMK sederajat.",
