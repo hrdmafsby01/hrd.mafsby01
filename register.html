@@ -25,17 +25,18 @@
       backdrop-filter: blur(14px);
       border: 1px solid rgba(255,255,255,0.2);
     }
+    /* Tombol lebih mencolok */
     .neon-btn {
-      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+      background: linear-gradient(90deg, #ec4899, #8b5cf6); /* pink → ungu */
       color: white;
-      font-weight: 600;
+      font-weight: 700;
       border-radius: 9999px;
       padding: 0.6rem 2rem;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.7);
+      box-shadow: 0 0 15px rgba(236, 72, 153, 0.7);
       transition: all 0.3s;
     }
     .neon-btn:hover {
-      box-shadow: 0 0 25px rgba(56, 189, 248, 1);
+      box-shadow: 0 0 25px rgba(236, 72, 153, 1);
       transform: scale(1.05);
     }
 
@@ -96,31 +97,31 @@
       <!-- Nama -->
       <div>
         <label class="block text-sm mb-1">Nama Lengkap</label>
-        <input id="nama" type="text" placeholder="Masukkan nama lengkap" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:ring-2 focus:ring-cyan-400 outline-none" required/>
+        <input id="nama" type="text" placeholder="Masukkan nama lengkap" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:ring-2 focus:ring-pink-400 outline-none" required/>
       </div>
 
       <!-- Email -->
       <div>
         <label class="block text-sm mb-1">Email</label>
-        <input id="email" type="email" placeholder="Masukkan email aktif" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:ring-2 focus:ring-cyan-400 outline-none" required/>
+        <input id="email" type="email" placeholder="Masukkan email aktif" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:ring-2 focus:ring-pink-400 outline-none" required/>
       </div>
 
       <!-- No HP -->
       <div>
         <label class="block text-sm mb-1">Nomor HP / WhatsApp</label>
-        <input id="hp" type="tel" placeholder="Contoh: 08123456789" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:ring-2 focus:ring-cyan-400 outline-none" required/>
+        <input id="hp" type="tel" placeholder="Contoh: 08123456789" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:ring-2 focus:ring-pink-400 outline-none" required/>
       </div>
 
       <!-- Usia -->
       <div>
         <label class="block text-sm mb-1">Usia</label>
-        <input id="usia" type="number" min="18" max="60" placeholder="Masukkan usia" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:ring-2 focus:ring-cyan-400 outline-none" required/>
+        <input id="usia" type="number" min="18" max="60" placeholder="Masukkan usia" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:ring-2 focus:ring-pink-400 outline-none" required/>
       </div>
 
       <!-- Ijazah Terakhir -->
       <div>
         <label class="block text-sm mb-1">Ijazah Terakhir</label>
-        <select id="ijazahTerakhir" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white focus:ring-2 focus:ring-cyan-400 outline-none">
+        <select id="ijazahTerakhir" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white focus:ring-2 focus:ring-pink-400 outline-none">
           <option class="text-black">SLTA / SMK Sederajat</option>
           <option class="text-black">D1</option>
           <option class="text-black">D2</option>
@@ -131,10 +132,16 @@
         </select>
       </div>
 
+      <!-- Pengalaman Kerja -->
+      <div>
+        <label class="block text-sm mb-1">Pengalaman Kerja</label>
+        <textarea id="pengalaman" rows="4" placeholder="Tuliskan pengalaman kerja Anda (bisa lebih dari satu)" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:ring-2 focus:ring-pink-400 outline-none"></textarea>
+      </div>
+
       <!-- Posisi -->
       <div>
         <label class="block text-sm mb-1">Posisi yang Dilamar</label>
-        <select id="posisi" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white focus:ring-2 focus:ring-cyan-400 outline-none">
+        <select id="posisi" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white focus:ring-2 focus:ring-pink-400 outline-none">
           <option class="text-black">HRD</option>
           <option class="text-black">Staff Administrasi</option>
           <option class="text-black">Staff Office</option>
@@ -143,7 +150,7 @@
 
       <!-- Checkbox Pernyataan -->
       <div class="flex items-center space-x-2">
-        <input id="ijazah" type="checkbox" class="w-4 h-4 text-cyan-400 rounded focus:ring-cyan-500"/>
+        <input id="ijazah" type="checkbox" class="w-4 h-4 text-pink-400 rounded focus:ring-pink-500"/>
         <label for="ijazah" class="text-sm">Saya bersedia melampirkan file ijazah sebagai preview</label>
       </div>
 
@@ -176,10 +183,11 @@
       let hp     = document.getElementById("hp").value;
       let usia   = document.getElementById("usia").value;
       let ijazahTerakhir = document.getElementById("ijazahTerakhir").value;
+      let pengalaman = document.getElementById("pengalaman").value;
       let posisi = document.getElementById("posisi").value;
       let ijazah = document.getElementById("ijazah").checked ? "Ya, bersedia melampirkan ijazah" : "Tidak dicentang";
 
-      let pesan = `Halo Admin, saya ingin mendaftar:\n\nNama: ${nama}\nEmail: ${email}\nHP: ${hp}\nUsia: ${usia}\nIjazah Terakhir: ${ijazahTerakhir}\nPosisi: ${posisi}\nPernyataan Ijazah: ${ijazah}\n\nTerima kasih.`;
+      let pesan = `Halo Admin, saya ingin mendaftar:\n\nNama: ${nama}\nEmail: ${email}\nHP: ${hp}\nUsia: ${usia}\nIjazah Terakhir: ${ijazahTerakhir}\nPengalaman Kerja: ${pengalaman}\nPosisi: ${posisi}\nPernyataan Ijazah: ${ijazah}\n\nTerima kasih.`;
 
       let nomorAdmin = "6285176913170"; 
       let url = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesan)}`;
