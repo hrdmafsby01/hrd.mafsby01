@@ -38,10 +38,57 @@
       box-shadow: 0 0 25px rgba(56, 189, 248, 1);
       transform: scale(1.05);
     }
+
+    /* Tombol Panah Kembali */
+    .menu-btn {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 1.5rem;
+      color: white;
+      background: rgba(0,0,0,0.4);
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      z-index: 50;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* Marquee teks berjalan (tanpa background) */
+    .marquee {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      color: red;
+      padding: 4px 0;
+      font-size: 14px;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      text-align: center;
+    }
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 15s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
   </style>
 </head>
-<body class="animated-bg min-h-screen flex items-center justify-center p-6">
+<body class="animated-bg min-h-screen flex items-center justify-center p-6 relative">
 
+  <!-- Tombol Panah Kembali -->
+  <div class="menu-btn" onclick="goBack()">←</div>
+
+  <!-- Card Form -->
   <div class="glass rounded-2xl shadow-2xl p-8 w-full max-w-md text-white animate-fadeIn">
     <h1 class="text-2xl text-center text-cyan-300 mb-6">Registrasi Pelamar</h1>
     
@@ -62,6 +109,26 @@
       <div>
         <label class="block text-sm mb-1">Nomor HP / WhatsApp</label>
         <input id="hp" type="tel" placeholder="Contoh: 08123456789" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:ring-2 focus:ring-cyan-400 outline-none" required/>
+      </div>
+
+      <!-- Usia -->
+      <div>
+        <label class="block text-sm mb-1">Usia</label>
+        <input id="usia" type="number" min="18" max="60" placeholder="Masukkan usia" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:ring-2 focus:ring-cyan-400 outline-none" required/>
+      </div>
+
+      <!-- Ijazah Terakhir -->
+      <div>
+        <label class="block text-sm mb-1">Ijazah Terakhir</label>
+        <select id="ijazahTerakhir" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white focus:ring-2 focus:ring-cyan-400 outline-none">
+          <option class="text-black">SLTA / SMK Sederajat</option>
+          <option class="text-black">D1</option>
+          <option class="text-black">D2</option>
+          <option class="text-black">D3</option>
+          <option class="text-black">S1</option>
+          <option class="text-black">S2</option>
+          <option class="text-black">S3</option>
+        </select>
       </div>
 
       <!-- Posisi -->
@@ -89,19 +156,31 @@
     <p class="text-center text-xs text-gray-300 mt-6">© 2025 MAF Surabaya</p>
   </div>
 
+  <!-- Marquee Teks -->
+  <div class="marquee">
+    <span>⚠️ proses pendaftaran ini tidak dipungut biaya ⚠️</span>
+  </div>
+
   <script>
+    // Fungsi untuk tombol panah kembali
+    function goBack() {
+      window.location.href = "index.html";
+    }
+
+    // Form submit kirim ke WA
     document.getElementById("regForm").addEventListener("submit", function(e) {
       e.preventDefault();
 
       let nama   = document.getElementById("nama").value;
       let email  = document.getElementById("email").value;
       let hp     = document.getElementById("hp").value;
+      let usia   = document.getElementById("usia").value;
+      let ijazahTerakhir = document.getElementById("ijazahTerakhir").value;
       let posisi = document.getElementById("posisi").value;
       let ijazah = document.getElementById("ijazah").checked ? "Ya, bersedia melampirkan ijazah" : "Tidak dicentang";
 
-      let pesan = `Halo Admin, saya ingin mendaftar:\n\nNama: ${nama}\nEmail: ${email}\nHP: ${hp}\nPosisi: ${posisi}\nPernyataan Ijazah: ${ijazah}\n\nTerima kasih.`;
+      let pesan = `Halo Admin, saya ingin mendaftar:\n\nNama: ${nama}\nEmail: ${email}\nHP: ${hp}\nUsia: ${usia}\nIjazah Terakhir: ${ijazahTerakhir}\nPosisi: ${posisi}\nPernyataan Ijazah: ${ijazah}\n\nTerima kasih.`;
 
-      // nomor WA admin
       let nomorAdmin = "6285176913170"; 
       let url = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesan)}`;
 
