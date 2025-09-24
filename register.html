@@ -72,6 +72,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-align: center;
+      background: transparent;
     }
     .marquee span {
       display: inline-block;
@@ -84,7 +85,7 @@
     }
   </style>
 </head>
-<body class="animated-bg min-h-screen flex items-center justify-center p-6 relative">
+<body class="animated-bg min-h-screen flex flex-col items-center justify-center p-6 relative">
 
   <!-- Tombol Panah Kembali -->
   <div class="menu-btn" onclick="goBack()">←</div>
@@ -159,9 +160,13 @@
         <button type="submit" class="neon-btn w-full">Daftar Sekarang</button>
       </div>
     </form>
-
-    <p class="text-center text-xs text-gray-300 mt-6">© 2025 MAF Surabaya</p>
   </div>
+
+  <!-- Footer -->
+  <footer class="text-center text-gray-200 text-xs mt-6">
+    <p class="mb-1">📍 Jl. Embong Wungu No.27 (samping SMP PETRA) Gedung GBS, Surabaya</p>
+    <p>© 2025 MAF Surabaya. All Rights Reserved.</p>
+  </footer>
 
   <!-- Marquee Teks -->
   <div class="marquee">
