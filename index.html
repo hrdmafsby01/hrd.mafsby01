@@ -95,7 +95,6 @@
       <p class="text-gray-300 mb-6">
         Jl. Embong Wungu No.27 (samping SMP PETRA) <br> Gedung GBS, Lantai 6, Surabaya
       </p>
-      <!-- Gambar kantor sudah diganti -->
       <img src="gedung-gbs.png" alt="Gedung Kantor MAF Surabaya" class="mx-auto rounded-lg shadow-lg w-full max-w-md">
     </div>
   </section>
@@ -108,7 +107,6 @@
       </h2>
       <p id="type-desc" class="typing text-base text-cyan-300 mb-10 font-mono min-h-[28px]"></p>
 
-      <!-- Timeline -->
       <div id="job-list" class="relative max-w-3xl mx-auto text-left border-l-2 border-cyan-500 pl-6 space-y-10"></div>
 
       <div class="mt-12 text-center">
@@ -121,6 +119,18 @@
   <footer class="animated-bg text-center py-6 text-gray-200 text-sm mt-16">
     <p class="text-xs">© 2025 MAF Surabaya. All Rights Reserved.</p>
   </footer>
+
+  <!-- Musik Background -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="musik.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung audio.
+  </audio>
+
+  <!-- Tombol Mute/Unmute -->
+  <button id="muteBtn" 
+    class="fixed bottom-4 right-4 bg-cyan-600 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg text-lg hover:bg-cyan-500 transition">
+    🔊
+  </button>
 
   <!-- Script -->
   <script>
@@ -182,7 +192,23 @@
       });
     }
     startLoop();
+
+    // Musik Background
+    const bgMusic = document.getElementById("bgMusic");
+    const muteBtn = document.getElementById("muteBtn");
+
+    bgMusic.volume = 0.5;
+
+    muteBtn.addEventListener("click", () => {
+      if (bgMusic.muted) {
+        bgMusic.muted = false;
+        muteBtn.textContent = "🔊";
+      } else {
+        bgMusic.muted = true;
+        muteBtn.textContent = "🔇";
+      }
+    });
   </script>
 
 </body>
-</html>
+    </html>
