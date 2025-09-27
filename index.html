@@ -10,64 +10,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    h1, h2, h3, .heading {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-    }
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .heading { font-family: 'Montserrat', sans-serif; font-weight: 700; }
 
-    /* Background animasi gradient */
     .animated-bg {
       background: linear-gradient(-45deg, #0f172a, #1e3a8a, #0ea5e9, #38bdf8);
       background-size: 400% 400%;
       animation: gradientShift 10s ease infinite;
     }
-
     @keyframes gradientShift {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
     }
 
-    /* Logo glow */
-    .logo-glow {
-      filter: drop-shadow(0 0 12px cyan);
-      transition: transform 0.3s;
-    }
-    .logo-glow:hover {
-      transform: scale(1.1);
-      filter: drop-shadow(0 0 25px cyan);
-    }
+    .logo-glow { filter: drop-shadow(0 0 12px cyan); transition: transform 0.3s; }
+    .logo-glow:hover { transform: scale(1.1); filter: drop-shadow(0 0 25px cyan); }
 
-    /* Tombol neon */
     .neon-btn {
       background: linear-gradient(90deg, #0ea5e9, #38bdf8);
-      color: white;
-      font-weight: 600;
-      border-radius: 9999px;
-      padding: 0.6rem 2rem;
+      color: white; font-weight: 600;
+      border-radius: 9999px; padding: 0.6rem 2rem;
       box-shadow: 0 0 15px rgba(56, 189, 248, 0.7);
       transition: all 0.3s;
     }
-    .neon-btn:hover {
-      box-shadow: 0 0 25px rgba(56, 189, 248, 1);
-      transform: scale(1.05);
-    }
+    .neon-btn:hover { box-shadow: 0 0 25px rgba(56, 189, 248, 1); transform: scale(1.05); }
 
-    /* Menu dropdown */
-    @keyframes fadeDown {
-      from {opacity: 0; transform: translateY(-15px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-    .fadeDown { animation: fadeDown 0.3s ease-out; }
+    @keyframes fadeDown { from {opacity: 0; transform: translateY(-15px);} to {opacity: 1; transform: translateY(0);} }
+    .fadeDown { animation: fadeDown 0.6s ease-out; }
 
-    /* Efek ketik */
     .typing {
-      border-right: 2px solid cyan;
-      white-space: nowrap;
-      overflow: hidden;
+      border-right: 2px solid cyan; white-space: nowrap; overflow: hidden;
       animation: blink 0.7s infinite;
     }
     @keyframes blink {
@@ -81,13 +54,10 @@
   <!-- Header -->
   <header class="animated-bg py-6 shadow-lg relative">
     <div class="container mx-auto px-4 flex justify-between items-center">
-      <!-- Menu -->
       <button id="menuToggle" class="text-lg flex items-center gap-2 focus:outline-none">
         <span class="text-cyan-300">☰</span> 
         <span class="font-bold tracking-wide">MENU</span>
       </button>
-
-      <!-- Logo -->
       <img src="mdt.jpeg" alt="Logo" class="h-12 w-auto logo-glow rounded-full">
     </div>
 
@@ -111,23 +81,36 @@
         Selamat Datang di <span class="text-white">MAF Surabaya</span>
       </h1>
       <p class="text-gray-300 max-w-2xl mx-auto mb-8">
-        Perusahaan berkembang di bidang <span class="text-cyan-300 font-semibold">jasa perdagangan internasional</span> yang membuka kesempatan karier bagi generasi muda yang siap berkembang.
+        Perusahaan berkembang di bidang <span class="text-cyan-300 font-semibold">jasa perdagangan internasional</span> 
+        yang membuka kesempatan karier bagi generasi muda yang siap berkembang.
       </p>
       <a href="#lowongan" class="neon-btn">Lihat Lowongan</a>
     </div>
   </section>
 
-  <!-- Lowongan -->
-  <section id="lowongan" class="py-16 bg-slate-100 text-black">
+  <!-- Alamat Kantor -->
+  <section class="py-12 bg-slate-900 text-center">
+    <div class="container mx-auto px-4">
+      <h2 class="text-xl md:text-2xl font-bold text-cyan-400 mb-4">📍 Alamat Kantor</h2>
+      <p class="text-gray-300 mb-6">
+        Jl. Embong Wungu No.27 (samping SMP PETRA) <br> Gedung GBS, Lantai 6, Surabaya
+      </p>
+      <img src="kantor.jpg" alt="Gedung Kantor MAF Surabaya" class="mx-auto rounded-lg shadow-lg w-full max-w-md">
+    </div>
+  </section>
+
+  <!-- Lowongan Timeline -->
+  <section id="lowongan" class="py-20 bg-slate-950 text-white relative overflow-hidden">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="text-2xl md:text-3xl heading mb-4 text-slate-900">Lowongan Pekerjaan</h2>
-      
-      <!-- Tinggi tetap agar background tidak berubah saat ketik -->
-      <p id="type-desc" class="typing text-sm text-gray-600 mb-6 font-mono min-h-[24px]"></p>
+      <h2 class="text-3xl md:text-4xl heading mb-6 text-cyan-400 drop-shadow-lg">
+        💼 Lowongan Pekerjaan
+      </h2>
+      <p id="type-desc" class="typing text-base text-cyan-300 mb-10 font-mono min-h-[28px]"></p>
 
-      <ul id="type-list" class="list-disc list-inside text-left max-w-lg mx-auto space-y-3 font-mono text-gray-800 min-h-[120px]"></ul>
+      <!-- Timeline -->
+      <div id="job-list" class="relative max-w-3xl mx-auto text-left border-l-2 border-cyan-500 pl-6 space-y-10"></div>
 
-      <div class="mt-10">
+      <div class="mt-12 text-center">
         <a href="register.html" class="neon-btn">LAMAR SEKARANG</a>
       </div>
     </div>
@@ -135,7 +118,6 @@
 
   <!-- Footer -->
   <footer class="animated-bg text-center py-6 text-gray-200 text-sm mt-16">
-    <p class="mb-1">📍 Jl. Embong Wungu No.27 (samping SMP PETRA) Gedung GBS, Lantai 6, Surabaya</p>
     <p class="text-xs">© 2025 MAF Surabaya. All Rights Reserved.</p>
   </footer>
 
@@ -143,52 +125,56 @@
   <script>
     const menuToggle = document.getElementById("menuToggle");
     const navMenu = document.getElementById("navMenu");
-
     menuToggle.addEventListener("click", () => {
       navMenu.classList.toggle("hidden");
       navMenu.classList.toggle("fadeDown");
     });
 
-    // Efek ketik
-    const descText = "(Periode Oktober–Desember 2025)"; // ✅ Periode diperbarui
+    // Data
+    const descText = "(Periode Oktober–Desember 2025)";
     const listItems = [
-      "HRD – Minimal pendidikan S1 + pengalaman kerja.",
-      "Staff Administrasi – Minimal pendidikan SMA/SMK sederajat.",
-      "Staff Office – Minimal pendidikan SMA/SMK sederajat."
+      {title: "HRD", desc: "Minimal pendidikan S1 + pengalaman kerja."},
+      {title: "Staff Administrasi", desc: "Minimal pendidikan SMA/SMK sederajat."},
+      {title: "Staff Office", desc: "Minimal pendidikan SMA/SMK sederajat."}
     ];
 
     const descEl = document.getElementById("type-desc");
-    const listEl = document.getElementById("type-list");
+    const jobListEl = document.getElementById("job-list");
 
     function typeText(el, text, speed = 40, cb) {
-      el.textContent = "";
-      let i = 0;
+      el.textContent = ""; let i = 0;
       function typing() {
         if (i < text.length) {
-          el.textContent += text.charAt(i);
-          i++;
+          el.textContent += text.charAt(i); i++;
           setTimeout(typing, speed);
         } else if (cb) cb();
-      }
-      typing();
+      } typing();
     }
 
     function startLoop() {
       descEl.textContent = "";
-      listEl.innerHTML = "";
+      jobListEl.innerHTML = "";
 
       typeText(descEl, descText, 50, () => {
         let idx = 0;
         function nextItem() {
           if (idx < listItems.length) {
-            const li = document.createElement("li");
-            listEl.appendChild(li);
-            typeText(li, listItems[idx], 30, () => {
-              idx++;
-              setTimeout(nextItem, 400);
+            const item = document.createElement("div");
+            item.className = "relative fadeDown";
+
+            item.innerHTML = `
+              <div class="absolute -left-3 top-2 w-4 h-4 rounded-full bg-cyan-400 shadow-lg animate-pulse"></div>
+              <h3 class="text-xl font-bold text-cyan-300 mb-2">${listItems[idx].title}</h3>
+              <p class="text-gray-300 font-mono" id="desc-${idx}"></p>
+            `;
+            jobListEl.appendChild(item);
+
+            const p = item.querySelector("p");
+            typeText(p, listItems[idx].desc, 30, () => {
+              idx++; setTimeout(nextItem, 600);
             });
           } else {
-            setTimeout(startLoop, 4000);
+            setTimeout(startLoop, 6000);
           }
         }
         nextItem();
