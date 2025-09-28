@@ -42,15 +42,6 @@
       animation: blink 0.7s infinite;
     }
     @keyframes blink { 0%,100% {border-color:transparent;} 50%{border-color:cyan;} }
-
-    #muteBtn {
-      position:fixed; bottom:20px; right:20px;
-      background:rgba(14,165,233,0.9); border-radius:50%;
-      padding:12px; font-size:20px;
-      box-shadow:0 0 15px rgba(56,189,248,0.8);
-      cursor:pointer; transition:transform 0.2s; z-index:1000;
-    }
-    #muteBtn:hover { transform: scale(1.1); }
   </style>
 </head>
 <body class="antialiased bg-black text-white">
@@ -60,8 +51,6 @@
     <source src="musik.mp3" type="audio/mpeg">
     Browser Anda tidak mendukung audio.
   </audio>
-  <!-- Tombol Musik -->
-  <button id="muteBtn">🔊</button>
 
   <!-- Header -->
   <header class="animated-bg py-6 shadow-lg relative">
@@ -138,21 +127,9 @@
       navMenu.classList.toggle("fadeDown");
     });
 
-    // Musik autoplay + tombol mute
+    // Musik autoplay
     const bgMusic = document.getElementById("bgMusic");
-    const muteBtn = document.getElementById("muteBtn");
     bgMusic.volume = 0.5;
-
-    muteBtn.addEventListener("click", () => {
-      if (bgMusic.muted) {
-        bgMusic.muted = false;
-        bgMusic.play();
-        muteBtn.textContent = "🔊";
-      } else {
-        bgMusic.muted = true;
-        muteBtn.textContent = "🔇";
-      }
-    });
 
     // Typing effect + timeline
     const descText = "(Periode Oktober–Desember 2025)";
