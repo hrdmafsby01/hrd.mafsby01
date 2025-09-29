@@ -42,6 +42,17 @@
       animation: blink 0.7s infinite;
     }
     @keyframes blink { 0%,100% {border-color:transparent;} 50%{border-color:cyan;} }
+
+    /* News ticker */
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-marquee {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 20s linear infinite;
+    }
   </style>
 </head>
 <body class="antialiased bg-black text-white">
@@ -112,8 +123,15 @@
     </div>
   </section>
 
+  <!-- News Ticker -->
+  <section class="bg-slate-900 py-3 border-t border-cyan-600">
+    <div id="news-ticker" class="overflow-hidden whitespace-nowrap">
+      <div id="news-content" class="animate-marquee inline-block text-cyan-300 font-semibold"></div>
+    </div>
+  </section>
+
   <!-- Footer -->
-  <footer class="animated-bg text-center py-6 text-gray-200 text-sm mt-16">
+  <footer class="animated-bg text-center py-6 text-gray-200 text-sm mt-0">
     <p class="text-xs">© 2025 MAF Surabaya. All Rights Reserved.</p>
   </footer>
 
@@ -178,6 +196,46 @@
       });
     }
     startLoop();
+
+    // Load News Ticker (update otomatis harian)
+    async function loadNews(force = false) {
+      const newsContent = document.getElementById("news-content");
+      const lastUpdate = localStorage.getItem("newsLastUpdate");
+      const today = new Date().toDateString();
+
+      if (!force && lastUpdate === today && localStorage.getItem("newsData")) {
+        newsContent.innerText = localStorage.getItem("newsData");
+        return;
+      }
+
+      try {
+        const rssUrl = "https://rss.kompas.com/index.php/News/index"; 
+        const res = await fetch("https://api.allorigins.win/get?url=" + encodeURIComponent(rssUrl));
+        const data = await res.json();
+
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(data.contents, "text/xml");
+
+        let items = xml.querySelectorAll("item");
+        let headlines = [];
+        items.forEach((el, i) => {
+          if (i < 6) { // ambil 6 berita teratas
+            headlines.push(el.querySelector("title").textContent);
+          }
+        });
+
+        let newsText = "📰 " + headlines.join(" • ");
+        newsContent.innerText = newsText;
+
+        // Simpan ke localStorage
+        localStorage.setItem("newsData", newsText);
+        localStorage.setItem("newsLastUpdate", today);
+      } catch (err) {
+        newsContent.innerText = "Gagal memuat berita...";
+      }
+    }
+
+    loadNews();
   </script>
 </body>
 </html>
