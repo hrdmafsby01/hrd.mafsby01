@@ -25,9 +25,8 @@
       backdrop-filter: blur(14px);
       border: 1px solid rgba(255,255,255,0.2);
     }
-    /* Tombol lebih mencolok */
     .neon-btn {
-      background: linear-gradient(90deg, #ec4899, #8b5cf6); /* pink → ungu */
+      background: linear-gradient(90deg, #ec4899, #8b5cf6);
       color: white;
       font-weight: 700;
       border-radius: 9999px;
@@ -39,8 +38,6 @@
       box-shadow: 0 0 25px rgba(236, 72, 153, 1);
       transform: scale(1.05);
     }
-
-    /* Tombol Panah Kembali */
     .menu-btn {
       position: absolute;
       top: 1rem;
@@ -58,8 +55,6 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0.3; }
     }
-
-    /* Marquee teks berjalan (tanpa background) */
     .marquee {
       position: fixed;
       bottom: 0;
@@ -101,10 +96,14 @@
         <input id="nama" type="text" placeholder="Masukkan nama lengkap" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:ring-2 focus:ring-pink-400 outline-none" required/>
       </div>
 
-      <!-- Email -->
+      <!-- Jenis Kelamin -->
       <div>
-        <label class="block text-sm mb-1">Email</label>
-        <input id="email" type="email" placeholder="Masukkan email aktif" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-300 focus:ring-2 focus:ring-pink-400 outline-none" required/>
+        <label class="block text-sm mb-1">Jenis Kelamin</label>
+        <select id="kelamin" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white focus:ring-2 focus:ring-pink-400 outline-none" required>
+          <option class="text-black" value="">Pilih jenis kelamin</option>
+          <option class="text-black">Laki-laki</option>
+          <option class="text-black">Perempuan</option>
+        </select>
       </div>
 
       <!-- No HP -->
@@ -167,23 +166,21 @@
     <p>© 2025 MAF Surabaya. All Rights Reserved.</p>
   </footer>
 
-  <!-- Marquee Teks -->
+  <!-- Marquee -->
   <div class="marquee">
     <span>⚠️ proses pendaftaran ini tidak dipungut biaya ⚠️</span>
   </div>
 
   <script>
-    // Fungsi untuk tombol panah kembali
     function goBack() {
       window.location.href = "index.html";
     }
 
-    // Form submit kirim ke WA
     document.getElementById("regForm").addEventListener("submit", function(e) {
       e.preventDefault();
 
       let nama   = document.getElementById("nama").value;
-      let email  = document.getElementById("email").value;
+      let kelamin  = document.getElementById("kelamin").value;
       let hp     = document.getElementById("hp").value;
       let usia   = document.getElementById("usia").value;
       let ijazahTerakhir = document.getElementById("ijazahTerakhir").value;
@@ -191,11 +188,10 @@
       let posisi = document.getElementById("posisi").value;
       let ijazah = document.getElementById("ijazah").checked ? "Ya, bersedia melampirkan ijazah" : "Tidak dicentang";
 
-      let pesan = `Halo Admin, saya ingin mendaftar:\n\nNama: ${nama}\nEmail: ${email}\nHP: ${hp}\nUsia: ${usia}\nIjazah Terakhir: ${ijazahTerakhir}\nPengalaman Kerja: ${pengalaman}\nPosisi: ${posisi}\nPernyataan Ijazah: ${ijazah}\n\nTerima kasih.`;
+      let pesan = `Halo Admin, saya ingin mendaftar:\n\nNama: ${nama}\nJenis Kelamin: ${kelamin}\nHP: ${hp}\nUsia: ${usia}\nIjazah Terakhir: ${ijazahTerakhir}\nPengalaman Kerja: ${pengalaman}\nPosisi: ${posisi}\nPernyataan Ijazah: ${ijazah}\n\nTerima kasih.`;
 
       let nomorAdmin = "6285176913170"; 
       let url = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesan)}`;
-
       window.open(url, "_blank");
     });
   </script>
