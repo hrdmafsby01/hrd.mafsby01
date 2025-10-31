@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PT. MAF Surabaya</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Font modern -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    h1, h2, h3, .heading { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+    body { font-family: 'Roboto Mono', monospace; }
+    h1, h2, h3, .heading { font-family: 'Poppins', sans-serif; font-weight: 700; }
 
+    /* Header animasi */
     .animated-bg {
       background: linear-gradient(-45deg, #0f172a, #1e3a8a, #0ea5e9, #38bdf8);
       background-size: 400% 400%;
@@ -38,18 +41,46 @@
     .fadeDown { animation: fadeDown 0.6s ease-out; }
 
     .typing {
-      border-right: 2px solid cyan; white-space: nowrap; overflow: hidden;
+      border-right: 2px solid #0ea5e9;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
       animation: blink 0.7s infinite;
     }
-    @keyframes blink { 0%,100% {border-color:transparent;} 50%{border-color:cyan;} }
+    @keyframes blink { 0%,100% {border-color:transparent;} 50%{border-color:#0ea5e9;} }
+
+    /* Lowongan bingkai */
+    .job-card {
+      border: 2px solid #0ea5e9;
+      border-radius: 12px;
+      padding: 16px 20px;
+      background: #f0f9ff;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .job-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(14,165,233,0.3);
+    }
+    .job-card::before {
+      content: '';
+      position: absolute;
+      left: -2px; top: -2px;
+      width: 4px; height: 100%;
+      background: linear-gradient(to bottom, #0ea5e9, #38bdf8);
+      border-radius: 4px;
+    }
+    .job-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.25rem; color: #0f172a; margin-bottom: 6px; }
+    .job-desc { font-family: 'Roboto Mono', monospace; color: #111; font-size: 0.95rem; }
   </style>
 </head>
+
 <body class="antialiased bg-black text-white">
 
-  <!-- Audio autoplay -->
+  <!-- Musik -->
   <audio id="bgMusic" autoplay loop>
     <source src="musik.mp3" type="audio/mpeg">
-    Browser Anda tidak mendukung audio.
   </audio>
 
   <!-- Header -->
@@ -87,25 +118,29 @@
     </div>
   </section>
 
-  <!-- Alamat Kantor -->
+  <!-- Alamat -->
   <section class="py-12 bg-slate-900 text-center">
     <div class="container mx-auto px-4">
       <h2 class="text-xl md:text-2xl font-bold text-cyan-400 mb-4">📍 Alamat Kantor</h2>
       <p class="text-gray-300 mb-6">
         Jl. Embong Wungu No.27 (samping SMP PETRA) <br> Gedung GBS, Lantai 6, Surabaya
       </p>
-      <img src="gedung-gbs.png" alt="Gedung Kantor MAF Surabaya" class="mx-auto rounded-lg shadow-lg w-full max-w-md">
+      <img src="gedung-gbs.png" alt="Gedung Kantor" class="mx-auto rounded-lg shadow-lg w-full max-w-md">
     </div>
   </section>
 
-  <!-- Lowongan Timeline -->
-  <section id="lowongan" class="py-20 bg-slate-950 text-white relative overflow-hidden">
+  <!-- Lowongan -->
+  <section id="lowongan" class="py-20 bg-white text-black relative overflow-hidden">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-4xl heading mb-6 text-cyan-400 drop-shadow-lg">
-        💼 Lowongan Pekerjaan
-      </h2>
-      <p id="type-desc" class="typing text-base text-cyan-300 mb-10 font-mono min-h-[28px]"></p>
-      <div id="job-list" class="relative max-w-3xl mx-auto text-left border-l-2 border-cyan-500 pl-6 space-y-10"></div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-10 text-cyan-600">💼 Lowongan Pekerjaan</h2>
+
+      <!-- Kolom tetap -->
+      <div class="max-w-2xl mx-auto mb-10">
+        <p id="type-desc" class="typing text-base font-mono inline-block w-full text-center text-gray-800"></p>
+      </div>
+
+      <div id="job-list" class="relative max-w-2xl mx-auto space-y-6 min-h-[250px]"></div>
+
       <div class="mt-12 text-center">
         <a href="register.html" class="neon-btn">LAMAR SEKARANG</a>
       </div>
@@ -117,9 +152,8 @@
     <p class="text-xs">© 2025 MAF Surabaya. All Rights Reserved.</p>
   </footer>
 
-  <!-- Script -->
   <script>
-    // Menu toggle
+    // Toggle menu
     const menuToggle = document.getElementById("menuToggle");
     const navMenu = document.getElementById("navMenu");
     menuToggle.addEventListener("click", () => {
@@ -127,11 +161,11 @@
       navMenu.classList.toggle("fadeDown");
     });
 
-    // Musik autoplay
+    // Musik
     const bgMusic = document.getElementById("bgMusic");
     bgMusic.volume = 0.5;
 
-    // Typing effect + timeline
+    // Typing + lowongan
     const descText = "(Periode Oktober–Desember 2025)";
     const listItems = [
       {title: "HRD", desc: "Minimal pendidikan S1 + pengalaman kerja."},
@@ -142,13 +176,16 @@
     const jobListEl = document.getElementById("job-list");
 
     function typeText(el, text, speed = 40, cb) {
-      el.textContent = ""; let i = 0;
+      el.textContent = "";
+      let i = 0;
       function typing() {
         if (i < text.length) {
-          el.textContent += text.charAt(i); i++;
+          el.textContent += text.charAt(i);
+          i++;
           setTimeout(typing, speed);
         } else if (cb) cb();
-      } typing();
+      }
+      typing();
     }
 
     function startLoop() {
@@ -159,16 +196,16 @@
         function nextItem() {
           if (idx < listItems.length) {
             const item = document.createElement("div");
-            item.className = "relative fadeDown";
+            item.className = "job-card fadeDown";
             item.innerHTML = `
-              <div class="absolute -left-3 top-2 w-4 h-4 rounded-full bg-cyan-400 shadow-lg animate-pulse"></div>
-              <h3 class="text-xl font-bold text-cyan-300 mb-2">${listItems[idx].title}</h3>
-              <p class="text-gray-300 font-mono" id="desc-${idx}"></p>
+              <h3 class="job-title">${listItems[idx].title}</h3>
+              <p class="job-desc" id="desc-${idx}"></p>
             `;
             jobListEl.appendChild(item);
             const p = item.querySelector("p");
             typeText(p, listItems[idx].desc, 30, () => {
-              idx++; setTimeout(nextItem, 600);
+              idx++;
+              setTimeout(nextItem, 600);
             });
           } else {
             setTimeout(startLoop, 6000);
