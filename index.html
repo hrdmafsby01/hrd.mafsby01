@@ -37,8 +37,14 @@
     }
     .neon-btn:hover { box-shadow: 0 0 25px rgba(56,189,248,1); transform: scale(1.05); }
 
-    @keyframes fadeDown { from{opacity:0; transform:translateY(-15px);} to{opacity:1; transform:translateY(0);} }
-    .fadeDown { animation: fadeDown 0.6s ease-out; }
+    /* Animasi muncul cepat */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fadeDown {
+      animation: fadeDown 0.3s ease-out; /* sebelumnya 0.6s */
+    }
 
     .typing {
       border-right: 2px solid #0ea5e9;
@@ -84,9 +90,9 @@
   </audio>
 
   <!-- Header -->
-  <header class="animated-bg py-6 shadow-lg relative">
+  <header class="animated-bg py-6 shadow-lg relative fadeDown">
     <div class="container mx-auto px-4 flex justify-between items-center">
-      <button id="menuToggle" class="text-lg flex items-center gap-2 focus:outline-none">
+      <button id="menuToggle" class="text-lg flex items-center gap-2 focus:outline-none fadeDown">
         <span class="text-cyan-300">☰</span> 
         <span class="font-bold tracking-wide">MENU</span>
       </button>
@@ -175,7 +181,7 @@
     const descEl = document.getElementById("type-desc");
     const jobListEl = document.getElementById("job-list");
 
-    function typeText(el, text, speed = 40, cb) {
+    function typeText(el, text, speed = 25, cb) {
       el.textContent = "";
       let i = 0;
       function typing() {
@@ -191,7 +197,7 @@
     function startLoop() {
       descEl.textContent = "";
       jobListEl.innerHTML = "";
-      typeText(descEl, descText, 50, () => {
+      typeText(descEl, descText, 30, () => {
         let idx = 0;
         function nextItem() {
           if (idx < listItems.length) {
@@ -203,12 +209,12 @@
             `;
             jobListEl.appendChild(item);
             const p = item.querySelector("p");
-            typeText(p, listItems[idx].desc, 30, () => {
+            typeText(p, listItems[idx].desc, 20, () => {
               idx++;
-              setTimeout(nextItem, 600);
+              setTimeout(nextItem, 250);
             });
           } else {
-            setTimeout(startLoop, 6000);
+            setTimeout(startLoop, 3000);
           }
         }
         nextItem();
