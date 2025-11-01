@@ -8,17 +8,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    h1 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
-    .animated-bg {
-      background: linear-gradient(-45deg, #0f172a, #1e3a8a, #0ea5e9, #38bdf8);
-      background-size: 400% 400%;
-      animation: gradientShift 10s ease infinite;
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a; /* biru tua statis */
+      color: white;
     }
-    @keyframes gradientShift {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    h1 { 
+      font-family: 'Montserrat', sans-serif; 
+      font-weight: 700; 
     }
     .glass {
       background: rgba(255,255,255,0.08);
@@ -49,44 +46,16 @@
       border-radius: 0.5rem;
       cursor: pointer;
       z-index: 50;
-      animation: blink 1s infinite;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-    .marquee {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      color: red;
-      padding: 4px 0;
-      font-size: 14px;
-      font-weight: bold;
-      white-space: nowrap;
-      overflow: hidden;
-      text-align: center;
-      background: transparent;
-    }
-    .marquee span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: marquee 15s linear infinite;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
     }
   </style>
 </head>
-<body class="animated-bg min-h-screen flex flex-col items-center justify-center p-6 relative">
+<body class="min-h-screen flex flex-col items-center justify-center p-6 relative">
 
   <!-- Tombol Panah Kembali -->
   <div class="menu-btn" onclick="goBack()">←</div>
 
   <!-- Card Form -->
-  <div class="glass rounded-2xl shadow-2xl p-8 w-full max-w-md text-white animate-fadeIn">
+  <div class="glass rounded-2xl shadow-2xl p-8 w-full max-w-md text-white">
     <h1 class="text-2xl text-center text-cyan-300 mb-6">Registrasi Pelamar</h1>
     
     <form id="regForm" class="space-y-5">
@@ -162,14 +131,9 @@
   </div>
 
   <!-- Footer -->
-  <footer class="text-center text-gray-200 text-xs mt-6">
+  <footer class="text-center text-gray-300 text-xs mt-6">
     <p>© 2025 MAF Surabaya. All Rights Reserved.</p>
   </footer>
-
-  <!-- Marquee -->
-  <div class="marquee">
-    <span>⚠️ proses pendaftaran ini tidak dipungut biaya ⚠️</span>
-  </div>
 
   <script>
     function goBack() {
