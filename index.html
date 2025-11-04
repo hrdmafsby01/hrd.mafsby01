@@ -1,226 +1,133 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PT. MAF Surabaya</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PT. MAF Surabaya | Lowongan Kerja</title>
+  <meta name="description" content="Lowongan HRD, Administrasi, Office — Okt–Des 2025. Profesional, rapi, langsung apply!">
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Font modern -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Roboto Mono', monospace; }
-    h1, h2, h3, .heading { font-family: 'Poppins', sans-serif; font-weight: 700; }
-
-    /* Header animasi */
-    .animated-bg {
-      background: linear-gradient(-45deg, #0f172a, #1e3a8a, #0ea5e9, #38bdf8);
-      background-size: 400% 400%;
-      animation: gradientShift 10s ease infinite;
+    :root { --max-w: 1200px; }
+    * { box-sizing: border-box; }
+    body {
+      margin:0; background:#0f172a; color:#e2e8f0;
+      font-family:'Inter',sans-serif; line-height:1.6;
     }
-    @keyframes gradientShift {
-      0% {background-position:0% 50%;}
-      50% {background-position:100% 50%;}
-      100% {background-position:0% 50%;}
+    .container {
+      width:100%; max-width:var(--max-w);
+      margin:auto; padding:0 1.5rem;
     }
-
-    .logo-glow { filter: drop-shadow(0 0 12px cyan); transition: transform 0.3s; }
-    .logo-glow:hover { transform: scale(1.1); filter: drop-shadow(0 0 25px cyan); }
-
-    .neon-btn {
-      background: linear-gradient(90deg,#0ea5e9,#38bdf8);
-      color: white; font-weight: 600;
-      border-radius: 9999px; padding: 0.6rem 2rem;
-      box-shadow: 0 0 15px rgba(56,189,248,0.7);
-      transition: all 0.3s;
-    }
-    .neon-btn:hover { box-shadow: 0 0 25px rgba(56,189,248,1); transform: scale(1.05); }
-
-    /* Animasi muncul cepat */
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .fadeDown {
-      animation: fadeDown 0.3s ease-out; /* sebelumnya 0.6s */
-    }
-
-    .typing {
-      border-right: 2px solid #0ea5e9;
-      white-space: nowrap;
-      overflow: hidden;
-      display: inline-block;
-      animation: blink 0.7s infinite;
-    }
-    @keyframes blink { 0%,100% {border-color:transparent;} 50%{border-color:#0ea5e9;} }
-
-    /* Lowongan bingkai */
-    .job-card {
-      border: 2px solid #0ea5e9;
-      border-radius: 12px;
-      padding: 16px 20px;
-      background: #f0f9ff;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .job-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(14,165,233,0.3);
-    }
-    .job-card::before {
-      content: '';
-      position: absolute;
-      left: -2px; top: -2px;
-      width: 4px; height: 100%;
-      background: linear-gradient(to bottom, #0ea5e9, #38bdf8);
-      border-radius: 4px;
-    }
-    .job-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.25rem; color: #0f172a; margin-bottom: 6px; }
-    .job-desc { font-family: 'Roboto Mono', monospace; color: #111; font-size: 0.95rem; }
+    @media(min-width:640px){.container{padding:0 2rem}}
+    @media(min-width:1024px){.container{padding:0 3rem}}
   </style>
 </head>
-
-<body class="antialiased bg-black text-white">
-
-  <!-- Musik -->
-  <audio id="bgMusic" autoplay loop>
-    <source src="musik.mp3" type="audio/mpeg">
-  </audio>
+<body>
 
   <!-- Header -->
-  <header class="animated-bg py-6 shadow-lg relative fadeDown">
-    <div class="container mx-auto px-4 flex justify-between items-center">
-      <button id="menuToggle" class="text-lg flex items-center gap-2 focus:outline-none fadeDown">
-        <span class="text-cyan-300">☰</span> 
-        <span class="font-bold tracking-wide">MENU</span>
-      </button>
-      <img src="mdt.jpeg" alt="Logo" class="h-12 w-auto logo-glow rounded-full">
+  <header class="fixed top-0 left-0 w-full z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-700">
+    <div class="container py-5 flex justify-between items-center">
+      <img src="mdt.jpeg" alt="Logo" class="h-12 rounded-lg">
+      <nav class="hidden md:flex gap-8">
+        <a href="#beranda"   class="text-sky-400 hover:text-white font-medium">Beranda</a>
+        <a href="galeri.html" class="text-sky-400 hover:text-white font-medium">Galeri</a>
+        <a href="#lowongan"  class="text-sky-400 hover:text-white font-medium">Lowongan</a>
+        <a href="register.html" class="text-sky-400 hover:text-white font-medium">Registrasi</a>
+      </nav>
+      <button id="menuToggle" class="md:hidden text-3xl">☰</button>
     </div>
-    <nav id="navMenu" class="hidden absolute top-full left-0 w-full bg-slate-900 text-white shadow-lg z-50">
-      <div class="container mx-auto px-4 py-4">
-        <ul class="space-y-3">
-          <li><a href="#beranda" class="block px-4 py-2 rounded hover:bg-slate-700 transition">🏠 Beranda</a></li>
-          <li><a href="galeri.html" class="block px-4 py-2 rounded hover:bg-slate-700 transition">🖼️ Galeri</a></li>
-          <li><a href="#lowongan" class="block px-4 py-2 rounded hover:bg-slate-700 transition">💼 Lowongan</a></li>
-          <li><a href="register.html" class="block px-4 py-2 rounded hover:bg-slate-700 transition">📝 Registrasi</a></li>
-        </ul>
+    <!-- Mobile Menu -->
+    <nav id="mobileMenu" class="hidden bg-slate-900 border-t border-slate-700">
+      <div class="container py-4 space-y-3 text-center">
+        <a href="#beranda" class="block py-2 text-sky-400">Beranda</a>
+        <a href="galeri.html" class="block py-2 text-sky-400">Galeri</a>
+        <a href="#lowongan" class="block py-2 text-sky-400">Lowongan</a>
+        <a href="register.html" class="block py-2 text-sky-400">Registrasi</a>
       </div>
     </nav>
   </header>
 
   <!-- Hero -->
-  <section id="beranda" class="py-16 text-center relative">
-    <div class="container mx-auto px-4">
-      <h1 class="text-3xl md:text-5xl heading text-cyan-400 drop-shadow-lg mb-6">
-        Selamat Datang di <span class="text-white">MAF Surabaya</span>
+  <section id="beranda" class="pt-24 pb-20 text-center bg-gradient-to-b from-slate-900 to-slate-800">
+    <div class="container">
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">
+        PT. MAF <span class="text-sky-400">Surabaya</span>
       </h1>
-      <p class="text-gray-300 max-w-2xl mx-auto mb-8">
-        Perusahaan berkembang di bidang <span class="text-cyan-300 font-semibold">jasa perdagangan internasional</span> 
-        yang membuka kesempatan karier bagi generasi muda yang siap berkembang.
+      <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-8">
+        Jasa Perdagangan Internasional • Membuka 3 posisi untuk talenta muda yang siap berkembang.
       </p>
-      <a href="#lowongan" class="neon-btn">Lihat Lowongan</a>
+      <a href="#lowongan" class="inline-block bg-sky-500 hover:bg-sky-400 text-white font-semibold px-8 py-3 rounded-full transition">
+        LIHAT LOWONGAN
+      </a>
     </div>
   </section>
 
   <!-- Alamat -->
-  <section class="py-12 bg-slate-900 text-center">
-    <div class="container mx-auto px-4">
-      <h2 class="text-xl md:text-2xl font-bold text-cyan-400 mb-4">📍 Alamat Kantor</h2>
-      <p class="text-gray-300 mb-6">
-        Jl. Embong Wungu No.27 (samping SMP PETRA) <br> Gedung GBS, Lantai 6, Surabaya
+  <section class="py-16 bg-slate-900">
+    <div class="container text-center">
+      <h2 class="text-3xl font-bold text-sky-400 mb-6">Kantor Pusat</h2>
+      <p class="text-slate-300 mb-8 max-w-xl mx-auto">
+        Jl. Embong Wungu No.27 (samping SMP PETRA)<br>
+        Gedung GBS Lantai 6, Surabaya
       </p>
-      <img src="gedung-gbs.png" alt="Gedung Kantor" class="mx-auto rounded-lg shadow-lg w-full max-w-md">
+      <img src="gedung-gbs.png" alt="Gedung GBS" class="mx-auto rounded-xl shadow-2xl max-w-full h-auto">
     </div>
   </section>
 
   <!-- Lowongan -->
-  <section id="lowongan" class="py-20 bg-white text-black relative overflow-hidden">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-10 text-cyan-600">💼 Lowongan Pekerjaan</h2>
-
-      <!-- Kolom tetap -->
-      <div class="max-w-2xl mx-auto mb-10">
-        <p id="type-desc" class="typing text-base font-mono inline-block w-full text-center text-gray-800"></p>
+  <section id="lowongan" class="py-20 bg-slate-800">
+    <div class="container">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-white mb-2">Lowongan Pekerjaan</h2>
+        <p class="text-sky-400 text-lg">Periode Oktober – Desember 2025</p>
       </div>
 
-      <div id="job-list" class="relative max-w-2xl mx-auto space-y-6 min-h-[250px]"></div>
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Card 1 -->
+        <div class="bg-slate-900 border border-slate-700 rounded-xl p-8 hover:border-sky-500 transition">
+          <div class="text-5xl mb-4">👔</div>
+          <h3 class="text-2xl font-bold text-sky-400 mb-3">HRD</h3>
+          <p class="text-slate-300">Minimal S1 + Pengalaman kerja</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-slate-900 border border-slate-700 rounded-xl p-8 hover:border-sky-500 transition">
+          <div class="text-5xl mb-4">📋</div>
+          <h3 class="text-2xl font-bold text-sky-400 mb-3">Staff Administrasi</h3>
+          <p class="text-slate-300">Minimal SMA/SMK sederajat</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-slate-900 border border-slate-700 rounded-xl p-8 hover:border-sky-500 transition">
+          <div class="text-5xl mb-4">🖥️</div>
+          <h3 class="text-2xl font-bold text-sky-400 mb-3">Staff Office</h3>
+          <p class="text-slate-300">Minimal SMA/SMK sederajat</p>
+        </div>
+      </div>
 
-      <div class="mt-12 text-center">
-        <a href="register.html" class="neon-btn">LAMAR SEKARANG</a>
+      <div class="text-center mt-12">
+        <a href="register.html" class="inline-block bg-sky-500 hover:bg-sky-400 text-white font-bold px-10 py-4 rounded-full text-xl transition">
+          LAMAR SEKARANG
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="animated-bg text-center py-6 text-gray-200 text-sm mt-0">
-    <p class="text-xs">© 2025 MAF Surabaya. All Rights Reserved.</p>
+  <footer class="py-8 bg-slate-900 text-center text-slate-400 text-sm border-t border-slate-700">
+    © 2025 PT. MAF Surabaya. All Rights Reserved.
   </footer>
 
+  <!-- Musik (optional) -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="musik.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
-    // Toggle menu
-    const menuToggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
-    menuToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("hidden");
-      navMenu.classList.toggle("fadeDown");
-    });
-
-    // Musik
-    const bgMusic = document.getElementById("bgMusic");
-    bgMusic.volume = 0.5;
-
-    // Typing + lowongan
-    const descText = "(Periode Oktober–Desember 2025)";
-    const listItems = [
-      {title: "HRD", desc: "Minimal pendidikan S1 + pengalaman kerja."},
-      {title: "Staff Administrasi", desc: "Minimal pendidikan SMA/SMK sederajat."},
-      {title: "Staff Office", desc: "Minimal pendidikan SMA/SMK sederajat."}
-    ];
-    const descEl = document.getElementById("type-desc");
-    const jobListEl = document.getElementById("job-list");
-
-    function typeText(el, text, speed = 25, cb) {
-      el.textContent = "";
-      let i = 0;
-      function typing() {
-        if (i < text.length) {
-          el.textContent += text.charAt(i);
-          i++;
-          setTimeout(typing, speed);
-        } else if (cb) cb();
-      }
-      typing();
-    }
-
-    function startLoop() {
-      descEl.textContent = "";
-      jobListEl.innerHTML = "";
-      typeText(descEl, descText, 30, () => {
-        let idx = 0;
-        function nextItem() {
-          if (idx < listItems.length) {
-            const item = document.createElement("div");
-            item.className = "job-card fadeDown";
-            item.innerHTML = `
-              <h3 class="job-title">${listItems[idx].title}</h3>
-              <p class="job-desc" id="desc-${idx}"></p>
-            `;
-            jobListEl.appendChild(item);
-            const p = item.querySelector("p");
-            typeText(p, listItems[idx].desc, 20, () => {
-              idx++;
-              setTimeout(nextItem, 250);
-            });
-          } else {
-            setTimeout(startLoop, 3000);
-          }
-        }
-        nextItem();
-      });
-    }
-    startLoop();
+    // Mobile menu
+    document.getElementById('menuToggle').onclick = () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    };
+    // Volume musik lembut
+    document.getElementById('bgMusic').volume = 0.2;
   </script>
 </body>
 </html>
