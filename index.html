@@ -3,10 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PT. Millenial Karya Utama (Millenial) | Lowongan Kerja</title>
-  <meta name="description" content="Lowongan HRD, Administrasi, Office — Okt–Des 2025. Profesional, rapi, langsung apply!">
+  <title>PT. Millenial Karya Utama | Lowongan Kerja & Profil Perusahaan</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="PT. Millenial Karya Utama adalah perusahaan profesional di bidang bisnis development. Buka lowongan kerja HRD, Administrasi, dan Office periode Okt–Des 2025.">
+  <meta name="keywords" content="Millenial Karya Utama, PT Millenial Karya Utama, Lowongan kerja Millenial, Millenial Surabaya, Bisnis development Indonesia">
+  <meta name="author" content="PT. Millenial Karya Utama">
+
+  <!-- Open Graph (untuk preview di Google & sosial media) -->
+  <meta property="og:title" content="PT. Millenial Karya Utama (Millenial) - Lowongan Kerja 2025">
+  <meta property="og:description" content="Lowongan kerja HRD, Administrasi, dan Office di PT. Millenial Karya Utama. Profesional dan berpengalaman.">
+  <meta property="og:image" content="https://example.com/logo.jpg">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="mdt.jpeg" type="image/jpeg">
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PT. Millenial Karya Utama",
+    "alternateName": "Millenial",
+    "url": "https://example.com",
+    "logo": "https://example.com/mdt.jpeg",
+    "description": "Perusahaan profesional di bidang bisnis development dan layanan konsultasi usaha di Surabaya.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jl. Embong Wungu No.27 (samping SMP PETRA)",
+      "addressLocality": "Surabaya",
+      "addressRegion": "Jawa Timur",
+      "postalCode": "60271",
+      "addressCountry": "ID"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+6285158988924",
+      "contactType": "Customer Service",
+      "availableLanguage": "Indonesian"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/millenialkaryautama",
+      "https://www.instagram.com/millenialkaryautama"
+    ]
+  }
+  </script>
 
   <style>
     :root { --max-w: 1200px; }
@@ -27,7 +74,6 @@
     @media (min-width: 640px) { .container { padding: 0 2rem } }
     @media (min-width: 1024px) { .container { padding: 0 3rem } }
 
-    /* Animasi buka-tutup lowongan */
     .accordion-content {
       max-height: 0;
       overflow: hidden;
@@ -42,15 +88,14 @@
       transform: scaleY(1);
     }
 
-    /* Tombol panah */
     #toggleLowongan {
       font-size: 4rem;
-      color: #ef4444; /* merah elegan */
+      color: #ef4444;
       transition: transform 0.4s ease, color 0.3s ease;
       cursor: pointer;
     }
     #toggleLowongan:hover {
-      color: #f87171; /* hover merah lebih terang */
+      color: #f87171;
       transform: scale(1.1);
     }
     #toggleLowongan.rotate {
@@ -58,13 +103,17 @@
       color: #fca5a5;
     }
   </style>
+
+  <!-- Sitemap reference -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://example.com/sitemap.xml">
+
 </head>
 <body>
 
   <!-- Header -->
   <header class="fixed top-0 left-0 w-full z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-700">
     <div class="container py-5 flex justify-between items-center">
-      <img src="mdt.jpeg" alt="Logo" class="h-12 rounded-lg">
+      <img src="mdt.jpeg" alt="Logo PT Millenial Karya Utama" class="h-12 rounded-lg">
       <nav class="hidden md:flex gap-8">
         <a href="#beranda" class="text-sky-400 hover:text-white font-medium">Beranda</a>
         <a href="galeri.html" class="text-sky-400 hover:text-white font-medium">Galeri</a>
@@ -73,7 +122,6 @@
       </nav>
       <button id="menuToggle" class="md:hidden text-3xl">☰</button>
     </div>
-    <!-- Mobile Menu -->
     <nav id="mobileMenu" class="hidden bg-slate-900 border-t border-slate-700">
       <div class="container py-4 space-y-3 text-center">
         <a href="#beranda" class="block py-2 text-sky-400">Beranda</a>
@@ -91,9 +139,9 @@
         PT. Millenial Karya Utama <span class="text-sky-400">(Millenial)</span>
       </h1>
       <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-8">
-        Bergerak di bidang <span class="text-sky-400 font-semibold">bisnis development</span>, 
-        PT. Millenial Karya Utama berfokus pada pengembangan usaha dan layanan profesional 
-        untuk mendukung pertumbuhan ekonomi digital Indonesia.
+        Perusahaan profesional bergerak di bidang <span class="text-sky-400 font-semibold">bisnis development</span> 
+        dan pengembangan usaha digital. 
+        Bergabunglah bersama PT. Millenial Karya Utama untuk masa depan karier yang lebih baik.
       </p>
       <a href="#lowongan" class="inline-block bg-sky-500 hover:bg-sky-400 text-white font-semibold px-8 py-3 rounded-full transition">
         LIHAT LOWONGAN
@@ -104,12 +152,12 @@
   <!-- Alamat -->
   <section class="py-16 bg-slate-900">
     <div class="container text-center">
-      <h2 class="text-3xl font-bold text-sky-400 mb-6">Kantor Pusat</h2>
+      <h2 class="text-3xl font-bold text-sky-400 mb-6">Kantor Pusat PT. Millenial Karya Utama</h2>
       <p class="text-slate-300 mb-8 max-w-xl mx-auto">
         Jl. Embong Wungu No.27 (samping SMP PETRA)<br>
-        Gedung GBS Lantai 6, Surabaya
+        Gedung GBS Lantai 6, Surabaya, Jawa Timur
       </p>
-      <img src="gedung-gbs.png" alt="Gedung GBS" class="mx-auto rounded-xl shadow-2xl max-w-full h-auto">
+      <img src="gedung-gbs.png" alt="Gedung GBS Surabaya - Kantor PT Millenial Karya Utama" class="mx-auto rounded-xl shadow-2xl max-w-full h-auto">
     </div>
   </section>
 
@@ -117,34 +165,30 @@
   <section id="lowongan" class="py-20 bg-slate-800">
     <div class="container">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-white mb-2">Lowongan Pekerjaan</h2>
+        <h2 class="text-4xl font-bold text-white mb-2">Lowongan Kerja PT. Millenial Karya Utama</h2>
         <p class="text-sky-400 text-lg">Periode Oktober – Desember 2025</p>
       </div>
 
-      <!-- Tombol buka/tutup -->
       <div class="text-center mb-8">
         <button id="toggleLowongan" aria-label="Tampilkan Lowongan">🔽</button>
       </div>
 
       <div id="lowonganContent" class="accordion-content max-w-5xl mx-auto">
         <div class="grid md:grid-cols-3 gap-8">
-          <!-- Card 1 -->
           <div class="bg-slate-900 border border-slate-700 rounded-xl p-8 hover:border-sky-500 transition">
             <div class="text-5xl mb-4">👔</div>
             <h3 class="text-2xl font-bold text-sky-400 mb-3">HRD</h3>
-            <p class="text-slate-300">Minimal S1 + Pengalaman kerja</p>
+            <p class="text-slate-300">Minimal S1 dengan pengalaman kerja relevan.</p>
           </div>
-          <!-- Card 2 -->
           <div class="bg-slate-900 border border-slate-700 rounded-xl p-8 hover:border-sky-500 transition">
             <div class="text-5xl mb-4">📋</div>
             <h3 class="text-2xl font-bold text-sky-400 mb-3">Staff Administrasi</h3>
-            <p class="text-slate-300">Minimal SMA/SMK sederajat</p>
+            <p class="text-slate-300">Minimal SMA/SMK sederajat, disiplin dan teliti.</p>
           </div>
-          <!-- Card 3 -->
           <div class="bg-slate-900 border border-slate-700 rounded-xl p-8 hover:border-sky-500 transition">
             <div class="text-5xl mb-4">🖥️</div>
             <h3 class="text-2xl font-bold text-sky-400 mb-3">Staff Office</h3>
-            <p class="text-slate-300">Minimal SMA/SMK sederajat</p>
+            <p class="text-slate-300">Minimal SMA/SMK sederajat, siap bekerja full-time.</p>
           </div>
         </div>
 
@@ -159,28 +203,23 @@
 
   <!-- Footer -->
   <footer class="py-8 bg-slate-900 text-center text-slate-400 text-sm border-t border-slate-700">
-    © 2025 PT. Millenial Karya Utama (Millenial). All Rights Reserved.
+    © 2025 PT. Millenial Karya Utama (Millenial). All Rights Reserved. |
+    <a href="https://example.com" class="text-sky-400 hover:underline">www.millenialkaryautama.co.id</a>
   </footer>
 
-  <!-- Musik (optional) -->
+  <!-- Musik -->
   <audio id="bgMusic" autoplay loop>
     <source src="musik.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    // Mobile menu toggle
     document.getElementById('menuToggle').onclick = () => {
       document.getElementById('mobileMenu').classList.toggle('hidden');
     };
-
-    // Volume musik lembut
     document.getElementById('bgMusic').volume = 0.2;
-
-    // Accordion lowongan
     const toggleBtn = document.getElementById('toggleLowongan');
     const content = document.getElementById('lowonganContent');
     let open = false;
-
     toggleBtn.addEventListener('click', () => {
       open = !open;
       content.classList.toggle('open');
