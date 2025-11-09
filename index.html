@@ -3,23 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PT. Mitra Arya Finance | Lowongan Kerja</title>
+  <title>PT. Millenial Karya Utama (Millenial) | Lowongan Kerja</title>
   <meta name="description" content="Lowongan HRD, Administrasi, Office — Okt–Des 2025. Profesional, rapi, langsung apply!">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root { --max-w: 1200px; }
     * { box-sizing: border-box; }
     body {
-      margin:0; background:#0f172a; color:#e2e8f0;
-      font-family:'Inter',sans-serif; line-height:1.6;
+      margin: 0;
+      background: #0f172a;
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
     }
     .container {
-      width:100%; max-width:var(--max-w);
-      margin:auto; padding:0 1.5rem;
+      width: 100%;
+      max-width: var(--max-w);
+      margin: auto;
+      padding: 0 1.5rem;
     }
-    @media(min-width:640px){.container{padding:0 2rem}}
-    @media(min-width:1024px){.container{padding:0 3rem}}
+    @media (min-width: 640px) { .container { padding: 0 2rem } }
+    @media (min-width: 1024px) { .container { padding: 0 3rem } }
+
+    /* Animasi buka-tutup lowongan */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: scaleY(0.95);
+      transform-origin: top;
+      transition: all 0.4s ease;
+    }
+    .accordion-content.open {
+      max-height: 2000px;
+      opacity: 1;
+      transform: scaleY(1);
+    }
+
+    /* Tombol panah */
+    #toggleLowongan {
+      font-size: 4rem;
+      color: #ef4444; /* merah elegan */
+      transition: transform 0.4s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+    #toggleLowongan:hover {
+      color: #f87171; /* hover merah lebih terang */
+      transform: scale(1.1);
+    }
+    #toggleLowongan.rotate {
+      transform: rotate(180deg);
+      color: #fca5a5;
+    }
   </style>
 </head>
 <body>
@@ -29,9 +66,9 @@
     <div class="container py-5 flex justify-between items-center">
       <img src="mdt.jpeg" alt="Logo" class="h-12 rounded-lg">
       <nav class="hidden md:flex gap-8">
-        <a href="#beranda"   class="text-sky-400 hover:text-white font-medium">Beranda</a>
+        <a href="#beranda" class="text-sky-400 hover:text-white font-medium">Beranda</a>
         <a href="galeri.html" class="text-sky-400 hover:text-white font-medium">Galeri</a>
-        <a href="#lowongan"  class="text-sky-400 hover:text-white font-medium">Lowongan</a>
+        <a href="#lowongan" class="text-sky-400 hover:text-white font-medium">Lowongan</a>
         <a href="register.html" class="text-sky-400 hover:text-white font-medium">Registrasi</a>
       </nav>
       <button id="menuToggle" class="md:hidden text-3xl">☰</button>
@@ -51,10 +88,12 @@
   <section id="beranda" class="pt-24 pb-20 text-center bg-gradient-to-b from-slate-900 to-slate-800">
     <div class="container">
       <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">
-        PT. Mitra Arya <span class="text-sky-400">Finance</span>
+        PT. Millenial Karya Utama <span class="text-sky-400">(Millenial)</span>
       </h1>
       <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-8">
-        Jasa Pembiayaan & Keuangan • Membuka 3 posisi untuk talenta muda yang siap berkembang.
+        Bergerak di bidang <span class="text-sky-400 font-semibold">bisnis development</span>, 
+        PT. Millenial Karya Utama berfokus pada pengembangan usaha dan layanan profesional 
+        untuk mendukung pertumbuhan ekonomi digital Indonesia.
       </p>
       <a href="#lowongan" class="inline-block bg-sky-500 hover:bg-sky-400 text-white font-semibold px-8 py-3 rounded-full transition">
         LIHAT LOWONGAN
@@ -82,38 +121,45 @@
         <p class="text-sky-400 text-lg">Periode Oktober – Desember 2025</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <!-- Card 1 -->
-        <div class="bg-slate-900 border border-slate-700 rounded-xl p-8 hover:border-sky-500 transition">
-          <div class="text-5xl mb-4">👔</div>
-          <h3 class="text-2xl font-bold text-sky-400 mb-3">HRD</h3>
-          <p class="text-slate-300">Minimal S1 + Pengalaman kerja</p>
-        </div>
-        <!-- Card 2 -->
-        <div class="bg-slate-900 border border-slate-700 rounded-xl p-8 hover:border-sky-500 transition">
-          <div class="text-5xl mb-4">📋</div>
-          <h3 class="text-2xl font-bold text-sky-400 mb-3">Staff Administrasi</h3>
-          <p class="text-slate-300">Minimal SMA/SMK sederajat</p>
-        </div>
-        <!-- Card 3 -->
-        <div class="bg-slate-900 border border-slate-700 rounded-xl p-8 hover:border-sky-500 transition">
-          <div class="text-5xl mb-4">🖥️</div>
-          <h3 class="text-2xl font-bold text-sky-400 mb-3">Staff Office</h3>
-          <p class="text-slate-300">Minimal SMA/SMK sederajat</p>
-        </div>
+      <!-- Tombol buka/tutup -->
+      <div class="text-center mb-8">
+        <button id="toggleLowongan" aria-label="Tampilkan Lowongan">🔽</button>
       </div>
 
-      <div class="text-center mt-12">
-        <a href="register.html" class="inline-block bg-sky-500 hover:bg-sky-400 text-white font-bold px-10 py-4 rounded-full text-xl transition">
-          LAMAR SEKARANG
-        </a>
+      <div id="lowonganContent" class="accordion-content max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div class="bg-slate-900 border border-slate-700 rounded-xl p-8 hover:border-sky-500 transition">
+            <div class="text-5xl mb-4">👔</div>
+            <h3 class="text-2xl font-bold text-sky-400 mb-3">HRD</h3>
+            <p class="text-slate-300">Minimal S1 + Pengalaman kerja</p>
+          </div>
+          <!-- Card 2 -->
+          <div class="bg-slate-900 border border-slate-700 rounded-xl p-8 hover:border-sky-500 transition">
+            <div class="text-5xl mb-4">📋</div>
+            <h3 class="text-2xl font-bold text-sky-400 mb-3">Staff Administrasi</h3>
+            <p class="text-slate-300">Minimal SMA/SMK sederajat</p>
+          </div>
+          <!-- Card 3 -->
+          <div class="bg-slate-900 border border-slate-700 rounded-xl p-8 hover:border-sky-500 transition">
+            <div class="text-5xl mb-4">🖥️</div>
+            <h3 class="text-2xl font-bold text-sky-400 mb-3">Staff Office</h3>
+            <p class="text-slate-300">Minimal SMA/SMK sederajat</p>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="register.html" class="inline-block bg-sky-500 hover:bg-sky-400 text-white font-bold px-10 py-4 rounded-full text-xl transition">
+            LAMAR SEKARANG
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="py-8 bg-slate-900 text-center text-slate-400 text-sm border-t border-slate-700">
-    © 2025 PT. Mitra Arya Finance. All Rights Reserved.
+    © 2025 PT. Millenial Karya Utama (Millenial). All Rights Reserved.
   </footer>
 
   <!-- Musik (optional) -->
@@ -122,12 +168,25 @@
   </audio>
 
   <script>
-    // Mobile menu
+    // Mobile menu toggle
     document.getElementById('menuToggle').onclick = () => {
       document.getElementById('mobileMenu').classList.toggle('hidden');
     };
+
     // Volume musik lembut
     document.getElementById('bgMusic').volume = 0.2;
+
+    // Accordion lowongan
+    const toggleBtn = document.getElementById('toggleLowongan');
+    const content = document.getElementById('lowonganContent');
+    let open = false;
+
+    toggleBtn.addEventListener('click', () => {
+      open = !open;
+      content.classList.toggle('open');
+      toggleBtn.classList.toggle('rotate');
+      toggleBtn.textContent = open ? '🔼' : '🔽';
+    });
   </script>
 </body>
 </html>
