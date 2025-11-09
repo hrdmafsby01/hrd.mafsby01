@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galeri - PT. MAF Surabaya</title>
-  <meta name="description" content="Dokumentasi kegiatan dan suasana kerja di MAF Surabaya">
+  <title>Galeri - PT. Millenial Karya Utama (Millenial)</title>
+  <meta name="description" content="Dokumentasi kegiatan dan suasana kerja di PT. Millenial Karya Utama (Millenial)">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -70,7 +70,7 @@
         Galeri <span class="text-sky-400">Kegiatan</span>
       </h1>
       <p class="text-lg text-slate-300 max-w-2xl mx-auto">
-        Dokumentasi suasana kerja, team building, dan bakti sosial tim MAF Surabaya.
+        Dokumentasi suasana kerja, team building, dan bakti sosial tim PT. Millenial Karya Utama (Millenial).
       </p>
     </div>
   </section>
@@ -96,7 +96,7 @@
           </div>
         </div>
 
-        <!-- FOTO 3 (caption dihapus) -->
+        <!-- FOTO 3 -->
         <div class="slide">
           <img src="images/gambar4.jpg" alt="Event">
           <div class="overlay"></div>
@@ -122,16 +122,14 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer (disamakan seperti halaman index) -->
   <footer class="py-8 bg-slate-900 text-center text-slate-400 text-sm border-t border-slate-700">
-    <div class="container">
-      <p class="mb-1">© 2025 PT. MAF Surabaya. All Rights Reserved.</p>
-    </div>
+    © 2025 PT. Millenial Karya Utama (Millenial). All Rights Reserved.
   </footer>
 
   <!-- Musik -->
   <audio id="bgMusic" autoplay loop>
-    <source src="musuk.mp3" type="audio/mpeg">
+    <source src="musik.mp3" type="audio/mpeg">
   </audio>
 
   <script>
@@ -154,7 +152,9 @@
 
     dots.forEach((dot,i)=> dot.onclick = ()=> goTo(i));
     setInterval(()=> goTo(idx+1), 4000);
+
+    // Volume musik
     document.getElementById('bgMusic').volume = 0.2;
   </script>
 </body>
-      </html>
+  </html>
