@@ -7,12 +7,15 @@
   <meta name="description" content="Dokumentasi kegiatan dan suasana kerja di PT. Millenial Karya Utama (Millenial)">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root { --max-w: 1200px; }
-    * { box-sizing: border-box; }
     body {
-      margin:0; background:#0f172a; color:#e2e8f0;
-      font-family:'Inter',sans-serif; line-height:1.6;
+      margin:0;
+      background:#ffffff;
+      color:#1e293b;
+      font-family:'Inter', sans-serif;
+      line-height:1.6;
     }
     .container {
       width:100%; max-width:var(--max-w);
@@ -21,13 +24,14 @@
     @media(min-width:640px){.container{padding:0 2rem}}
     @media(min-width:1024px){.container{padding:0 3rem}}
 
+    /* Slider */
     .slider{overflow:hidden;border-radius:1rem;box-shadow:0 20px 40px rgba(0,0,0,.3)}
     .track{display:flex;transition:transform .6s ease}
     .slide{min-width:100%;position:relative}
     .slide img{width:100%;height:70vh;object-fit:cover;filter:brightness(.9)}
     .overlay{
       position:absolute;inset:0;
-      background:linear-gradient(to top,rgba(15,23,42,.8),transparent 50%);
+      background:linear-gradient(to top,rgba(0,0,0,.7),transparent 50%);
       display:flex;align-items:end;padding:2rem;
     }
     .caption{
@@ -35,52 +39,82 @@
       text-shadow:0 2px 8px rgba(0,0,0,.6);
     }
     .dots{display:flex;justify-content:center;gap:.75rem;margin-top:1.5rem}
-    .dot{width:12px;height:12px;border-radius:50%;background:#475569;cursor:pointer;transition:all .3s}
+    .dot{width:12px;height:12px;border-radius:50%;background:#94a3b8;cursor:pointer;transition:all .3s}
     .dot.active{background:#0ea5e9;transform:scale(1.3)}
+
+    /* Dropdown animasi (match index) */
+    #mobileMenu {
+      transform-origin: top right;
+      transform: scaleY(0);
+      transition: transform 0.25s ease-out;
+    }
+    #mobileMenu.show {
+      transform: scaleY(1);
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="fixed top-0 w-full z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-700">
+  <!-- HEADER PUTIH -->
+  <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm">
     <div class="container py-5 flex justify-between items-center">
       <img src="mdt.jpeg" alt="Logo" class="h-12 rounded-lg">
+
       <nav class="hidden md:flex gap-8">
-        <a href="index.html#beranda"  class="text-sky-400 hover:text-white font-medium">Beranda</a>
-        <a href="galeri.html"         class="text-sky-400 hover:text-white font-medium">Galeri</a>
-        <a href="index.html#lowongan" class="text-sky-400 hover:text-white font-medium">Lowongan</a>
-        <a href="register.html"       class="text-sky-400 hover:text-white font-medium">Registrasi</a>
+        <a href="index.html#beranda"  class="text-sky-600 hover:text-sky-800 font-medium">Beranda</a>
+        <a href="galeri.html"         class="text-sky-600 hover:text-sky-800 font-medium">Galeri</a>
+        <a href="index.html#lowongan" class="text-sky-600 hover:text-sky-800 font-medium">Lowongan</a>
+        <a href="register.html"       class="text-sky-600 hover:text-sky-800 font-medium">Registrasi</a>
       </nav>
-      <button id="menuToggle" class="md:hidden text-3xl">☰</button>
+
+      <button id="menuToggle" class="md:hidden text-3xl text-slate-700">☰</button>
     </div>
-    <nav id="mobileMenu" class="hidden bg-slate-900 border-t border-slate-700">
-      <div class="container py-4 space-y-3 text-center">
-        <a href="index.html#beranda"  class="block py-2 text-sky-400">Beranda</a>
-        <a href="galeri.html"         class="block py-2 text-sky-400">Galeri</a>
-        <a href="index.html#lowongan" class="block py-2 text-sky-400">Lowongan</a>
-        <a href="register.html"       class="block py-2 text-sky-400">Registrasi</a>
+
+    <!-- DROPDOWN MOBILE (MATCH INDEX) -->
+    <nav id="mobileMenu" class="absolute right-3 mt-2 w-48 bg-white border border-slate-200 rounded-xl shadow-xl hidden">
+      <div class="py-3">
+
+        <a href="index.html#beranda" 
+           class="block px-4 py-2.5 text-sky-700 hover:bg-sky-50 hover:text-sky-900 rounded-lg">
+          Beranda
+        </a>
+
+        <a href="galeri.html"
+           class="block px-4 py-2.5 text-sky-700 hover:bg-sky-50 hover:text-sky-900 rounded-lg">
+          Galeri
+        </a>
+
+        <a href="index.html#lowongan"
+           class="block px-4 py-2.5 text-sky-700 hover:bg-sky-50 hover:text-sky-900 rounded-lg">
+          Lowongan
+        </a>
+
+        <a href="register.html"
+           class="block px-4 py-2.5 text-sky-700 hover:bg-sky-50 hover:text-sky-900 rounded-lg">
+          Registrasi
+        </a>
+
       </div>
     </nav>
   </header>
 
-  <!-- Hero Galeri -->
-  <section class="pt-32 pb-16 text-center">
+  <!-- HERO PUTIH -->
+  <section class="pt-32 pb-16 text-center bg-white">
     <div class="container">
-      <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">
-        Galeri <span class="text-sky-400">Kegiatan</span>
+      <h1 class="text-4xl md:text-6xl font-bold text-slate-800 mb-4">
+        Galeri <span class="text-sky-600">Kegiatan</span>
       </h1>
-      <p class="text-lg text-slate-300 max-w-2xl mx-auto">
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
         Dokumentasi suasana kerja, team building, dan bakti sosial tim PT. Millenial Karya Utama (Millenial).
       </p>
     </div>
   </section>
 
-  <!-- Slider -->
+  <!-- SLIDER -->
   <section class="container pb-20">
     <div class="slider">
       <div id="track" class="track">
 
-        <!-- FOTO 1 -->
         <div class="slide">
           <img src="images/gambar2.jpg" alt="Bakti Sosial">
           <div class="overlay">
@@ -88,7 +122,6 @@
           </div>
         </div>
 
-        <!-- FOTO 2 -->
         <div class="slide">
           <img src="images/gambar3.jpg" alt="Office">
           <div class="overlay">
@@ -96,13 +129,11 @@
           </div>
         </div>
 
-        <!-- FOTO 3 -->
         <div class="slide">
           <img src="images/gambar4.jpg" alt="Event">
           <div class="overlay"></div>
         </div>
 
-        <!-- FOTO 4 -->
         <div class="slide">
           <img src="images/gambar5.jpg" alt="Team">
           <div class="overlay">
@@ -113,7 +144,6 @@
       </div>
     </div>
 
-    <!-- Dots -->
     <div class="dots">
       <span class="dot active" data-index="0"></span>
       <span class="dot" data-index="1"></span>
@@ -122,20 +152,29 @@
     </div>
   </section>
 
-  <!-- Footer (disamakan seperti halaman index) -->
+  <!-- FOOTER -->
   <footer class="py-8 bg-slate-900 text-center text-slate-400 text-sm border-t border-slate-700">
     © 2025 PT. Millenial Karya Utama (Millenial). All Rights Reserved.
   </footer>
 
-  <!-- Musik -->
+  <!-- MUSIK -->
   <audio id="bgMusic" autoplay loop>
     <source src="musik.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    // Mobile menu
-    document.getElementById('menuToggle').onclick = () => {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
+    // Mobile menu logic (MATCH INDEX)
+    const toggle = document.getElementById("menuToggle");
+    const mobile = document.getElementById("mobileMenu");
+
+    toggle.onclick = () => {
+      if (mobile.classList.contains("hidden")) {
+        mobile.classList.remove("hidden");
+        setTimeout(() => mobile.classList.add("show"), 10);
+      } else {
+        mobile.classList.remove("show");
+        setTimeout(() => mobile.classList.add("hidden"), 200);
+      }
     };
 
     // Slider
@@ -153,8 +192,8 @@
     dots.forEach((dot,i)=> dot.onclick = ()=> goTo(i));
     setInterval(()=> goTo(idx+1), 4000);
 
-    // Volume musik
     document.getElementById('bgMusic').volume = 0.2;
   </script>
+
 </body>
-  </html>
+</html>
