@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PT Milenial Surabaya | Perdagangan Hasil Bumi</title>
 
-  <!-- Tailwind -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -16,91 +18,99 @@
   </style>
 </head>
 
-<body class="bg-white text-gray-700">
+<body class="bg-white text-slate-700">
 
   <!-- HEADER -->
-  <header class="bg-white border-b border-gray-200 fixed top-0 left-0 w-full z-50 shadow-sm">
+  <header class="bg-white border-b border-slate-200 fixed top-0 left-0 w-full z-50">
     <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+
       <div class="flex items-center gap-3">
         <img src="img/mdt.jpeg" class="h-10 rounded-md" alt="Logo PT Milenial Surabaya">
-        <span class="font-bold text-gray-900">PT Milenial Surabaya</span>
+        <span class="font-bold text-slate-900">PT Milenial Surabaya</span>
       </div>
 
       <nav class="hidden md:flex gap-6 font-medium">
-        <a href="#beranda" class="hover:text-blue-600">Beranda</a>
-        <a href="#tentang" class="hover:text-blue-600">Tentang</a>
-        <a href="#lowongan" class="hover:text-blue-600">Lowongan</a>
-        <a href="register.html" class="hover:text-blue-600">Registrasi</a>
+        <a href="#beranda" class="hover:text-purple-700">Beranda</a>
+        <a href="#tentang" class="hover:text-purple-700">Tentang</a>
+        <a href="#lowongan" class="hover:text-purple-700">Lowongan</a>
+        <a href="register.html" class="hover:text-purple-700">Registrasi</a>
       </nav>
 
-      <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+      <button id="menuBtn" class="md:hidden text-2xl text-slate-800">☰</button>
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="hidden bg-white border-t border-gray-200 shadow-sm">
-      <div class="px-4 py-3 space-y-2 font-medium">
-        <a href="#beranda" class="block py-1">Beranda</a>
-        <a href="#tentang" class="block py-1">Tentang</a>
-        <a href="#lowongan" class="block py-1">Lowongan</a>
-        <a href="register.html" class="block py-1">Registrasi</a>
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="hidden bg-white border-t border-slate-200">
+      <div class="px-4 py-4 space-y-3 font-medium">
+        <a href="#beranda" class="block hover:text-purple-700">Beranda</a>
+        <a href="#tentang" class="block hover:text-purple-700">Tentang</a>
+        <a href="#lowongan" class="block hover:text-purple-700">Lowongan</a>
+        <a href="register.html" class="block hover:text-purple-700">Registrasi</a>
       </div>
     </div>
   </header>
 
   <!-- HERO -->
-  <section id="beranda" class="pt-28 pb-20 bg-gradient-to-b from-white via-blue-50 to-green-50">
+  <section id="beranda" class="pt-32 pb-24 bg-gradient-to-b from-purple-50 via-white to-slate-50">
     <div class="max-w-5xl mx-auto px-4 text-center">
 
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-5">
         PT Milenial Surabaya
       </h1>
 
-      <p class="text-gray-700 text-lg max-w-3xl mx-auto leading-relaxed">
+      <p class="text-lg max-w-3xl mx-auto leading-relaxed">
         Perusahaan perdagangan komoditas hasil bumi Indonesia yang berfokus pada
-        <span class="text-blue-600 font-semibold">
-          vanili, cengkeh, pala, kopi, dan rempah premium.
+        <span class="text-purple-700 font-semibold">
+          vanili, cengkeh, pala, kopi, dan rempah premium
         </span>
-        Berpengalaman dalam distribusi nasional dan ekspor.
+        dengan jaringan distribusi nasional dan ekspor.
       </p>
 
-      <img src="img/perkebunan-ilustrasi.jpg"
-           class="w-full max-w-4xl mx-auto rounded-2xl shadow-lg my-10"
-           alt="Ilustrasi Perkebunan Hasil Bumi Indonesia">
+      <img
+        src="img/perkebunan-ilustrasi.jpeg"
+        alt="Ilustrasi Perkebunan"
+        class="w-full max-w-4xl mx-auto rounded-2xl shadow-lg my-12"
+      >
 
       <a href="#lowongan"
-         class="mt-4 inline-block bg-blue-600 hover:bg-blue-500 px-8 py-3 rounded-full font-semibold text-white shadow">
+         class="inline-block bg-purple-700 hover:bg-purple-800 px-10 py-3 rounded-full font-semibold text-white shadow">
         Lihat Lowongan
       </a>
     </div>
   </section>
 
   <!-- TENTANG -->
-  <section id="tentang" class="py-14 bg-white">
-    <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+  <section id="tentang" class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
 
       <img src="img/rempah.jpg" class="rounded-2xl shadow-lg" alt="Rempah Ekspor">
 
       <div>
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">Perdagangan Hasil Bumi</h2>
-        <p class="text-gray-700 leading-relaxed mb-4">
+        <h2 class="text-3xl font-bold text-slate-900 mb-5">
+          Perdagangan Hasil Bumi
+        </h2>
+
+        <p class="leading-relaxed mb-4">
           Kami berfokus pada komoditas unggulan seperti
-          <span class="font-semibold text-blue-600">vanili, cengkeh, kopi, pala, dan kayu manis</span>.
-          Produk diproses melalui seleksi ketat untuk memenuhi standar ekspor internasional.
+          <span class="font-semibold text-purple-700">
+            vanili, cengkeh, kopi, pala, dan kayu manis
+          </span>
+          dengan standar kualitas ekspor internasional.
         </p>
-        <p class="text-gray-700 leading-relaxed">
-          Dengan jaringan petani lokal dan quality control profesional,
-          kami memastikan kualitas terbaik untuk pasar nasional dan internasional.
+
+        <p class="leading-relaxed">
+          Didukung jaringan petani lokal dan sistem quality control profesional
+          untuk menjaga konsistensi mutu.
         </p>
       </div>
-
     </div>
   </section>
 
   <!-- ALAMAT -->
-  <section class="py-12 bg-gray-50 border-y border-gray-200">
+  <section class="py-14 bg-slate-50 border-y border-slate-200">
     <div class="max-w-3xl mx-auto text-center px-4">
-      <h2 class="text-2xl font-bold text-blue-600 mb-4">Kantor Pusat</h2>
-      <p class="text-gray-600 text-lg leading-relaxed">
+      <h2 class="text-2xl font-bold text-purple-700 mb-4">Kantor Pusat</h2>
+      <p class="text-lg leading-relaxed text-slate-600">
         Jl. Embong Wungu No.27 (samping SMP PETRA)<br>
         Gedung GBS Lantai 6, Surabaya, Jawa Timur
       </p>
@@ -108,37 +118,38 @@
   </section>
 
   <!-- LOWONGAN -->
-  <section id="lowongan" class="py-16 bg-white">
+  <section id="lowongan" class="py-20 bg-white">
     <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-gray-900 text-center mb-10">Lowongan Kerja</h2>
+
+      <h2 class="text-3xl font-bold text-slate-900 text-center mb-12">
+        Lowongan Kerja
+      </h2>
 
       <div class="grid md:grid-cols-3 gap-6">
 
-        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 shadow-sm text-center hover:shadow-md transition">
+        <div class="bg-slate-50 border rounded-xl p-6 text-center hover:shadow-md transition">
           <div class="text-4xl mb-3">👔</div>
-          <h3 class="text-xl font-bold text-blue-600 mb-2">HRD</h3>
-          <p class="text-gray-600">Minimal S1 dengan pengalaman relevan.</p>
+          <h3 class="text-xl font-bold text-purple-700 mb-2">HRD</h3>
+          <p class="text-slate-600">Minimal S1, pengalaman relevan.</p>
         </div>
 
-        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 shadow-sm text-center hover:shadow-md transition">
+        <div class="bg-slate-50 border rounded-xl p-6 text-center hover:shadow-md transition">
           <div class="text-4xl mb-3">📋</div>
-          <h3 class="text-xl font-bold text-blue-600 mb-2">Staff Administrasi</h3>
-          <p class="text-gray-600">Minimal SMA/SMK, disiplin dan teliti.</p>
+          <h3 class="text-xl font-bold text-purple-700 mb-2">Administrasi</h3>
+          <p class="text-slate-600">Minimal SMA/SMK, teliti & disiplin.</p>
         </div>
 
-        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 shadow-sm text-center hover:shadow-md transition">
+        <div class="bg-slate-50 border rounded-xl p-6 text-center hover:shadow-md transition">
           <div class="text-4xl mb-3">🧺</div>
-          <h3 class="text-xl font-bold text-blue-600 mb-2">Staff Operasional Komoditas</h3>
-          <p class="text-gray-600">
-            Membantu proses sortir, quality control, dan distribusi hasil bumi.
-          </p>
+          <h3 class="text-xl font-bold text-purple-700 mb-2">Operasional</h3>
+          <p class="text-slate-600">Sortir, QC, dan distribusi komoditas.</p>
         </div>
 
       </div>
 
-      <div class="text-center mt-12">
+      <div class="text-center mt-14">
         <a href="register.html"
-           class="bg-blue-600 hover:bg-blue-500 px-10 py-3 rounded-full text-lg font-bold text-white shadow">
+           class="bg-purple-700 hover:bg-purple-800 px-12 py-3 rounded-full text-lg font-bold text-white shadow">
           Lamar Sekarang
         </a>
       </div>
@@ -146,27 +157,19 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="py-6 bg-white border-t border-gray-200 text-center text-gray-500 text-sm">
+  <footer class="py-6 bg-white border-t border-slate-200 text-center text-slate-500 text-sm">
     © 2025 PT Milenial Surabaya
   </footer>
-
-  <!-- MUSIC -->
-  <audio id="bgMusic" autoplay loop>
-    <source src="musik.mp3" type="audio/mpeg">
-  </audio>
 
   <!-- SCRIPT -->
   <script>
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
 
-    menuBtn.onclick = () => {
+    menuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
-    };
-
-    const music = document.getElementById('bgMusic');
-    music.volume = 0.2;
+    });
   </script>
 
 </body>
-  </html>
+</html>
