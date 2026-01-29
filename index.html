@@ -12,9 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
+    body { font-family: 'Inter', sans-serif; }
   </style>
 </head>
 
@@ -36,16 +34,18 @@
       <a href="register.html" class="hover:text-purple-700">Registrasi</a>
     </nav>
 
-    <button id="menuBtn" class="md:hidden text-2xl text-slate-800">☰</button>
+    <button id="menuBtn" class="md:hidden text-3xl text-slate-800 transition">
+      ☰
+    </button>
   </div>
 
   <!-- MOBILE MENU -->
-  <div id="mobileMenu" class="hidden bg-white border-t border-slate-200">
-    <div class="px-4 py-4 space-y-3 font-medium">
-      <a href="#beranda" class="block hover:text-purple-700">Beranda</a>
-      <a href="#tentang" class="block hover:text-purple-700">Tentang</a>
-      <a href="#lowongan" class="block hover:text-purple-700">Lowongan</a>
-      <a href="register.html" class="block hover:text-purple-700">Registrasi</a>
+  <div id="mobileMenu" class="hidden bg-purple-800 text-white shadow-lg">
+    <div class="px-6 py-6 space-y-4 font-semibold">
+      <a href="#beranda" class="block hover:text-purple-300">Beranda</a>
+      <a href="#tentang" class="block hover:text-purple-300">Tentang</a>
+      <a href="#lowongan" class="block hover:text-purple-300">Lowongan</a>
+      <a href="register.html" class="block hover:text-purple-300">Registrasi</a>
     </div>
   </div>
 </header>
@@ -66,11 +66,9 @@
       dengan jaringan distribusi nasional dan ekspor.
     </p>
 
-    <img
-      src="./img/perkebunan-ilustrasi.jpg"
-      alt="Ilustrasi Perkebunan Hasil Bumi"
-      class="w-full max-w-4xl mx-auto rounded-2xl shadow-lg my-12"
-    >
+    <img src="./img/perkebunan-ilustrasi.jpg"
+         class="w-full max-w-4xl mx-auto rounded-2xl shadow-lg my-12"
+         alt="Ilustrasi Perkebunan">
 
     <a href="#lowongan"
        class="inline-block bg-purple-700 hover:bg-purple-800 px-10 py-3 rounded-full font-semibold text-white shadow">
@@ -83,35 +81,17 @@
 <section id="tentang" class="py-20 bg-white">
   <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
 
-    <!-- GANTI ILUSTRASI: VANILI -->
     <img src="./img/vanili.jpg" class="rounded-2xl shadow-lg" alt="Ilustrasi Vanili">
 
     <div>
-      <h2 class="text-3xl font-bold text-slate-900 mb-5">
-        Komoditas Vanili Unggulan
-      </h2>
-
+      <h2 class="text-3xl font-bold text-slate-900 mb-5">Komoditas Vanili Unggulan</h2>
       <p class="leading-relaxed mb-4">
         Vanili merupakan salah satu komoditas utama kami dengan nilai ekspor tinggi.
-        Dikelola langsung dari petani lokal dengan proses seleksi dan fermentasi ketat.
       </p>
-
       <p class="leading-relaxed">
-        Kami menjaga kualitas aroma, kadar vanillin, serta konsistensi mutu untuk
-        memenuhi standar pasar internasional.
+        Kami menjaga kualitas aroma, kadar vanillin, serta konsistensi mutu.
       </p>
     </div>
-  </div>
-</section>
-
-<!-- ================= ALAMAT ================= -->
-<section class="py-14 bg-slate-50 border-y border-slate-200">
-  <div class="max-w-3xl mx-auto text-center px-4">
-    <h2 class="text-2xl font-bold text-purple-700 mb-4">Kantor Pusat</h2>
-    <p class="text-lg leading-relaxed text-slate-600">
-      Jl. Embong Wungu No.27 (samping SMP PETRA)<br>
-      Gedung GBS Lantai 6, Surabaya, Jawa Timur
-    </p>
   </div>
 </section>
 
@@ -151,6 +131,7 @@
         Lamar Sekarang
       </a>
     </div>
+
   </div>
 </section>
 
@@ -166,8 +147,9 @@
 
   menuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
+    menuBtn.classList.toggle('text-purple-700');
   });
 </script>
 
 </body>
-  </html>
+</html>
