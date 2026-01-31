@@ -1,154 +1,232 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PT Milenial Surabaya | Perdagangan Hasil Bumi</title>
+  <title>PT Milenial Surabaya | Premium Commodities</title>
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    body { font-family: 'Inter', sans-serif; }
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background-color: #0f172a; /* Slate 900 */
+    }
+    h1, h2, .font-premium { 
+      font-family: 'Playfair Display', serif; 
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .accordion-content.active {
+      max-height: 500px; /* Sesuai kebutuhan */
+    }
+    .gold-gradient {
+      background: linear-gradient(to right, #fbbf24, #d97706);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   </style>
 </head>
 
-<body class="bg-white text-slate-700">
+<body class="text-slate-300">
 
-<!-- ================= HEADER ================= -->
-<header class="bg-white border-b border-slate-200 fixed top-0 left-0 w-full z-50">
+<header class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 fixed top-0 left-0 w-full z-50">
   <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
 
     <div class="flex items-center gap-3">
-      <img src="./img/mdt.jpeg" class="h-10 rounded-md" alt="Logo PT Milenial Surabaya">
-      <span class="font-bold text-slate-900">PT Milenial Surabaya</span>
+      <div class="h-10 w-10 bg-amber-600 rounded-full flex items-center justify-center font-bold text-white">MS</div>
+      <span class="font-bold text-white tracking-wider uppercase text-sm">PT Milenial Surabaya</span>
     </div>
 
-    <nav class="hidden md:flex gap-6 font-medium">
-      <a href="#beranda" class="hover:text-purple-700">Beranda</a>
-      <a href="#tentang" class="hover:text-purple-700">Tentang</a>
-      <a href="#lowongan" class="hover:text-purple-700">Lowongan</a>
-      <a href="register.html" class="hover:text-purple-700">Registrasi</a>
+    <nav class="hidden md:flex gap-8 text-sm font-medium tracking-wide">
+      <a href="#beranda" class="text-slate-400 hover:text-amber-500 transition">BERANDA</a>
+      <a href="#tentang" class="text-slate-400 hover:text-amber-500 transition">TENTANG</a>
+      <a href="#lowongan" class="text-slate-400 hover:text-amber-500 transition">LOWONGAN</a>
+      <a href="register.html" class="px-5 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition">REGISTRASI</a>
     </nav>
 
-    <button id="menuBtn" class="md:hidden text-3xl text-slate-800 transition">
-      ☰
-    </button>
+    <button id="menuBtn" class="md:hidden text-2xl text-slate-100">☰</button>
   </div>
 
-  <!-- MOBILE MENU -->
-  <div id="mobileMenu" class="hidden bg-purple-800 text-white shadow-lg border-t border-purple-700">
-    <div class="px-6 py-6 space-y-4 font-semibold">
-      <a href="#beranda" class="block hover:text-purple-300">Beranda</a>
-      <a href="#tentang" class="block hover:text-purple-300">Tentang</a>
-      <a href="#lowongan" class="block hover:text-purple-300">Lowongan</a>
-      <a href="register.html" class="block hover:text-purple-300">Registrasi</a>
+  <div id="mobileMenu" class="hidden bg-slate-800 border-b border-slate-700">
+    <div class="px-6 py-6 space-y-4 font-semibold text-center">
+      <a href="#beranda" class="block py-2 hover:text-amber-500">BERANDA</a>
+      <a href="#tentang" class="block py-2 hover:text-amber-500">TENTANG</a>
+      <a href="#lowongan" class="block py-2 hover:text-amber-500">LOWONGAN</a>
+      <a href="register.html" class="block py-2 text-amber-500">REGISTRASI</a>
     </div>
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
-<section id="beranda" class="pt-32 pb-24 bg-gradient-to-b from-purple-50 via-white to-slate-50 border-b border-slate-200">
-  <div class="max-w-5xl mx-auto px-4 text-center">
+<section id="beranda" class="relative pt-48 pb-32 overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-900/20 via-slate-900 to-slate-900 -z-10"></div>
 
-    <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-5">
-      PT Milenial Surabaya
+  <div class="max-w-5xl mx-auto px-4 text-center">
+    <span class="text-amber-500 font-semibold tracking-[0.3em] text-xs uppercase mb-4 block">Indonesia Heritage</span>
+    <h1 class="text-5xl md:text-7xl font-bold text-white mb-8">
+      Eksportir Hasil Bumi <br><span class="gold-gradient">Premium Indonesia</span>
     </h1>
 
-    <p class="text-lg max-w-3xl mx-auto leading-relaxed">
-      Perusahaan perdagangan komoditas hasil bumi Indonesia yang berfokus pada
-      <span class="text-purple-700 font-semibold">
-        vanili, cengkeh, pala, kopi, dan rempah premium
-      </span>
-      dengan jaringan distribusi nasional dan ekspor.
+    <p class="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10 font-light">
+      Menghubungkan kekayaan alam Nusantara dengan pasar dunia. Fokus pada kualitas vanili, cengkeh, dan rempah-rempah pilihan.
     </p>
 
-    <img src="./img/perkebunan-ilustrasi.jpg"
-         class="w-full max-w-4xl mx-auto rounded-2xl shadow-lg my-12"
-         alt="Ilustrasi Perkebunan">
-
-    <a href="#lowongan"
-       class="inline-block bg-purple-700 hover:bg-purple-800 px-10 py-3 rounded-full font-semibold text-white shadow">
-      Lihat Lowongan
-    </a>
-  </div>
-</section>
-
-<!-- ================= TENTANG ================= -->
-<section id="tentang" class="py-20 bg-white border-b border-slate-200">
-  <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-
-    <img src="./img/vanili.jpg" class="rounded-2xl shadow-lg" alt="Ilustrasi Vanili">
-
-    <div>
-      <h2 class="text-3xl font-bold text-slate-900 mb-5">Komoditas Vanili Unggulan</h2>
-      <p class="leading-relaxed mb-4">
-        Vanili merupakan salah satu komoditas utama kami dengan nilai ekspor tinggi.
-      </p>
-      <p class="leading-relaxed">
-        Kami menjaga kualitas aroma, kadar vanillin, serta konsistensi mutu.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= LOWONGAN ================= -->
-<section id="lowongan" class="py-20 bg-white border-b border-slate-200">
-  <div class="max-w-5xl mx-auto px-4">
-
-    <h2 class="text-3xl font-bold text-slate-900 text-center mb-12">
-      Lowongan Kerja
-    </h2>
-
-    <div class="grid md:grid-cols-3 gap-6">
-
-      <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:shadow-md transition">
-        <div class="text-4xl mb-3">👔</div>
-        <h3 class="text-xl font-bold text-purple-700 mb-2">HRD</h3>
-        <p class="text-slate-600">Minimal S1, pengalaman relevan.</p>
-      </div>
-
-      <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:shadow-md transition">
-        <div class="text-4xl mb-3">📋</div>
-        <h3 class="text-xl font-bold text-purple-700 mb-2">Administrasi</h3>
-        <p class="text-slate-600">Minimal SMA/SMK, teliti & disiplin.</p>
-      </div>
-
-      <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:shadow-md transition">
-        <div class="text-4xl mb-3">🧺</div>
-        <h3 class="text-xl font-bold text-purple-700 mb-2">Operasional</h3>
-        <p class="text-slate-600">Sortir, QC, dan distribusi komoditas.</p>
-      </div>
-
-    </div>
-
-    <div class="text-center mt-14">
-      <a href="register.html"
-         class="bg-purple-700 hover:bg-purple-800 px-12 py-3 rounded-full text-lg font-bold text-white shadow">
-        Lamar Sekarang
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="#lowongan" class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 shadow-xl shadow-amber-900/20">
+        Jelajahi Karir
+      </a>
+      <a href="#tentang" class="border border-slate-700 hover:bg-slate-800 text-white px-8 py-4 rounded-full font-bold transition-all">
+        Tentang Kami
       </a>
     </div>
-
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
-<footer class="py-6 bg-white border-t border-slate-200 text-center text-slate-500 text-sm">
-  © 2025 PT Milenial Surabaya
+<section id="tentang" class="py-24 bg-slate-900/50">
+  <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
+    <div class="relative group">
+      <div class="absolute -inset-1 bg-gradient-to-r from-amber-600 to-amber-900 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+      <img src="https://images.unsplash.com/photo-1596450514735-24402770edec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+           class="relative rounded-2xl grayscale hover:grayscale-0 transition duration-700" alt="Vanili">
+    </div>
+
+    <div>
+      <h2 class="text-4xl font-bold text-white mb-6">Kualitas Tanpa Kompromi</h2>
+      <p class="text-slate-400 leading-relaxed mb-6">
+        Kami percaya bahwa hasil bumi terbaik lahir dari ketelitian proses. PT Milenial Surabaya bekerja sama langsung dengan petani lokal untuk memastikan setiap batang vanili dan butiran cengkeh memenuhi standar internasional.
+      </p>
+      <ul class="space-y-4">
+        <li class="flex items-center gap-3 text-sm">
+          <span class="text-amber-500">✔</span> Sortir Manual dengan Kontrol Kualitas Ketat
+        </li>
+        <li class="flex items-center gap-3 text-sm">
+          <span class="text-amber-500">✔</span> Kadar Vanillin Optimal & Aroma Otentik
+        </li>
+        <li class="flex items-center gap-3 text-sm">
+          <span class="text-amber-500">✔</span> Pengemasan Aman untuk Ekspor Global
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="lowongan" class="py-24 bg-slate-900">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-white mb-4">Bergabung Bersama Kami</h2>
+      <p class="text-slate-500">Klik pada posisi untuk melihat persyaratan detail.</p>
+    </div>
+
+    <div class="space-y-4">
+      
+      <div class="border border-slate-800 rounded-xl overflow-hidden bg-slate-800/30 hover:border-amber-900/50 transition">
+        <button onclick="toggleAccordion(1)" class="w-full px-8 py-6 flex justify-between items-center text-left focus:outline-none">
+          <span class="text-xl font-semibold text-slate-100 flex items-center gap-4">
+            <span class="text-amber-500">01.</span> HR & Recruitment
+          </span>
+          <span id="icon-1" class="text-amber-500 text-xl transition-transform">↓</span>
+        </button>
+        <div id="content-1" class="accordion-content">
+          <div class="px-8 pb-8 text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-6">
+            <p class="mb-4 font-bold text-white italic underline">Kualifikasi:</p>
+            <ul class="list-disc ml-5 space-y-2">
+              <li>Pendidikan minimal S1 Psikologi atau Manajemen SDM.</li>
+              <li>Pengalaman minimal 2 tahun di bidang rekrutmen.</li>
+              <li>Memahami UU Ketenagakerjaan Indonesia.</li>
+              <li>Mampu mengelola administrasi karyawan dengan teliti.</li>
+            </ul>
+            <a href="register.html" class="inline-block mt-6 text-amber-500 font-bold hover:underline">Lamar Posisi Ini →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border border-slate-800 rounded-xl overflow-hidden bg-slate-800/30 hover:border-amber-900/50 transition">
+        <button onclick="toggleAccordion(2)" class="w-full px-8 py-6 flex justify-between items-center text-left focus:outline-none">
+          <span class="text-xl font-semibold text-slate-100 flex items-center gap-4">
+            <span class="text-amber-500">02.</span> Finance & Admin
+          </span>
+          <span id="icon-2" class="text-amber-500 text-xl transition-transform">↓</span>
+        </button>
+        <div id="content-2" class="accordion-content">
+          <div class="px-8 pb-8 text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-6">
+            <p class="mb-4 font-bold text-white italic underline">Kualifikasi:</p>
+            <ul class="list-disc ml-5 space-y-2">
+              <li>Minimal lulusan SMA/SMK Sederajat (Jurusan Akuntansi diutamakan).</li>
+              <li>Mahir mengoperasikan Microsoft Excel.</li>
+              <li>Memiliki kemampuan komunikasi dan administrasi yang baik.</li>
+              <li>Disiplin, jujur, dan bertanggung jawab.</li>
+            </ul>
+            <a href="register.html" class="inline-block mt-6 text-amber-500 font-bold hover:underline">Lamar Posisi Ini →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border border-slate-800 rounded-xl overflow-hidden bg-slate-800/30 hover:border-amber-900/50 transition">
+        <button onclick="toggleAccordion(3)" class="w-full px-8 py-6 flex justify-between items-center text-left focus:outline-none">
+          <span class="text-xl font-semibold text-slate-100 flex items-center gap-4">
+            <span class="text-amber-500">03.</span> Quality Control (QC)
+          </span>
+          <span id="icon-3" class="text-amber-500 text-xl transition-transform">↓</span>
+        </button>
+        <div id="content-3" class="accordion-content">
+          <div class="px-8 pb-8 text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-6">
+            <p class="mb-4 font-bold text-white italic underline">Kualifikasi:</p>
+            <ul class="list-disc ml-5 space-y-2">
+              <li>Memiliki ketajaman indra penciuman dan penglihatan (untuk sortir rempah).</li>
+              <li>Sehat jasmani dan rohani.</li>
+              <li>Bersedia bekerja di area pergudangan.</li>
+              <li>Pengalaman di bidang komoditas hasil bumi menjadi nilai plus.</li>
+            </ul>
+            <a href="register.html" class="inline-block mt-6 text-amber-500 font-bold hover:underline">Lamar Posisi Ini →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="py-12 bg-slate-950 border-t border-slate-800 text-center">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-amber-500 font-bold text-xl mb-4 italic">PT Milenial Surabaya</div>
+    <div class="text-slate-600 text-sm tracking-widest uppercase">
+      © 2025 – Premium Spices & Commodities Trading
+    </div>
+  </div>
 </footer>
 
-<!-- ================= SCRIPT ================= -->
 <script>
+  // Mobile Menu Logic
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
 
   menuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
-    menuBtn.classList.toggle('text-purple-700');
   });
+
+  // Accordion Logic
+  function toggleAccordion(id) {
+    const content = document.getElementById(`content-${id}`);
+    const icon = document.getElementById(`icon-${id}`);
+    
+    // Tutup yang lain jika perlu (Opsional)
+    // document.querySelectorAll('.accordion-content').forEach(el => el.classList.remove('active'));
+
+    content.classList.toggle('active');
+    
+    if(content.classList.contains('active')) {
+      icon.style.transform = 'rotate(180deg)';
+      content.style.maxHeight = content.scrollHeight + "px";
+    } else {
+      icon.style.transform = 'rotate(0deg)';
+      content.style.maxHeight = "0px";
+    }
+  }
 </script>
 
 </body>
